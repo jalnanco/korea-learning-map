@@ -3,6 +3,10 @@
 # 근거 문장 = 단원 메모 중 「…와/과 연계된다.」 — 학년군 맥락 + ‘단원’ 또는 고등학교 ‘과목’의 단원구.
 # 대상이 `학년|과목|*` 이면 과목 전체(단원구가 없거나 단원명과 안 맞음).
 # 방향: 대상 학년군이 낮으면 prerequisite(선수), 높으면 followup(후속), 같으면 related.
+# corpus 를 주면 고교 과목 「1. 성격」 문단의 과목 간 관계도 잇는다 — 「‘문학’은 … ‘국어’와 … ‘공통국어1, 공통국어2’의 문학 영역을 심화⋅확장한 과목」
+#   → 과목 전체(`학년|과목|*`) 사이 간선(rule 성격). 같은 학년군이면 따옴표 묶음 바로 뒤가 「…에서 학습한」「…를 통해 익힌」
+#   「…와 연계된 심화」「…를 토대로」일 때만 선수, 아니면 관련(「긴밀히 연계된다」는 방향이 없다).
+#   python3 pipeline/extract_links.py data/kr corpus
 import collections, json, os, re, sys
 from names import SUBJECT, is_core, label
 
@@ -21,7 +25,7 @@ def unit_nodes(stds, annex_of):
         n["standards"].append(s["id"])
     return nodes
 
-def main(data):
+def main(data, corpus=None):
     src = json.load(open(os.path.join(data, "sources.json")))["sources"]
     annex_of = {s["seq"]: s["annex"] for s in src}
     stds = json.load(open(os.path.join(data, "standards.json")))["standards"]
@@ -46,6 +50,10 @@ def main(data):
                 d = GRADES.index(target["grade"]) - GRADES.index(here["grade"])
                 links.append({"from": here["id"], "to": target["id"], "relation": "prerequisite" if d < 0 else "followup" if d > 0 else "related",
                               "matched": phrase, "evidence": note})
+    for l in links:
+        l["rule"] = "단원 메모"
+    if corpus:
+        links += nature_links(src, corpus, nodes)
     uniq = {(l["from"], l["to"]): l for l in links}
     json.dump({"version": "v0", "count": len(nodes), "units": list(nodes.values())}, open(os.path.join(data, "units.json"), "w"), ensure_ascii=False, indent=1)
     json.dump({"version": "v0", "count": len(uniq), "rule": "고시문 단원 메모의 「…와 연계된다」 문장만 — 추정 없음", "links": list(uniq.values())},
@@ -99,5 +107,74 @@ def resolve(note, here, by_unit, by_course, unresolved):
         pos = q.end()
     return out
 
+LEAD_COURSE = re.compile(r"^(?:또한\s*)?(?:고등학교\s*)?[‘']([^’']+)[’']\s*(?:과목에서는|과목은|은|는)")
+PRE = re.compile(r"^\s*(까지|에서|를\s*통해|을\s*통해)?\s*(학습한|배운|다룬|익힌)|^\s*(와|과)\s*연계된\s*심화|^\s*(을|를)\s*(토대|바탕|기초)로|^\s*의\s[^‘]{0,40}?(을|를)\s*(통합적으로\s*)?심화")
+
+def after_run(sent, quotes, i):  # i 번째 따옴표가 속한 묶음(쉼표·「와」·「고등학교 진로 선택」 같은 짧은 이음말로 이어진 따옴표들) 뒤 구절
+    for j in range(i, len(quotes)):
+        seg = sent[quotes[j].end():quotes[j + 1].start() if j + 1 < len(quotes) else len(sent)]
+        if PRE.search(seg) or len(norm(seg)) > 15 or "다" in seg or j + 1 == len(quotes):
+            return seg
+    return ""
+SCHOOL = re.compile(r"초등학교|중학교|고등학교")
+cname = lambda t: norm(re.sub(r"\(.*?\)", "", t)).replace("II", "Ⅱ").replace("I", "Ⅰ")
+
+def nature_links(src, corpus, nodes):
+    """고교 과목 「1. 성격」 문단에서 그 과목이 주어인 문장 → 따옴표 안 다른 과목들(학교급 맥락 안에서 이름 풀이)."""
+    sys.path.insert(0, os.path.dirname(__file__))
+    from extract_standards import hwp_lines
+    courses = collections.OrderedDict()  # (학년군, 과목 이름) → 노드 하나(과목 단위 간선에 학년군만 쓴다)
+    for n in nodes.values():
+        courses.setdefault((n["grade"], n["course"]), n)
+    band = {"초등학교": ("초1~2", "초3~4", "초5~6"), "중학교": ("중1~3",), "고등학교": ("고1", "고2~3")}
+
+    def find(name, schools):  # 학교급마다 가장 높은 학년군의 그 과목 하나(초등 국어 = 초5~6 국어)
+        out = []
+        for sc in schools:
+            hit = [(g, c) for (g, c) in courses if g in band[sc] and (cname(c) == cname(name) or re.fullmatch(re.escape(cname(name)) + r"\d", cname(c))
+                   or (sc != "고등학교" and cname(name) in cname(c)))]
+            for g in band[sc][::-1]:
+                same = [k for k in hit if k[0] == g]
+                if same:
+                    out += same; break
+        return out
+
+    links = []
+    for s in src:
+        hwp = os.path.join(corpus, "hwp", f"{s['seq']}.hwp")
+        if s["role"] != "subject" or not os.path.exists(hwp):
+            continue
+        inside = False
+        for depth, para in hwp_lines(hwp):
+            if re.match(r"^1\.\s*성격", para):
+                inside = True; continue
+            if re.match(r"^[2-9]\.\s", para):
+                inside = False
+            if not inside or depth:
+                continue
+            for sent in re.split(r"(?<=다)\.\s+", para):
+                m = LEAD_COURSE.match(sent)
+                me = m and [k for k in courses if k[0].startswith("고") and cname(k[1]) == cname(m.group(1))]
+                if not me or not re.search(r"심화|확장|토대|기초로|계승|연계", sent):
+                    continue
+                g0, c0 = me[0]
+                school = None
+                quotes = list(QUOTE.finditer(sent, m.end()))
+                for qi, q in enumerate(quotes):
+                    pre = bool(PRE.search(after_run(sent, quotes, qi)))
+                    for sc in SCHOOL.finditer(sent, 0, q.start()):
+                        school = sc.group(0)
+                    schools = ["초등학교", "중학교"] if re.search(r"초등학교\s*및\s*중학교", sent[:q.start()]) and school == "중학교" else [school or "고등학교"]
+                    names = re.split(r"\s*,\s*", q.group(1))
+                    names = [re.sub(r"\d$", n, names[0]) if n.isdigit() else n for n in names]  # 「통합과학1, 2」
+                    for name in names:
+                        for g, c in find(name, schools):
+                            if (g, c) == (g0, c0):
+                                continue
+                            d = GRADES.index(g) - GRADES.index(g0)
+                            rel = "prerequisite" if d < 0 or (d == 0 and pre) else "followup" if d > 0 else "related"
+                            links.append({"from": f"{g0}|{c0}|*", "to": f"{g}|{c}|*", "relation": rel, "matched": f"{g} ‘{name}’", "evidence": sent.rstrip(".") + ".", "rule": "성격"})
+    return links
+
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(*sys.argv[1:3])

@@ -77,16 +77,22 @@ for (const l of links) {
   if (!prereqOf.get(x).get(y).includes(l.evidence)) prereqOf.get(x).get(y).push(l.evidence);
 }
 
+// 단원 노드와 그 단원이 속한 과목 전체(`학년|과목|*` — 과목 「성격」 문단의 과목 간 관계)
+const courseOf = (id) => (id.endsWith("|*") ? null : id.split("|").slice(0, 2).join("|") + "|*");
+const withCourse = (id) => [id, courseOf(id)].filter(Boolean);
+
 // 양쪽 단원 메모가 같은 쌍을 각자 밝히면 간선이 둘이다 — 대상 단원 하나로 묶고 근거 문장은 배열로
 export function prerequisites(ref) {
   const u = unitOf(ref);
   if (!u) return null;
   const flip = { prerequisite: "followup", followup: "prerequisite", related: "related" };
   const out = { prerequisite: new Map(), followup: new Map(), related: new Map() };
+  const mine = new Set(withCourse(u.id));
   for (const l of links) {
-    if (l.from !== u.id && l.to !== u.id) continue;
-    const [other, rel] = l.from === u.id ? [l.to, l.relation] : [l.from, flip[l.relation]];
-    if (!out[rel].has(other)) out[rel].set(other, { ...node(other), evidence: [] });
+    if (!mine.has(l.from) && !mine.has(l.to)) continue;
+    const [self, other, rel] = mine.has(l.from) ? [l.from, l.to, l.relation] : [l.to, l.from, flip[l.relation]];
+    if (other === courseOf(u.id)) continue;
+    if (!out[rel].has(other)) out[rel].set(other, { ...node(other), level: self === u.id ? "단원" : "과목", evidence: [] });
     const ev = out[rel].get(other).evidence;
     if (!ev.includes(l.evidence)) ev.push(l.evidence);
   }
@@ -103,7 +109,7 @@ export function relearnPath(ref, { depth: max = 2 } = {}) {
   for (let d = 1; d <= max && frontier.length; d++) {
     const next = [];
     for (const id of frontier) {
-      for (const [p, ev] of prereqOf.get(id) || []) {
+      for (const [p, ev] of withCourse(id).flatMap((x) => [...(prereqOf.get(x) || [])])) {
         if (seen.has(p)) continue;
         seen.set(p, { ...node(p), depth: d, via: id, because: ev });
         next.push(p);
@@ -113,7 +119,7 @@ export function relearnPath(ref, { depth: max = 2 } = {}) {
   }
   seen.delete(u.id);
   const steps = [...seen.values()].sort((a, b) => GRADES.indexOf(a.grade) - GRADES.indexOf(b.grade) || b.depth - a.depth);
-  const more = frontier.some((id) => [...(prereqOf.get(id) || []).keys()].some((p) => !seen.has(p) && p !== u.id));
+  const more = frontier.some((id) => withCourse(id).some((x) => [...(prereqOf.get(x) || []).keys()].some((p) => !seen.has(p))));
   return {
     goal: unitView(u), depth: max, steps, more: more || undefined,
     note: steps.length ? "고시문이 밝힌 연계만 따라간 경로다 — 연계 문장이 없는 교과는 비어 있을 수 있다" + (more ? ` · depth ${max + 1} 이상에 더 있다` : "") : "고시문에 이 단원의 선수 연계 문장이 없다",

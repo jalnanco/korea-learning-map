@@ -22,8 +22,9 @@ def main(data, out):
     by_annex = collections.defaultdict(list)
     for s in stds:
         by_annex[s["annex"]].append(s)
+    rel = relations(data)
     for annex, ss in by_annex.items():
-        open(os.path.join(out, "교과", f"{SUBJECT[annex]}.md"), "w").write(subject_page(annex, ss))
+        open(os.path.join(out, "교과", f"{SUBJECT[annex]}.md"), "w").write(subject_page(annex, ss, rel))
     open(os.path.join(out, "필수-공통.md"), "w").write(core_page(stds))
     open(os.path.join(out, "README.md"), "w").write(index_page(stds, by_annex))
     print(f"교과 {len(by_annex)}쪽 · 성취기준 {len(stds)} · 필수 {sum(s['core'] for s in stds)}")
@@ -35,10 +36,35 @@ def tree(ss):  # 학년군 → 과목 → 단원 (원문 순서 유지)
         t.setdefault(s["grade"], {}).setdefault(s["courseName"], {}).setdefault(s["unit"], []).append(s)
     return t
 
+def relations(data):  # 단원 id → {선수·후속·관련: [대상 id]} — links.json 양방향(추출 전이면 빈 것)
+    path = os.path.join(data, "links.json")
+    if not os.path.exists(path):
+        return {}, {}
+    annex_of = {u["id"]: u["annex"] for u in json.load(open(os.path.join(data, "units.json")))["units"]}
+    flip = {"prerequisite": "followup", "followup": "prerequisite", "related": "related"}
+    rel = collections.defaultdict(lambda: collections.defaultdict(list))
+    for l in json.load(open(path))["links"]:
+        for a, b, r in ((l["from"], l["to"], l["relation"]), (l["to"], l["from"], flip[l["relation"]])):
+            if b not in rel[a][r]:
+                rel[a][r].append(b)
+    return rel, annex_of
+
+def unit_link(target, here_annex, annex_of):  # 다른 교과 문서면 그 파일로, 과목 전체(`|*`)면 과목 머리로
+    g, c, u = target.split("|")
+    annex = annex_of.get(target) or next((a for t, a in annex_of.items() if t.startswith(f"{g}|{c}|")), here_annex)
+    page = "" if annex == here_annex else f"{quote(SUBJECT[annex])}.md"
+    text = f"{g} {c}" + (f" · {u}" if u and u != "*" else (" (과목 전체)" if u == "*" else ""))
+    return f"[{text}]({page}#{anchor(g, c, u if u != '*' else '')})"
+
+def nav_lines(rel, uid, annex, who=""):  # 「⬅️ 먼저 / ➡️ 이어서 / ↔️ 함께」 — 고시문이 밝힌 연계만
+    r = rel[0].get(uid, {})
+    nav = [f"> {who}{tag} " + " · ".join(unit_link(t, annex, rel[1]) for t in r[k]) + "  " for k, tag in (("prerequisite", "⬅️ 먼저"), ("followup", "➡️ 이어서"), ("related", "↔️ 함께")) if r.get(k)]
+    return nav + [""] if nav else []
+
 def anchor(*parts):
     return "-".join(re.sub(r"[^\w가-힣]+", "-", p or "").strip("-") for p in parts if p)
 
-def subject_page(annex, ss):
+def subject_page(annex, ss, rel=({}, {})):
     name = SUBJECT[annex]
     o = [f"# {name}", "", f"원문: {ss[0]['ref']} · [고시문 PDF]({ss[0]['url']}) · 성취기준 {len(ss)}개 (필수 {sum(s['core'] for s in ss)})", "",
          "> 🟢 필수 = 모두가 배우는 것 · ⚪ 선택. 문장은 고시문 원문 그대로다. 「연계」는 고시문이 밝힌 학년·단원 간 연결이다.", ""]
@@ -53,9 +79,10 @@ def subject_page(annex, ss):
             mark = "🟢 필수" if first["core"] else "⚪ 선택"
             kind = f" · {first['courseType']}" if first.get("courseType") else ""
             o += [f'<a id="{anchor(g, c or name)}"></a>', f"## {g} · {c or name}", "", f"{mark}{kind}", ""]
+            o += nav_lines(rel, f"{g}|{c or name}|*", annex, "과목 ")
             for u, items in units.items():
                 if u:  # 단원 구분이 없는 과목(국어·영어 선택 일부)은 기준을 바로 늘어놓는다
-                    o += [f"### {u}", ""]
+                    o += [f'<a id="{anchor(g, c or name, u)}"></a>', f"### {u}", ""]
                 for s in items:
                     o.append(f"- **[{s['id']}]** {s['text']} <sub>p.{s['page']}</sub>")
                     if s.get("notes"):
@@ -63,6 +90,9 @@ def subject_page(annex, ss):
                 links = [n for n in items[0].get("unitNotes", []) if LINK.search(n)]
                 if links:
                     o += [""] + [f"> 🔗 {n}" for n in links]
+                nav = nav_lines(rel, f"{g}|{c or name}|{u or ''}", annex)
+                if nav:
+                    o += [""] + nav[:-1]
                 o.append("")
     return "\n".join(o)
 

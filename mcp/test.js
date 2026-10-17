@@ -18,7 +18,7 @@ const pr = prerequisites("중1~3|과학|힘의 작용");
 for (const k of ["prerequisite", "followup", "related"]) {
   const ids = pr[k].map((x) => x.unit);
   assert.equal(new Set(ids).size, ids.length, `${k} 중복 없음`);
-  assert.ok(pr[k].every((x) => x.evidence.length > 0 && x.evidence.every((e) => /연계된다/.test(e))), `${k} 근거는 고시문 연계 문장`);
+  assert.ok(pr[k].every((x) => x.evidence.length > 0 && (x.level === "과목" || x.evidence.every((e) => /연계된다/.test(e)))), `${k} 근거는 고시문 연계 문장`);
 }
 assert.ok(pr.prerequisite.some((x) => x.unit === "초3~4|과학|힘과 우리 생활"), "힘의 작용 ← 힘과 우리 생활");
 assert.equal(prerequisites("9과06-01").unit, "중1~3|과학|기체의 성질", "코드로도 단원을 찾는다");
@@ -27,6 +27,10 @@ assert.ok(rp.steps.some((s) => s.unit === "초3~4|과학|여러 가지 기체"),
 const ph = relearnPath("광합성"), ph1 = relearnPath("광합성", { depth: 1 });
 assert.ok(ph.steps.every((s) => s.depth <= 2) && ph1.steps.every((s) => s.depth === 1) && ph1.steps.length <= ph.steps.length, "깊이 제한");
 assert.ok(ph.steps.every((s, i, a) => !i || ["초1~2", "초3~4", "초5~6", "중1~3", "고1", "고2~3"].indexOf(a[i - 1].grade) <= ["초1~2", "초3~4", "초5~6", "중1~3", "고1", "고2~3"].indexOf(s.grade)), "학년군 낮은 순");
+// 과목 「성격」 문단의 과목 간 관계 — 선택 과목에서 공통 과목으로 거슬러 간다
+const lit = prerequisites("12문학01-01");
+assert.ok(lit.prerequisite.some((x) => x.level === "과목" && x.unit === "고1|공통국어1|*"), "문학 ← 공통국어1 (성격)");
+assert.ok(relearnPath("12문학01-01").steps.some((s) => s.unit === "중1~3|국어|*"), "문학 다시 배우기 → 중학교 국어");
 const cs = commonSense({ grade: "중1~3", subject: "과학" });
 assert.ok(cs.total > 10 && cs.units.every((u) => u.grade === "중1~3"), "필수 단원");
 assert.equal(commonSense({ grade: "고2~3" }).total, 0, "고2~3 은 전부 선택");
