@@ -1,7 +1,7 @@
 {
   "name": "korea-learning-map-mcp",
-  "version": "0.0.2",
-  "description": "2022 개정 교육과정(교육부 고시 제2022-33호) 전 교과 성취기준 원문을 찾고 읽는 로컬 MCP 서버 — 데이터 내장, 네트워크 없음",
+  "version": "0.1.0",
+  "description": "2022 개정 교육과정(교육부 고시 제2022-33호) 전 교과 성취기준 원문·학년 간 연계·수학 개념 선수관계를 찾고 읽는 로컬 MCP 서버 — 데이터 내장, 네트워크 없음",
   "type": "module",
   "bin": {
     "korea-learning-map-mcp": "index.js"
@@ -12,7 +12,7 @@
     "data/"
   ],
   "scripts": {
-    "prepack": "mkdir -p data && cp ../data/kr/standards.json ../data/kr/sources.json ../data/kr/units.json ../data/kr/links.json ../data/kr/cross_curricular.json data/",
+    "prepack": "mkdir -p data && cp ../data/kr/standards.json ../data/kr/sources.json ../data/kr/units.json ../data/kr/links.json ../data/kr/cross_curricular.json ../data/kr/concepts.json ../data/kr/concept_links.json ../data/kr/concept_proposals.json data/",
     "test": "node test.js"
   },
   "engines": {

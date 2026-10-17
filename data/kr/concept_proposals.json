@@ -1,0 +1,1646 @@
+{
+ "version": "v1",
+ "rule": "원문이 밝히지 않은 직접 선수관계 제안 — Claude Opus 작성 → Gemini Flash 반박 심사(review) → Opus 판정(decision). 원문 근거가 아니다",
+ "proposals": [
+  {
+   "from": "수학|초1~2|두 자리 수 범위의 덧셈과 뺄셈",
+   "to": "수학|초1~2|네 자리 이하의 수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자릿값을 알아야 받아올림·받아내림을 한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "wrong",
+    "why": "두 자리 수 덧셈·뺄셈은 1~2학년 1학기에 먼저 배우며 네 자리 수는 2학년 2학기 내용이므로 학년 순서가 역전됨"
+   },
+   "decision": "유지 — 같은 학년군 안 자릿값이 덧셈의 바탕(교과서 차시 순서와 별개)"
+  },
+  {
+   "from": "수학|초1~2|한 자리 수의 곱셈",
+   "to": "수학|초1~2|두 자리 수 범위의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "곱셈은 같은 수를 거듭 더하기로 도입한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|다섯 자리 이상의 수",
+   "to": "수학|초1~2|네 자리 이하의 수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자릿값을 만·억·조로 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|세 자리 수의 덧셈과 뺄셈",
+   "to": "수학|초1~2|두 자리 수 범위의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "같은 계산 원리를 세 자리로 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|세 자리 수 범위의 곱셈",
+   "to": "수학|초1~2|한 자리 수의 곱셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "곱셈구구가 여러 자리 곱셈의 바탕이다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|세 자리 수 범위의 곱셈",
+   "to": "수학|초3~4|세 자리 수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "부분곱을 더한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|세 자리 수 범위의 나눗셈",
+   "to": "수학|초3~4|세 자리 수 범위의 곱셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "나눗셈은 곱셈의 역으로 계산한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|자연수의 어림셈",
+   "to": "수학|초3~4|세 자리 수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "어림하는 대상이 덧셈·뺄셈 결과다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "초3~4에는 독립된 어림셈 단원이 없으며 덧셈·뺄셈 단원 내의 계산 결과 어림 활동에 불과함"
+   }
+  },
+  {
+   "from": "수학|초3~4|소수",
+   "to": "수학|초3~4|분수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "소수는 분모가 10인 분수로 도입한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|분수의 덧셈과 뺄셈",
+   "to": "수학|초3~4|분수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분모가 같은 분수의 계산",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|소수의 덧셈과 뺄셈",
+   "to": "수학|초3~4|소수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "소수 자릿값",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|소수의 덧셈과 뺄셈",
+   "to": "수학|초3~4|세 자리 수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자연수 계산 원리를 그대로 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|약수와 배수",
+   "to": "수학|초3~4|세 자리 수 범위의 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "나누어떨어짐으로 약수를 정한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|분수의 덧셈과 뺄셈",
+   "to": "수학|초3~4|분수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분모가 같은 경우에서 다른 경우로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|분수의 덧셈과 뺄셈",
+   "to": "수학|초5~6|약수와 배수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "통분에 공배수를 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|자연수의 혼합 계산",
+   "to": "수학|초3~4|세 자리 수 범위의 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "사칙계산을 모두 알아야 계산 순서를 다룬다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|수의 범위와 올림, 버림, 반올림",
+   "to": "수학|초3~4|자연수의 어림셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "어림을 규칙(올림·버림·반올림)으로 정리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "초3~4의 어림은 연산 과정에서의 어림 활동일 뿐 독립된 선수 개념으로 보기 어려움"
+   }
+  },
+  {
+   "from": "수학|초5~6|분수의 곱셈과 나눗셈",
+   "to": "수학|초5~6|분수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분수 계산의 다음 단계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "분수 곱셈·나눗셈에는 통분이 필요 없고, 분수의 의미와 약수·배수(약분)가 직접 선수임"
+   }
+  },
+  {
+   "from": "수학|초5~6|분수의 곱셈과 나눗셈",
+   "to": "수학|초5~6|약수와 배수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "약분에 공약수를 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|분수와 소수의 관계",
+   "to": "수학|초3~4|분수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 표현을 서로 바꾼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|분수와 소수의 관계",
+   "to": "수학|초3~4|소수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 표현을 서로 바꾼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|소수의 곱셈과 나눗셈",
+   "to": "수학|초3~4|소수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "소수 자릿값과 계산",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "소수의 곱셈·나눗셈은 자연수 곱셈·나눗셈 및 자릿값·분수 변환에 기반하며 소수 덧뺄셈이 직접 선수는 아님"
+   }
+  },
+  {
+   "from": "수학|초5~6|소수의 곱셈과 나눗셈",
+   "to": "수학|초5~6|분수와 소수의 관계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "소수 곱셈을 분수 곱셈으로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|정수와 유리수",
+   "to": "수학|초5~6|분수의 곱셈과 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "유리수의 사칙계산은 분수 계산을 넓힌 것이다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|정수와 유리수",
+   "to": "수학|초5~6|소수의 곱셈과 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "유리수의 소수 표현",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "유리수 체계와 계산은 분수(정수비) 표현이 본질적이며 소수 곱셈·나눗셈은 직접 선수라기보다 부차적임"
+   }
+  },
+  {
+   "from": "수학|중2|유리수와 순환소수",
+   "to": "수학|중1|정수와 유리수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "유리수의 소수 표현을 분류한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|유리수와 순환소수",
+   "to": "수학|초5~6|분수와 소수의 관계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분수를 소수로 바꾸기",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중1 정수와 유리수를 거쳐 다루어지는 간접 선수관계임"
+   }
+  },
+  {
+   "from": "수학|중3|제곱근과 실수",
+   "to": "수학|중2|유리수와 순환소수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "순환하지 않는 무한소수 = 무리수",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|규칙을 수나 식으로 나타내기",
+   "to": "수학|초1~2|규칙 찾기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "찾은 규칙을 수·식으로 표현한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|등호와 동치 관계",
+   "to": "수학|초1~2|두 자리 수 범위의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "□가 있는 덧셈식에서 등호의 뜻을 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|대응 관계",
+   "to": "수학|초3~4|규칙을 수나 식으로 나타내기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 양 사이의 규칙을 식으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|비와 비율",
+   "to": "수학|초5~6|분수와 소수의 관계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "비율을 분수·소수·백분율로 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|비례식과 비례배분",
+   "to": "수학|초5~6|비와 비율",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "비의 성질로 비례식을 푼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|비례식과 비례배분",
+   "to": "수학|초5~6|분수의 곱셈과 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "비례배분 계산",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|문자의 사용과 식",
+   "to": "수학|초5~6|대응 관계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "대응 관계를 기호로 나타낸 경험을 문자로 일반화한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|문자의 사용과 식",
+   "to": "수학|중1|정수와 유리수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "식의 값에 음수·분수를 대입한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|일차방정식",
+   "to": "수학|중1|문자의 사용과 식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "일차식의 계산",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|일차방정식",
+   "to": "수학|초3~4|등호와 동치 관계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "등식의 성질",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "초3~4 동치 관계는 기초 소양이나, 중1 일차방정식은 등식의 성질을 단원 내에서 직접 형식화하여 도입함"
+   }
+  },
+  {
+   "from": "수학|중1|좌표평면과 그래프",
+   "to": "수학|중1|정수와 유리수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "음수 좌표",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|좌표평면과 그래프",
+   "to": "수학|초5~6|대응 관계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "정비례·반비례는 두 양의 대응 관계를 그래프로 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "정비례·반비례의 직접 선수는 비례배분이 아니라 초5~6 '대응 관계' 또는 '비와 비율'임"
+   },
+   "decision": "대상 교체 — 반박 수용(비례식 → 대응 관계)"
+  },
+  {
+   "from": "수학|중2|식의 계산",
+   "to": "수학|중1|문자의 사용과 식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "단항식·다항식 계산으로 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|일차부등식",
+   "to": "수학|중1|일차방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "푸는 절차가 같다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|연립일차방정식",
+   "to": "수학|중1|일차방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "일차방정식 둘을 함께 푼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|연립일차방정식",
+   "to": "수학|중2|식의 계산",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "가감법·대입법의 식 정리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|일차함수와 그 그래프",
+   "to": "수학|중1|좌표평면과 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "그래프를 좌표평면에 그린다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|일차함수와 그 그래프",
+   "to": "수학|중1|문자의 사용과 식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "함수식 y=ax+b",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중1 문자의 사용은 정비례를 거쳐 일차함수로 이어지는 간접 선수관계임"
+   }
+  },
+  {
+   "from": "수학|중2|일차함수와 일차방정식의 관계",
+   "to": "수학|중2|일차함수와 그 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "직선 그래프와 방정식을 잇는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|일차함수와 일차방정식의 관계",
+   "to": "수학|중2|연립일차방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "연립방정식의 해 = 두 직선의 교점",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|다항식의 곱셈과 인수분해",
+   "to": "수학|중2|식의 계산",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다항식의 곱셈 공식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|이차방정식",
+   "to": "수학|중3|다항식의 곱셈과 인수분해",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "인수분해로 푼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|이차방정식",
+   "to": "수학|중3|제곱근과 실수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "제곱근·근의 공식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|이차방정식",
+   "to": "수학|중1|일차방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "방정식과 해의 뜻",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "방정식의 일반 개념은 배경 지식이며, 이차방정식 단원의 고유한 직접 선수는 인수분해와 제곱근임"
+   }
+  },
+  {
+   "from": "수학|중3|이차함수와 그 그래프",
+   "to": "수학|중2|일차함수와 그 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "함수와 그래프의 다음 단계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|이차함수와 그 그래프",
+   "to": "수학|중3|다항식의 곱셈과 인수분해",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "완전제곱식으로 꼭짓점을 찾는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초1~2|평면도형과 그 구성 요소",
+   "to": "수학|초1~2|입체도형의 모양",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "입체도형의 면에서 평면도형을 찾는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초1~2|길이",
+   "to": "수학|초1~2|양의 비교",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "직접 비교에서 단위 측정으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|시각과 시간",
+   "to": "수학|초1~2|시각과 시간",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분에서 초 단위로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|시각과 시간",
+   "to": "수학|초3~4|세 자리 수의 덧셈과 뺄셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "시간의 덧셈·뺄셈",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "시간의 덧뺄셈은 60진법 받아올림·내림이 핵심이며 세 자리 수 십진 연산이 직접 선수는 아님"
+   }
+  },
+  {
+   "from": "수학|초3~4|길이",
+   "to": "수학|초1~2|길이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "cm·m 에서 mm·km 로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|도형의 기초",
+   "to": "수학|초1~2|평면도형과 그 구성 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "선분·각 등 구성 요소를 정확히 정의한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|평면도형의 이동",
+   "to": "수학|초3~4|도형의 기초",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "밀기·뒤집기·돌리기",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|원의 구성 요소",
+   "to": "수학|초1~2|평면도형과 그 구성 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원의 중심·반지름·지름",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|각도",
+   "to": "수학|초3~4|도형의 기초",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "각을 정의한 뒤 크기를 잰다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|여러 가지 삼각형",
+   "to": "수학|초3~4|도형의 기초",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "변과 각으로 분류한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|여러 가지 삼각형",
+   "to": "수학|초3~4|각도",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "예각·둔각삼각형",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|여러 가지 사각형",
+   "to": "수학|초3~4|도형의 기초",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "수직·평행으로 분류한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|다각형",
+   "to": "수학|초3~4|여러 가지 사각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "삼각형·사각형을 다각형으로 일반화",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|다각형",
+   "to": "수학|초3~4|여러 가지 삼각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "삼각형·사각형을 다각형으로 일반화",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|들이",
+   "to": "수학|초1~2|양의 비교",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "들이 직접 비교에서 단위 측정으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|무게",
+   "to": "수학|초1~2|양의 비교",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "무게 직접 비교에서 단위 측정으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|합동과 대칭",
+   "to": "수학|초3~4|평면도형의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "뒤집기·돌리기에서 대칭으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|합동과 대칭",
+   "to": "수학|초3~4|다각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다각형의 대응변·대응각",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|직육면체와 정육면체",
+   "to": "수학|초1~2|입체도형의 모양",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상자 모양의 성질",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|직육면체와 정육면체",
+   "to": "수학|초3~4|여러 가지 사각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "면이 직사각형·정사각형",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|각기둥과 각뿔",
+   "to": "수학|초5~6|직육면체와 정육면체",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "직육면체를 각기둥으로 일반화",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|각기둥과 각뿔",
+   "to": "수학|초3~4|다각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "밑면이 다각형",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|원기둥, 원뿔, 구",
+   "to": "수학|초5~6|각기둥과 각뿔",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기둥·뿔의 구조를 원에 적용",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|원기둥, 원뿔, 구",
+   "to": "수학|초3~4|원의 구성 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "밑면이 원",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|입체도형의 공간 감각",
+   "to": "수학|초5~6|직육면체와 정육면체",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "쌓기나무와 겨냥도",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|다각형의 둘레와 넓이",
+   "to": "수학|초3~4|다각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "넓이를 구하는 대상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|다각형의 둘레와 넓이",
+   "to": "수학|초3~4|길이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "둘레",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|다각형의 둘레와 넓이",
+   "to": "수학|초3~4|세 자리 수 범위의 곱셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "넓이 = 가로 × 세로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "넓이 공식 유도의 핵심은 단위넓이의 배열과 곱셈 개념이며, 세 자리 수 곱셈 연산 자체가 직접 선수는 아님"
+   }
+  },
+  {
+   "from": "수학|초5~6|원주율과 원의 넓이",
+   "to": "수학|초5~6|다각형의 둘레와 넓이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원의 넓이를 다각형으로 어림한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|원주율과 원의 넓이",
+   "to": "수학|초3~4|원의 구성 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지름·반지름",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|원주율과 원의 넓이",
+   "to": "수학|초5~6|소수의 곱셈과 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원주율 3.14 계산",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|입체도형의 겉넓이와 부피",
+   "to": "수학|초5~6|직육면체와 정육면체",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "겉넓이·부피를 구하는 대상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|입체도형의 겉넓이와 부피",
+   "to": "수학|초5~6|다각형의 둘레와 넓이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "겉넓이 = 면의 넓이의 합",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|기본 도형",
+   "to": "수학|초3~4|도형의 기초",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "점·선·면·각을 다시 정의한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|기본 도형",
+   "to": "수학|초3~4|각도",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "맞꼭지각·동위각·엇각",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|작도와 합동",
+   "to": "수학|중1|기본 도형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "작도의 대상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|작도와 합동",
+   "to": "수학|초5~6|합동과 대칭",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "합동의 뜻을 조건으로 정리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|평면도형의 성질",
+   "to": "수학|중1|기본 도형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다각형의 내각·외각",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|평면도형의 성질",
+   "to": "수학|초5~6|원주율과 원의 넓이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "부채꼴의 호의 길이와 넓이",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|입체도형의 성질",
+   "to": "수학|초5~6|각기둥과 각뿔",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다면체",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|입체도형의 성질",
+   "to": "수학|초5~6|원기둥, 원뿔, 구",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "회전체",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|입체도형의 성질",
+   "to": "수학|초5~6|입체도형의 겉넓이와 부피",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기둥·뿔·구의 겉넓이와 부피",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|삼각형과 사각형의 성질",
+   "to": "수학|중1|작도와 합동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "삼각형 합동 조건으로 증명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|삼각형과 사각형의 성질",
+   "to": "수학|초3~4|여러 가지 사각형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "평행사변형 등의 성질",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "초3~4의 사각형 분류 경험은 직관적 배경이며, 중2 논증 기하의 직접 선수는 중1 '작도와 합동'임"
+   }
+  },
+  {
+   "from": "수학|중2|도형의 닮음",
+   "to": "수학|중2|삼각형과 사각형의 성질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "닮음 조건과 평행선",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|도형의 닮음",
+   "to": "수학|초5~6|비례식과 비례배분",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "닮음비",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|피타고라스 정리",
+   "to": "수학|중2|도형의 닮음",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "닮음으로 증명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|피타고라스 정리",
+   "to": "수학|초5~6|다각형의 둘레와 넓이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "넓이로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "넓이를 이용한 유클리드 증명의 직접 선수는 중2 '삼각형과 사각형의 성질(평행선과 삼각형의 넓이)'임"
+   }
+  },
+  {
+   "from": "수학|중3|삼각비",
+   "to": "수학|중2|피타고라스 정리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "직각삼각형의 변의 길이",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|삼각비",
+   "to": "수학|중2|도형의 닮음",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "닮은 직각삼각형의 변의 비가 일정하다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|삼각비",
+   "to": "수학|중3|제곱근과 실수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "삼각비 값에 무리수가 나온다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|원의 성질",
+   "to": "수학|중1|평면도형의 성질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원과 부채꼴",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|원의 성질",
+   "to": "수학|중2|삼각형과 사각형의 성질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "이등변삼각형·합동으로 증명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초3~4|자료의 수집과 정리",
+   "to": "수학|초1~2|자료의 정리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "표·그래프를 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|자료의 수집과 정리",
+   "to": "수학|초3~4|자료의 수집과 정리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "그래프 종류를 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|자료의 수집과 정리",
+   "to": "수학|초5~6|비와 비율",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "띠그래프·원그래프의 백분율",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|초5~6|가능성",
+   "to": "수학|초3~4|분수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "가능성을 0, 1/2, 1 로 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|도수분포표와 상대도수",
+   "to": "수학|초5~6|자료의 수집과 정리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자료 정리를 도수분포로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중1|도수분포표와 상대도수",
+   "to": "수학|초5~6|비와 비율",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상대도수 = 비율",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|경우의 수와 확률",
+   "to": "수학|초5~6|가능성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "가능성을 수로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중2|경우의 수와 확률",
+   "to": "수학|중1|도수분포표와 상대도수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상대도수와 확률",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중2 확률은 경우의 수를 센 수학적 확률이 중심이므로 통계 단원의 상대도수가 직접 선수라 보기 어려움"
+   }
+  },
+  {
+   "from": "수학|중3|산포도",
+   "to": "수학|중1|대푯값",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "평균과의 차(편차)",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|산포도",
+   "to": "수학|중3|제곱근과 실수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "표준편차는 분산의 제곱근",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|상자그림과 산점도",
+   "to": "수학|중1|대푯값",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "중앙값·사분위수",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|중3|상자그림과 산점도",
+   "to": "수학|중1|좌표평면과 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "산점도는 좌표평면 위의 점",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|나머지정리",
+   "to": "수학|고1|다항식의 연산",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다항식의 나눗셈",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|인수분해",
+   "to": "수학|고1|나머지정리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "인수정리로 인수분해한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|이차방정식과 이차함수",
+   "to": "수학|고1|복소수와 이차방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "판별식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|이차방정식과 이차함수",
+   "to": "수학|중3|이차함수와 그 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "이차함수의 그래프",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|여러 가지 방정식과 부등식",
+   "to": "수학|고1|인수분해",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "삼차·사차방정식을 인수분해로 푼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|여러 가지 방정식과 부등식",
+   "to": "수학|고1|이차방정식과 이차함수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "이차부등식을 그래프로 푼다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|순열과 조합",
+   "to": "수학|고1|합의 법칙과 곱의 법칙",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "곱의 법칙으로 순열의 수를 센다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|행렬과 그 연산",
+   "to": "수학|중1|정수와 유리수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "성분의 사칙계산",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "기본 수 연산은 모든 수학의 전제일 뿐 행렬 연산 체계만의 고유한 직접 선수로 보기 어려움"
+   }
+  },
+  {
+   "from": "수학|고1|평면좌표",
+   "to": "수학|중1|좌표평면과 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "좌표평면",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|평면좌표",
+   "to": "수학|중2|피타고라스 정리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 점 사이의 거리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|직선의 방정식",
+   "to": "수학|고1|평면좌표",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "좌표로 직선을 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|원의 방정식",
+   "to": "수학|고1|평면좌표",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 점 사이의 거리로 원을 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|원의 방정식",
+   "to": "수학|고1|직선의 방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원과 직선의 위치 관계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "원의 방정식 자체는 평면좌표의 거리 공식으로 정의되며 직선의 방정식은 위치 관계를 다룰 때의 결합 대상임"
+   }
+  },
+  {
+   "from": "수학|고1|도형의 이동",
+   "to": "수학|고1|직선의 방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "평행이동·대칭이동의 대상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|도형의 이동",
+   "to": "수학|고1|원의 방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "평행이동·대칭이동의 대상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|명제",
+   "to": "수학|고1|집합",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "진리집합",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|함수",
+   "to": "수학|고1|집합",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 집합 사이의 대응",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|유리함수와 무리함수",
+   "to": "수학|고1|함수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "함수의 다음 단계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "수학|고1|유리함수와 무리함수",
+   "to": "수학|중3|제곱근과 실수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "무리식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중3 제곱근은 간접 배경이며, 고1 수준에서는 유리식·무리식 연산과 고1 '함수' 개념이 직접 선수임"
+   }
+  },
+  {
+   "from": "수학|초3~4|세 자리 수 범위의 나눗셈",
+   "to": "수학|초1~2|한 자리 수의 곱셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "나눗셈 계산의 기초(나눗셈구구)는 곱셈구구의 역연산으로 해결함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "수학|중2|삼각형과 사각형의 성질",
+   "to": "수학|중1|기본 도형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "평행선의 동위각·엇각 성질은 사각형과 삼각형의 성질 증명에 필수적임",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "수학|중2|일차부등식",
+   "to": "수학|중1|정수와 유리수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "부등식 양변에 음수를 곱하거나 나눌 때 부등호 방향이 바뀌는 성질의 직접적 근거임",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "수학|고1|직선의 방정식",
+   "to": "수학|중2|일차함수와 그 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "직선의 방정식의 기울기·절편 표현과 그래프 개형은 일차함수에서 직접 확장됨",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "수학|고1|여러 가지 방정식과 부등식",
+   "to": "수학|고1|복소수와 이차방정식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "삼차방정식의 허근(ω) 및 연립이차방정식, 이차부등식의 판별식 적용에 필수임",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "수학|고1|유리함수와 무리함수",
+   "to": "수학|고1|도형의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "유리·무리함수의 표준형 그래프는 기본형을 평행이동하여 그리기 때문에 필수적임",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  }
+ ],
+ "rejected": [
+  {
+   "from": "수학|초3~4|분수",
+   "to": "수학|초3~4|세 자리 수 범위의 나눗셈",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분수는 똑같이 나누기에서 출발한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "wrong",
+    "why": "분수는 3학년 1학기 등분할 조작으로 도입되므로 세 자리 수 나눗셈(3-2~4-1)보다 먼저 배워 순서가 맞지 않음"
+   },
+   "decision": "뺌 — 반박 수용"
+  },
+  {
+   "from": "수학|초1~2|시각과 시간",
+   "to": "수학|초1~2|네 자리 이하의 수",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "시계의 수 읽기",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "wrong",
+    "why": "시계 읽기는 60 이하의 두 자리 수면 충분하며 네 자리 이하의 수는 무관함"
+   },
+   "decision": "뺌 — 반박 수용"
+  }
+ ],
+ "count": 144
+}

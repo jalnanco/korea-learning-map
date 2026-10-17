@@ -140,3 +140,54 @@ export function commonSense({ grade, subject } = {}) {
     },
   };
 }
+
+// ── 수학 개념층(v1) — 개념 = 고시문 「내용 체계」 지식⋅이해 항목. 간선은 basis 로 나눈다: 원문(고시문 문장) · 제안(Claude 제안 → Gemini 반박 심사 → 판정) ──
+const CGRADES = ["초1~2", "초3~4", "초5~6", "중1", "중2", "중3", "고1"];
+const concepts = read("concepts.json").concepts;
+const conceptById = new Map(concepts.map((c) => [c.id, c]));
+const conceptOfStd = new Map(concepts.flatMap((c) => c.standards.map((s) => [s, c])));
+const proposals = read("concept_proposals.json").proposals;
+const conceptPre = new Map();
+for (const l of [...read("concept_links.json").links, ...proposals]) {
+  if (!conceptPre.has(l.from)) conceptPre.set(l.from, []);
+  conceptPre.get(l.from).push(l);
+}
+const conceptView = (c) => ({ concept: c.id, grade: c.grade, area: c.area, name: c.name, course: c.course || undefined, standards: c.standards });
+
+// 개념 id · 성취기준 코드 · 개념 이름(낱말이 모두 든 것 중 가장 짧은 이름) · 그래도 없으면 수학 성취기준 검색
+export function conceptOf(ref) {
+  if (conceptById.has(ref)) return conceptById.get(ref);
+  const code = ref.replace(/^\[|\]$/g, "").replace(/[–—]/g, "-");
+  if (conceptOfStd.has(code)) return conceptOfStd.get(code);
+  const words = ref.split(/\s+/).map(squash).filter(Boolean);
+  const named = concepts.filter((c) => words.every((w) => squash(c.name).includes(w)));
+  if (named.length) return named.find((c) => squash(c.name) === squash(ref)) || named.sort((a, b) => a.name.length - b.name.length)[0];
+  const hit = search(ref, { limit: 20 }).items.find((s) => conceptOfStd.has(s.id));
+  return hit ? conceptOfStd.get(hit.id) : null;
+}
+
+export function conceptPath(ref, { depth: max = 3, proposals: withProposals = true } = {}) {
+  const c = conceptOf(ref);
+  if (!c) return null;
+  const seen = new Map([[c.id, null]]);
+  let frontier = [c.id];
+  for (let d = 1; d <= max && frontier.length; d++) {
+    const next = [];
+    for (const id of frontier) {
+      for (const l of conceptPre.get(id) || []) {
+        if (seen.has(l.to) || (!withProposals && l.basis !== "원문")) continue;
+        seen.set(l.to, { ...conceptView(conceptById.get(l.to)), depth: d, via: id, basis: l.basis, because: l.basis === "원문" ? l.evidence : l.reason });
+        next.push(l.to);
+      }
+    }
+    frontier = next;
+  }
+  seen.delete(c.id);
+  const steps = [...seen.values()].sort((a, b) => CGRADES.indexOf(a.grade) - CGRADES.indexOf(b.grade) || b.depth - a.depth);
+  const more = frontier.some((id) => (conceptPre.get(id) || []).some((l) => !seen.has(l.to) && (withProposals || l.basis === "원문")));
+  return {
+    goal: conceptView(c), depth: max, steps, more: more || undefined,
+    note: "basis 원문 = 고시문 문장이 밝힌 선수관계(because = 그 문장) · basis 제안 = 원문에 없는 직접 선수관계를 Claude 가 제안하고 Gemini 가 반박 심사한 것(because = 이유)"
+      + (more ? ` · depth ${max + 1} 이상에 더 있다` : ""),
+  };
+}

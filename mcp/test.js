@@ -1,7 +1,7 @@
 // 검색·조회 회귀 + stdio 왕복 1회. node test.js
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { search, get, prerequisites, relearnPath, commonSense } from "./search.js";
+import { search, get, prerequisites, relearnPath, commonSense, conceptPath } from "./search.js";
 
 const r = search("광합성");
 assert.ok(r.total > 0 && r.items.some((s) => s.subject.includes("과학")), "광합성은 과학에서 나와야 한다");
@@ -36,6 +36,17 @@ assert.ok(cs.total > 10 && cs.units.every((u) => u.grade === "중1~3"), "필수 
 assert.equal(commonSense({ grade: "고2~3" }).total, 0, "고2~3 은 전부 선택");
 assert.equal(cs.crossCurricular.topics.length, 10, "범교과 학습 주제 10개");
 
+// 수학 개념층 — 낱말·코드로 개념 찾기, 학년 낮은 순, 원문만 보기
+const fr = conceptPath("분수 나눗셈", { depth: 8 });
+assert.equal(fr.goal.concept, "수학|초5~6|분수의 곱셈과 나눗셈", "낱말로 개념 찾기");
+assert.equal(conceptPath("6수01-10").goal.concept, fr.goal.concept, "코드로 개념 찾기");
+assert.ok(fr.steps.some((s) => s.name === "약수와 배수") && fr.steps[0].grade === "초1~2", "분수 계산 → 약수와 배수 · 초1~2 부터");
+const G = ["초1~2", "초3~4", "초5~6", "중1", "중2", "중3", "고1"];
+assert.ok(fr.steps.every((s, i) => !i || G.indexOf(fr.steps[i - 1].grade) <= G.indexOf(s.grade)), "학년 낮은 순");
+const fac = conceptPath("인수분해", { proposals: false });
+assert.deepEqual(fac.steps.map((s) => [s.name, s.basis]), [["다항식의 곱셈과 인수분해", "원문"]], "원문만 = 고1 인수분해 ← 중3");
+assert.ok(fac.steps[0].because.includes("중학교에서 학습한"), "원문 근거 문장");
+
 const p = spawn(process.execPath, [new URL("./index.js", import.meta.url).pathname]);
 const send = (m) => p.stdin.write(JSON.stringify({ jsonrpc: "2.0", ...m }) + "\n");
 let buf = "";
@@ -46,7 +57,7 @@ send({ id: 2, method: "tools/list" });
 send({ id: 3, method: "tools/call", params: { name: "search_topic", arguments: { q: "금융", grade: "고2~3", limit: 3 } } });
 const [, list, call] = await replies;
 p.kill();
-assert.deepEqual(list.result.tools.map((t) => t.name).sort(), ["common_sense", "get_topic", "prerequisites", "relearn_path", "search_topic"]);
+assert.deepEqual(list.result.tools.map((t) => t.name).sort(), ["common_sense", "concept_path", "get_topic", "prerequisites", "relearn_path", "search_topic"]);
 const found = JSON.parse(call.result.content[0].text);
 assert.ok(found.total > 0, "고교 금융 성취기준");
-console.log("PASS", { 광합성: r.total, 광합성_경로: ph.steps.length, 힘의작용_선수: pr.prerequisite.length, 금융_고2_3: found.total, 첫결과: found.items[0].id + " " + found.items[0].text.slice(0, 40) });
+console.log("PASS", { 광합성: r.total, 광합성_경로: ph.steps.length, 힘의작용_선수: pr.prerequisite.length, 금융_고2_3: found.total, 분수나눗셈_개념경로: fr.steps.length, 첫결과: found.items[0].id + " " + found.items[0].text.slice(0, 40) });

@@ -1,0 +1,1416 @@
+{
+ "version": "v1",
+ "subject": "수학",
+ "source": "교육부 고시 제2022-33호 [별책 8] 내용 체계 지식⋅이해",
+ "count": 99,
+ "concepts": [
+  {
+   "id": "수학|초1~2|네 자리 이하의 수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "네 자리 이하의 수",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수01-01",
+    "2수01-02",
+    "2수01-03",
+    "2수01-04"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|두 자리 수 범위의 덧셈과 뺄셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "두 자리 수 범위의 덧셈과 뺄셈",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수01-05",
+    "2수01-06",
+    "2수01-07",
+    "2수01-08",
+    "2수01-09"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|한 자리 수의 곱셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "한 자리 수의 곱셈",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수01-10",
+    "2수01-11"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|규칙 찾기",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "규칙 찾기",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수02-01",
+    "2수02-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|입체도형의 모양",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "입체도형의 모양",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수03-01",
+    "2수03-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|평면도형과 그 구성 요소",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "평면도형과 그 구성 요소",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수03-03",
+    "2수03-04",
+    "2수03-05"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|양의 비교",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "양의 비교",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수03-06"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|시각과 시간",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "시각과 시간",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수03-07",
+    "2수03-08",
+    "2수03-09"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|시각과 시간",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "시각과 시간",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-13",
+    "4수03-14"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|길이",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "길이",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수03-10",
+    "2수03-11",
+    "2수03-12",
+    "2수03-13"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|길이",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "길이",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-15",
+    "4수03-16"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초1~2|자료의 정리",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "자료의 정리",
+   "grade": "초1~2",
+   "band": "초1~2",
+   "course": null,
+   "standards": [
+    "2수04-01",
+    "2수04-02",
+    "2수04-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|다섯 자리 이상의 수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "다섯 자리 이상의 수",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-01",
+    "4수01-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|세 자리 수의 덧셈과 뺄셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "세 자리 수의 덧셈과 뺄셈",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|세 자리 수 범위의 곱셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "세 자리 수 범위의 곱셈",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-04"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|세 자리 수 범위의 나눗셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "세 자리 수 범위의 나눗셈",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-05",
+    "4수01-06",
+    "4수01-07"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|자연수의 어림셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "자연수의 어림셈",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-08"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|분수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "분수",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-09",
+    "4수01-10",
+    "4수01-11"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|소수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "소수",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-12",
+    "4수01-13",
+    "4수01-14"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|분수의 덧셈과 뺄셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "분수의 덧셈과 뺄셈",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-15"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|분수의 덧셈과 뺄셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "분수의 덧셈과 뺄셈",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-06",
+    "6수01-07",
+    "6수01-08"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|소수의 덧셈과 뺄셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "소수의 덧셈과 뺄셈",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수01-16"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|규칙을 수나 식으로 나타내기",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "규칙을 수나 식으로 나타내기",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수02-01",
+    "4수02-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|등호와 동치 관계",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "등호와 동치 관계",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수02-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|도형의 기초",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "도형의 기초",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-01",
+    "4수03-02",
+    "4수03-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|평면도형의 이동",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "평면도형의 이동",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-04",
+    "4수03-05"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|원의 구성 요소",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "원의 구성 요소",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-06",
+    "4수03-07"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|여러 가지 삼각형",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "여러 가지 삼각형",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-08",
+    "4수03-09"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|여러 가지 사각형",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "여러 가지 사각형",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-10"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|다각형",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "다각형",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-11",
+    "4수03-12"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|들이",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "들이",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-17",
+    "4수03-18",
+    "4수03-19"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|무게",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "무게",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-20",
+    "4수03-21",
+    "4수03-22",
+    "4수03-23"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|각도",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "각도",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수03-24",
+    "4수03-25"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초3~4|자료의 수집과 정리",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "자료의 수집과 정리",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4수04-01",
+    "4수04-02",
+    "4수04-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|자료의 수집과 정리",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "자료의 수집과 정리",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수04-01",
+    "6수04-02",
+    "6수04-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|자연수의 혼합 계산",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "자연수의 혼합 계산",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-01"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|수의 범위와 올림, 버림, 반올림",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "수의 범위와 올림, 버림, 반올림",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-02",
+    "6수01-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|약수와 배수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "약수와 배수",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-04",
+    "6수01-05"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|분수의 곱셈과 나눗셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "분수의 곱셈과 나눗셈",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-09",
+    "6수01-10",
+    "6수01-11"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|분수와 소수의 관계",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "분수와 소수의 관계",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-12"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|소수의 곱셈과 나눗셈",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "소수의 곱셈과 나눗셈",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수01-13",
+    "6수01-14",
+    "6수01-15"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|대응 관계",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "대응 관계",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수02-01"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|비와 비율",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "비와 비율",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수02-02",
+    "6수02-03"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|비례식과 비례배분",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "비례식과 비례배분",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수02-04",
+    "6수02-05"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|합동과 대칭",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "합동과 대칭",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-01",
+    "6수03-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|직육면체와 정육면체",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "직육면체와 정육면체",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-03",
+    "6수03-04"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|각기둥과 각뿔",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "각기둥과 각뿔",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-05",
+    "6수03-06"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|원기둥, 원뿔, 구",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "원기둥, 원뿔, 구",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-07",
+    "6수03-08"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|입체도형의 공간 감각",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "입체도형의 공간 감각",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-09",
+    "6수03-10"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|다각형의 둘레와 넓이",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "다각형의 둘레와 넓이",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-11",
+    "6수03-12",
+    "6수03-13",
+    "6수03-14"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|원주율과 원의 넓이",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "원주율과 원의 넓이",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-15",
+    "6수03-16"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|입체도형의 겉넓이와 부피",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "입체도형의 겉넓이와 부피",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수03-17",
+    "6수03-18",
+    "6수03-19"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|초5~6|가능성",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "가능성",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6수04-04",
+    "6수04-05",
+    "6수04-06"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|소인수분해",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "소인수분해",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수01-01",
+    "9수01-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|정수와 유리수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "정수와 유리수",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수01-03",
+    "9수01-04",
+    "9수01-05"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|유리수와 순환소수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "유리수와 순환소수",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수01-06"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|제곱근과 실수",
+   "subject": "수학",
+   "area": "수와 연산",
+   "name": "제곱근과 실수",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수01-07",
+    "9수01-08",
+    "9수01-09",
+    "9수01-10"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|문자의 사용과 식",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "문자의 사용과 식",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-01",
+    "9수02-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|일차방정식",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "일차방정식",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-03",
+    "9수02-04"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|좌표평면과 그래프",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "좌표평면과 그래프",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-05",
+    "9수02-06",
+    "9수02-07"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|식의 계산",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "식의 계산",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-08",
+    "9수02-09",
+    "9수02-10"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|일차부등식",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "일차부등식",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-11",
+    "9수02-12"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|연립일차방정식",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "연립일차방정식",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-13"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|일차함수와 그 그래프",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "일차함수와 그 그래프",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-14",
+    "9수02-15",
+    "9수02-16"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|일차함수와 일차방정식의 관계",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "일차함수와 일차방정식의 관계",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-17",
+    "9수02-18"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|다항식의 곱셈과 인수분해",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "다항식의 곱셈과 인수분해",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-19"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|이차방정식",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "이차방정식",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-20"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|이차함수와 그 그래프",
+   "subject": "수학",
+   "area": "변화와 관계",
+   "name": "이차함수와 그 그래프",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수02-21",
+    "9수02-22"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|기본 도형",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "기본 도형",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-01",
+    "9수03-02"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|작도와 합동",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "작도와 합동",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-03",
+    "9수03-04"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|평면도형의 성질",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "평면도형의 성질",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-05",
+    "9수03-06"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|입체도형의 성질",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "입체도형의 성질",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-07",
+    "9수03-08"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|삼각형과 사각형의 성질",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "삼각형과 사각형의 성질",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-09",
+    "9수03-10",
+    "9수03-11"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|도형의 닮음",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "도형의 닮음",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-12",
+    "9수03-13",
+    "9수03-14"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|피타고라스 정리",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "피타고라스 정리",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-15"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|삼각비",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "삼각비",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-16",
+    "9수03-17"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|원의 성질",
+   "subject": "수학",
+   "area": "도형과 측정",
+   "name": "원의 성질",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수03-18",
+    "9수03-19"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|대푯값",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "대푯값",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수04-01"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중1|도수분포표와 상대도수",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "도수분포표와 상대도수",
+   "grade": "중1",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수04-02",
+    "9수04-03",
+    "9수04-04"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중2|경우의 수와 확률",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "경우의 수와 확률",
+   "grade": "중2",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수04-05",
+    "9수04-06"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|산포도",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "산포도",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수04-07"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|중3|상자그림과 산점도",
+   "subject": "수학",
+   "area": "자료와 가능성",
+   "name": "상자그림과 산점도",
+   "grade": "중3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9수04-08",
+    "9수04-09"
+   ],
+   "standardsBy": "제목"
+  },
+  {
+   "id": "수학|고1|다항식의 연산",
+   "subject": "수학",
+   "area": "다항식",
+   "name": "다항식의 연산",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-01-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|나머지정리",
+   "subject": "수학",
+   "area": "다항식",
+   "name": "나머지정리",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-01-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|인수분해",
+   "subject": "수학",
+   "area": "다항식",
+   "name": "인수분해",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-01-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|복소수와 이차방정식",
+   "subject": "수학",
+   "area": "방정식과 부등식",
+   "name": "복소수와 이차방정식",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-02-01",
+    "10공수1-02-02",
+    "10공수1-02-03",
+    "10공수1-02-08"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|이차방정식과 이차함수",
+   "subject": "수학",
+   "area": "방정식과 부등식",
+   "name": "이차방정식과 이차함수",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-02-04",
+    "10공수1-02-05",
+    "10공수1-02-06",
+    "10공수1-02-11"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|여러 가지 방정식과 부등식",
+   "subject": "수학",
+   "area": "방정식과 부등식",
+   "name": "여러 가지 방정식과 부등식",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-02-07",
+    "10공수1-02-09",
+    "10공수1-02-10"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|합의 법칙과 곱의 법칙",
+   "subject": "수학",
+   "area": "경우의 수",
+   "name": "합의 법칙과 곱의 법칙",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-03-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|순열과 조합",
+   "subject": "수학",
+   "area": "경우의 수",
+   "name": "순열과 조합",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-03-02",
+    "10공수1-03-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|행렬과 그 연산",
+   "subject": "수학",
+   "area": "행렬",
+   "name": "행렬과 그 연산",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학1",
+   "standards": [
+    "10공수1-04-01",
+    "10공수1-04-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|평면좌표",
+   "subject": "수학",
+   "area": "도형의 방정식",
+   "name": "평면좌표",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-01-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|직선의 방정식",
+   "subject": "수학",
+   "area": "도형의 방정식",
+   "name": "직선의 방정식",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-01-02",
+    "10공수2-01-03",
+    "10공수2-01-05"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|원의 방정식",
+   "subject": "수학",
+   "area": "도형의 방정식",
+   "name": "원의 방정식",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-01-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|도형의 이동",
+   "subject": "수학",
+   "area": "도형의 방정식",
+   "name": "도형의 이동",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-01-06",
+    "10공수2-01-07"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|집합",
+   "subject": "수학",
+   "area": "집합과 명제",
+   "name": "집합",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-02-01",
+    "10공수2-02-02",
+    "10공수2-02-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|명제",
+   "subject": "수학",
+   "area": "집합과 명제",
+   "name": "명제",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-02-04",
+    "10공수2-02-05",
+    "10공수2-02-06",
+    "10공수2-02-07",
+    "10공수2-02-08"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|함수",
+   "subject": "수학",
+   "area": "함수와 그래프",
+   "name": "함수",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-03-01",
+    "10공수2-03-02",
+    "10공수2-03-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "수학|고1|유리함수와 무리함수",
+   "subject": "수학",
+   "area": "함수와 그래프",
+   "name": "유리함수와 무리함수",
+   "grade": "고1",
+   "band": "고1",
+   "course": "공통수학2",
+   "standards": [
+    "10공수2-03-04",
+    "10공수2-03-05"
+   ],
+   "standardsBy": "낱말"
+  }
+ ]
+}
