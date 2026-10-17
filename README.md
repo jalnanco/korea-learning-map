@@ -25,11 +25,14 @@
 
 ## MCP 로 쓰기
 
-npm 공개 전까지는 로컬에서:
-
 ```bash
-git clone https://github.com/jalnanco/korea-learning-map && cd korea-learning-map/mcp && npm install
-claude mcp add korea-learning-map -- node "$PWD/index.js"
+claude mcp add korea-learning-map -- npx -y korea-learning-map-mcp
+```
+
+다른 MCP 클라이언트(Claude Desktop 등)는 설정에 다음을 넣는다.
+
+```json
+{ "mcpServers": { "korea-learning-map": { "command": "npx", "args": ["-y", "korea-learning-map-mcp"] } } }
 ```
 
 「중학교에서 금융을 어디서 배워?」「분수 나눗셈은 몇 학년이야?」처럼 물으면 원문 성취기준과 출처 쪽수로 답한다. 네트워크·서버·API 키가 필요 없다.

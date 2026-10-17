@@ -12,7 +12,7 @@
   - [x] 관문 `check_v0.py` PASS — 성취기준 3,844 · 해설 2,371 · 단원 메모 3,825 · 수식 18 · PDF 대조 불일치 0 · 정규식 밖 코드 꼴 0
   - [x] 초등 MCP 정답지 620 대조: 완전일치 493 · 공백만 다름 32(정답지 쪽 오류) · 표 섞임 82 · 해설 오인 4 · 없음 9(2026 개정 `2건` — 고정판 밖)
 - [x] v0 MCP `mcp/`: stdio `search_topic`·`get_topic` · `node test.js` PASS · 패키지 801kB
-- [ ] npm·GitHub 공개 — **사용자 확인 후**
+- [x] GitHub 공개 jalnanco/korea-learning-map · npm korea-learning-map-mcp@0.0.1 (2026-10-18)
 - [x] 총론 범교과 학습 주제 10개 원문 확인 → `cross_curricular.json` (성취기준 단위 언급은 적다 — 대부분 교과 「교수·학습」 절에 있음)
 - [ ] 범교과 주제 ↔ 교과·과목 연결(교수·학습 절 원문 언급) — v1
 - [ ] 결정: 2026 일부개정(초1~2 「건강」 등) 반영 여부 — 고정 시점(pin) 문제
