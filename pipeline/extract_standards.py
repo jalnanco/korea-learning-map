@@ -89,7 +89,8 @@ def extract(lines, src):
                 raw = m.groups()[-1].strip()
                 if (eqs := MATH.findall(raw)):
                     rec["math"] = eqs
-                rec.update({"id": code, "grade": GRADE[m.group(1)], "text": MATH.sub(lambda e: readable(e.group(1)), raw), "_raw": raw, "band": band, "course": course, "courseType": ctype, "unit": unit, "ref": src["ref"], "sourceSeq": src["seq"]})
+                high = m.group(1) in ("10", "12")  # 과목 구분은 고교만 — 앞 과목의 값이 중학교 정보로 새지 않게
+                rec.update({"id": code, "grade": GRADE[m.group(1)], "text": MATH.sub(lambda e: readable(e.group(1)), raw), "_raw": raw, "band": band, "course": course, "courseType": ctype if high else None, "unit": unit, "ref": src["ref"], "sourceSeq": src["seq"]})
                 unit_codes.setdefault((band, course, unit), []).append(code)
     for key, codes in unit_codes.items():
         for c in codes:
