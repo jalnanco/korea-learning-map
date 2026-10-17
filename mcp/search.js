@@ -49,3 +49,79 @@ export function get(id) {
     source: { ref: s.ref, page: s.page, url: src.url, license: "공공저작물(저작권법 제24조의2) · 출처: 교육부, 국가교육과정정보센터(NCIC)" },
   };
 }
+
+// ── 단원·연계(고시문 「…와 연계된다」 문장만, 추정 없음) ──
+const units = read("units.json").units;
+const unitById = new Map(units.map((u) => [u.id, u]));
+const unitOfStd = new Map(units.flatMap((u) => u.standards.map((c) => [c, u])));
+const links = read("links.json").links;
+const unitView = (u) => ({ unit: u.id, grade: u.grade, subject: u.subject, course: u.course, name: u.unit || u.course, core: u.core, standards: u.standards });
+const node = (id) => unitById.get(id) ? unitView(unitById.get(id)) : { unit: id, course: id.split("|")[1], grade: id.split("|")[0], name: `${id.split("|")[1]} (과목 전체)` };
+
+// 코드·단원 id·낱말 무엇을 받아도 단원 하나로
+export function unitOf(ref) {
+  const code = ref.replace(/^\[|\]$/g, "").replace(/[–—]/g, "-");
+  if (unitOfStd.has(code)) return unitOfStd.get(code);
+  if (unitById.has(ref)) return unitById.get(ref);
+  const hit = search(ref, { limit: 1 }).items[0];
+  return hit ? unitOfStd.get(hit.id) : null;
+}
+
+// 선수 = prerequisite 간선의 대상 + followup 간선을 거꾸로 본 출발점(B 가 A 의 후속이면 A 는 B 의 선수)
+const prereqOf = new Map();
+for (const l of links) {
+  const [x, y] = l.relation === "prerequisite" ? [l.from, l.to] : l.relation === "followup" ? [l.to, l.from] : [null];
+  if (!x) continue;
+  if (!prereqOf.has(x)) prereqOf.set(x, new Map());
+  if (!prereqOf.get(x).has(y)) prereqOf.get(x).set(y, []);
+  if (!prereqOf.get(x).get(y).includes(l.evidence)) prereqOf.get(x).get(y).push(l.evidence);
+}
+
+// 양쪽 단원 메모가 같은 쌍을 각자 밝히면 간선이 둘이다 — 대상 단원 하나로 묶고 근거 문장은 배열로
+export function prerequisites(ref) {
+  const u = unitOf(ref);
+  if (!u) return null;
+  const flip = { prerequisite: "followup", followup: "prerequisite", related: "related" };
+  const out = { prerequisite: new Map(), followup: new Map(), related: new Map() };
+  for (const l of links) {
+    if (l.from !== u.id && l.to !== u.id) continue;
+    const [other, rel] = l.from === u.id ? [l.to, l.relation] : [l.from, flip[l.relation]];
+    if (!out[rel].has(other)) out[rel].set(other, { ...node(other), evidence: [] });
+    const ev = out[rel].get(other).evidence;
+    if (!ev.includes(l.evidence)) ev.push(l.evidence);
+  }
+  const list = (m) => [...m.values()].sort((a, b) => GRADES.indexOf(a.grade) - GRADES.indexOf(b.grade));
+  return { ...unitView(u), prerequisite: list(out.prerequisite), followup: list(out.followup), related: list(out.related) };
+}
+
+// 거슬러 올라가며 선수 단원 — 가까운 것부터 depth 단계까지(멀리 가면 통합 단원을 타고 다른 영역으로 번진다), 학년군 낮은 것부터(= 다시 배우는 순서)
+export function relearnPath(ref, { depth: max = 2 } = {}) {
+  const u = unitOf(ref);
+  if (!u) return null;
+  const seen = new Map([[u.id, null]]);
+  let frontier = [u.id];
+  for (let d = 1; d <= max && frontier.length; d++) {
+    const next = [];
+    for (const id of frontier) {
+      for (const [p, ev] of prereqOf.get(id) || []) {
+        if (seen.has(p)) continue;
+        seen.set(p, { ...node(p), depth: d, via: id, because: ev });
+        next.push(p);
+      }
+    }
+    frontier = next;
+  }
+  seen.delete(u.id);
+  const steps = [...seen.values()].sort((a, b) => GRADES.indexOf(a.grade) - GRADES.indexOf(b.grade) || b.depth - a.depth);
+  const more = frontier.some((id) => [...(prereqOf.get(id) || []).keys()].some((p) => !seen.has(p) && p !== u.id));
+  return {
+    goal: unitView(u), depth: max, steps, more: more || undefined,
+    note: steps.length ? "고시문이 밝힌 연계만 따라간 경로다 — 연계 문장이 없는 교과는 비어 있을 수 있다" + (more ? ` · depth ${max + 1} 이상에 더 있다` : "") : "고시문에 이 단원의 선수 연계 문장이 없다",
+  };
+}
+
+// 모두가 배우는 것(필수) 단원 목록
+export function commonSense({ grade, subject } = {}) {
+  const us = units.filter((u) => u.core && (!grade || u.grade === grade) && (!subject || squash(`${u.subject} ${u.course}`).includes(squash(subject))));
+  return { total: us.length, standards: us.reduce((n, u) => n + u.standards.length, 0), units: us.map((u) => ({ unit: u.id, grade: u.grade, subject: u.subject, course: u.course, name: u.unit || u.course, count: u.standards.length })) };
+}

@@ -1,7 +1,7 @@
 // 검색·조회 회귀 + stdio 왕복 1회. node test.js
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { search, get } from "./search.js";
+import { search, get, prerequisites, relearnPath, commonSense } from "./search.js";
 
 const r = search("광합성");
 assert.ok(r.total > 0 && r.items.some((s) => s.subject.includes("과학")), "광합성은 과학에서 나와야 한다");
@@ -13,6 +13,24 @@ assert.ok(g.source.url.startsWith("https://ncic.re.kr/") && g.source.page > 0);
 assert.equal(get("9과01–01").id, "9과01-01", "엔대시 코드도 받는다");
 assert.equal(get("없음-00"), null);
 
+// 단원 연계 — 같은 대상 단원은 한 번만, 근거는 배열
+const pr = prerequisites("중1~3|과학|힘의 작용");
+for (const k of ["prerequisite", "followup", "related"]) {
+  const ids = pr[k].map((x) => x.unit);
+  assert.equal(new Set(ids).size, ids.length, `${k} 중복 없음`);
+  assert.ok(pr[k].every((x) => x.evidence.length > 0 && x.evidence.every((e) => /연계된다/.test(e))), `${k} 근거는 고시문 연계 문장`);
+}
+assert.ok(pr.prerequisite.some((x) => x.unit === "초3~4|과학|힘과 우리 생활"), "힘의 작용 ← 힘과 우리 생활");
+assert.equal(prerequisites("9과06-01").unit, "중1~3|과학|기체의 성질", "코드로도 단원을 찾는다");
+const rp = relearnPath("9과06-01");
+assert.ok(rp.steps.some((s) => s.unit === "초3~4|과학|여러 가지 기체"), "기체의 성질 → 여러 가지 기체");
+const ph = relearnPath("광합성"), ph1 = relearnPath("광합성", { depth: 1 });
+assert.ok(ph.steps.every((s) => s.depth <= 2) && ph1.steps.every((s) => s.depth === 1) && ph1.steps.length <= ph.steps.length, "깊이 제한");
+assert.ok(ph.steps.every((s, i, a) => !i || ["초1~2", "초3~4", "초5~6", "중1~3", "고1", "고2~3"].indexOf(a[i - 1].grade) <= ["초1~2", "초3~4", "초5~6", "중1~3", "고1", "고2~3"].indexOf(s.grade)), "학년군 낮은 순");
+const cs = commonSense({ grade: "중1~3", subject: "과학" });
+assert.ok(cs.total > 10 && cs.units.every((u) => u.grade === "중1~3"), "필수 단원");
+assert.equal(commonSense({ grade: "고2~3" }).total, 0, "고2~3 은 전부 선택");
+
 const p = spawn(process.execPath, [new URL("./index.js", import.meta.url).pathname]);
 const send = (m) => p.stdin.write(JSON.stringify({ jsonrpc: "2.0", ...m }) + "\n");
 let buf = "";
@@ -23,7 +41,7 @@ send({ id: 2, method: "tools/list" });
 send({ id: 3, method: "tools/call", params: { name: "search_topic", arguments: { q: "금융", grade: "고2~3", limit: 3 } } });
 const [, list, call] = await replies;
 p.kill();
-assert.deepEqual(list.result.tools.map((t) => t.name).sort(), ["get_topic", "search_topic"]);
+assert.deepEqual(list.result.tools.map((t) => t.name).sort(), ["common_sense", "get_topic", "prerequisites", "relearn_path", "search_topic"]);
 const found = JSON.parse(call.result.content[0].text);
 assert.ok(found.total > 0, "고교 금융 성취기준");
-console.log("PASS", { 광합성: r.total, 금융_고2_3: found.total, 첫결과: found.items[0].id + " " + found.items[0].text.slice(0, 40) });
+console.log("PASS", { 광합성: r.total, 광합성_경로: ph.steps.length, 힘의작용_선수: pr.prerequisite.length, 금융_고2_3: found.total, 첫결과: found.items[0].id + " " + found.items[0].text.slice(0, 40) });

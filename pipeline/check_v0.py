@@ -2,6 +2,7 @@
 #   python3 pipeline/check_v0.py data/kr/sources.json corpus data/kr/standards.json corpus/extract-report.json
 # 1) 추출 보고: 누락·해설만 있는 코드·PDF 불일치·충돌·쪽 없음 = 0 (다른 교과 기준 인용은 전체 집합에 있으면 통과)
 # 2) 레코드: id 유일 · text 비지 않음 · grade 있음 · sourceSeq 가 sources.json 에 있음
+# 4) 단원·연계(units.json·links.json 이 있으면): 모든 기준이 단원 하나에 · 간선 양끝이 노드(또는 `학년|과목|*`) · 근거 문장이 원문 단원 메모에 있음 · 자기 간선 0
 # 3) 느슨한 코드 꼴: `[숫자…-숫자…]` 인데 CODE 정규식에 안 맞는 것 = 0 (알려진 비기준 꼴 제외)
 #    — 추출과 검사가 같은 정규식을 쓰면 정규식 구멍(로마 숫자·괄호 과목명)을 못 본다. 2026-10-18 실측 296줄 누락이 그랬다.
 import json, os, re, subprocess, sys
@@ -39,6 +40,17 @@ def main(sources_path, corpus, std_path, report_path):
         odd = sorted({m.group(0) for m in LOOSE.finditer(t) if not re.fullmatch(E.CODE, m.group(0)) and not any(k.search(m.group(0)) for k in KNOWN)})
         if odd:
             fails.append(f"{f} 정규식 밖 코드 꼴: {odd[:5]}")
+    udir = os.path.dirname(std_path)
+    if os.path.exists(os.path.join(udir, "links.json")):
+        units = json.load(open(os.path.join(udir, "units.json")))["units"]
+        uid = {u["id"] for u in units} | {f"{u['grade']}|{u['course']}|*" for u in units}
+        placed = [c for u in units for c in u["standards"]]
+        if sorted(placed) != sorted(ids):
+            fails.append(f"단원 배치 불일치: 기준 {len(ids)} · 배치 {len(placed)}")
+        notes = {n for s in stds for n in s.get("unitNotes", [])}
+        for l in json.load(open(os.path.join(udir, "links.json")))["links"]:
+            if l["from"] not in uid or l["to"] not in uid or l["from"] == l["to"] or l["evidence"] not in notes:
+                fails.append(f"간선 이상: {l['from']} → {l['to']}")
     print(f"성취기준 {len(ids)} · 해설 {sum('notes' in s for s in stds)} · 단원 메모 {sum('unitNotes' in s for s in stds)} · 수식 {sum('math' in s for s in stds)}")
     for x in fails:
         print("FAIL", x)

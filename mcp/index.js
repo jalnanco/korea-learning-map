@@ -3,9 +3,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { search, get, GRADES, standards } from "./search.js";
+import { search, get, GRADES, standards, prerequisites, relearnPath, commonSense } from "./search.js";
 
-const server = new McpServer({ name: "korea-learning-map", version: "0.0.1" });
+const server = new McpServer({ name: "korea-learning-map", version: "0.0.2" });
 const json = (v) => ({ content: [{ type: "text", text: JSON.stringify(v, null, 1) }] });
 
 server.registerTool(
@@ -32,6 +32,33 @@ server.registerTool(
     const s = get(id);
     return s ? json(s) : { isError: true, content: [{ type: "text", text: `없는 코드: ${id} — search_topic 으로 먼저 찾는다` }] };
   },
+);
+
+const ref = z.string().describe("성취기준 코드('9과03-01'), 단원 id('중1~3|과학|힘의 작용'), 또는 낱말('광합성')");
+const notFound = (r) => ({ isError: true, content: [{ type: "text", text: `못 찾음: ${r} — search_topic 으로 먼저 찾는다` }] });
+
+server.registerTool(
+  "prerequisites",
+  { description: "단원 하나의 선수(prerequisite)·후속(followup)·관련(related) 단원을 고시문 근거 문장과 함께 돌려준다. 고시문이 「…와 연계된다」고 밝힌 것만 — 추정 없음.", inputSchema: { ref } },
+  async ({ ref }) => { const r = prerequisites(ref); return r ? json(r) : notFound(ref); },
+);
+
+server.registerTool(
+  "relearn_path",
+  {
+    description: "어떤 내용을 다시 배우려 할 때 거슬러 올라가 먼저 볼 단원들을 학년군 낮은 순으로 돌려준다(고시문 연계만 따라감). 「이걸 이해하려면 어디부터 다시 봐야 해?」에 쓴다.",
+    inputSchema: { ref, depth: z.number().int().min(1).max(6).optional().describe("몇 단계까지 거슬러 갈지(기본 2 — 1 = 바로 앞 단원만)") },
+  },
+  async ({ ref, depth }) => { const r = relearnPath(ref, { depth }); return r ? json(r) : notFound(ref); },
+);
+
+server.registerTool(
+  "common_sense",
+  {
+    description: "모두가 배우는 것 — 초1~고1 필수 공통 교육과정(한문·중학교 선택·고2~3 선택 제외)의 단원 목록. 「상식으로 무엇을 배우나」의 원문 기준.",
+    inputSchema: { grade: z.enum(GRADES).optional().describe("학년군으로 좁히기"), subject: z.string().optional().describe("교과·과목 이름 일부. 예: '과학', '통합사회'") },
+  },
+  async ({ grade, subject }) => json(commonSense({ grade, subject })),
 );
 
 await server.connect(new StdioServerTransport());

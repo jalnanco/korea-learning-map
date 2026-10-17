@@ -35,6 +35,7 @@ def pdf_pages(path):
     out = subprocess.run(["pdftotext", "-layout", path, "-"], capture_output=True, text=True, check=True).stdout
     return out.split("\f")
 
+LEAD = re.compile(r"^\s*\[?(?:" + CODE[2:] + r"\s*[,·와과및]?\s*)(?:\[" + CODE[2:] + r"\s*[,·와과및]?\s*)*")  # 해설 줄 앞머리 코드들
 MATH = re.compile(r"⟦(.*?)⟧")
 SYM = [(r"\{([^{}]*)\}\s*over\s*\{([^{}]*)\}", r"(\1)/(\2)"), (r"(\S+)\s+over\s+(\S+)", r"\1/\2"), (r"sqrt\s*\{([^{}]*)\}", r"√(\1)"),
        (r"(?i)\btimes\b", "×"), (r"\bdiv\b", "÷"), (r"SMALLSUM", "Σ"), (r"[`~{}]", ""), (r"\s+", "")]
@@ -65,14 +66,18 @@ def extract(lines, src):
         if (m := UNIT.match(l)):
             unit = m.group(2).strip(); section = None; continue
         if HEADING.match(l):
-            section = None; continue
+            section, unit = None, None; continue  # 단원 제목 없이 기준이 바로 오는 과목(국어 선택 등)에 목표 절 `(n)` 문장이 단원으로 남지 않게
         if (m := SECTION.match(l)):
             section = "해설" if "해설" in m.group(2) else ("고려" if "고려" in m.group(2) else m.group(2)); continue
         l = BULLET.sub("", l)  # HWP 는 글머리표가 문단 서식이라 「•」가 없다 — 있으면 떼고 같은 규칙으로 본다
         m = STD.match(l)
         if section == "해설":
             if m:
-                last = alias(code_of(m)); stds.setdefault(last, {}).setdefault("notes", []).append(m.groups()[-1].strip())
+                lead = LEAD.match(l).group(0)
+                codes = [alias(code_of(c)) for c in re.finditer(CODE, lead)]
+                note = m.groups()[-1].strip() if len(codes) == 1 else l.strip()  # `[A], [B]는 …` = 두 기준 공통 해설 — 문장 그대로
+                for c in codes:
+                    stds.setdefault(c, {}).setdefault("notes", []).append(note)
             continue
         if section == "고려":
             if not m:

@@ -3,24 +3,10 @@
 # 필수(모두가 배우는 것) = 초·중 전 교과(한문·중학교 선택 교과 제외) + 고1 공통과목. 나머지는 선택.
 import collections, json, os, re, shutil, sys
 from urllib.parse import quote
+from names import SUBJECT, course_of, is_core
 
 GRADES = ["초1~2", "초3~4", "초5~6", "중1~3", "고1", "고2~3"]
-ELECTIVE_ANNEX = {17, 18}  # 한문 · 중학교 선택(보건·환경·진로와 직업)
-ABBR = {"바": "바른 생활", "슬": "슬기로운 생활", "즐": "즐거운 생활"}
-SUBJECT = {5: "국어", 6: "도덕", 7: "사회", 8: "수학", 9: "과학", 10: "실과·기술가정·정보", 11: "체육", 12: "음악", 13: "미술", 14: "영어",
-           15: "통합교과(초1~2)", 17: "한문", 18: "중학교 선택", 19: "고등학교 교양", 20: "과학 계열 선택", 21: "체육 계열 선택", 22: "예술 계열 선택"}
 LINK = re.compile(r"연계(된다|한다|하여|할 수)")
-
-def is_core(s, annex):
-    if s["grade"] == "고1":
-        return s.get("courseType") == "공통과목"
-    return not s["grade"].startswith("고") and annex not in ELECTIVE_ANNEX
-
-def course_of(s):  # 초·중은 코드 약칭으로(과목명 필드가 없는 교과가 많다), 고교는 과목명
-    if s.get("course"):
-        return re.sub(r"\s+(\d)$", r"\1", s["course"].strip())  # 「통합사회 1」 → 「통합사회1」
-    ab = re.match(r"\d+(\D+?)\d*-", s["id"]).group(1)
-    return ABBR.get(ab)
 
 def main(data, out):
     src = {x["seq"]: x for x in json.load(open(os.path.join(data, "sources.json")))["sources"]}
@@ -68,7 +54,8 @@ def subject_page(annex, ss):
             kind = f" · {first['courseType']}" if first.get("courseType") else ""
             o += [f'<a id="{anchor(g, c or name)}"></a>', f"## {g} · {c or name}", "", f"{mark}{kind}", ""]
             for u, items in units.items():
-                o += [f"### {u}", ""]
+                if u:  # 단원 구분이 없는 과목(국어·영어 선택 일부)은 기준을 바로 늘어놓는다
+                    o += [f"### {u}", ""]
                 for s in items:
                     o.append(f"- **[{s['id']}]** {s['text']} <sub>p.{s['page']}</sub>")
                     if s.get("notes"):
@@ -96,7 +83,7 @@ def core_page(stds):
             by_subj.setdefault((SUBJECT[s["annex"]], s["courseName"]), collections.OrderedDict()).setdefault(s["unit"], []).append(s["id"])
         for (subj, c), units in by_subj.items():
             label = f"{subj} · {c}" if c else subj
-            o.append(f"- **[{label}](교과/{quote(subj)}.md#{anchor(g, c or subj)})** — " + " · ".join(f"{u} ({len(ids)})" for u, ids in units.items()))
+            o.append(f"- **[{label}](교과/{quote(subj)}.md#{anchor(g, c or subj)})** — " + " · ".join(f"{u or '성취기준'} ({len(ids)})" for u, ids in units.items()))
         o.append("")
     return "\n".join(o)
 

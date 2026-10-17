@@ -2,7 +2,7 @@
 
 한국 초·중·고 교육과정(2022 개정, 교육부 고시 제2022-33호)의 **전 교과 성취기준 3,844개를 원문 그대로** 구조화한 공개 데이터와, AI 가 이를 찾아 읽게 하는 로컬 MCP 서버.
 
-목표는 「살면서 무엇을 상식으로 배우는가」와 「다시 배우려면 어디서부터 하나」를 누구나 원문 근거로 답할 수 있게 하는 것이다. 지금(v0)은 그 바탕인 **원문층**만 있다 — 개념·선수관계·다시 배우기 경로는 다음 판에서 쌓는다([DESIGN.md](DESIGN.md)).
+목표는 「살면서 무엇을 상식으로 배우는가」와 「다시 배우려면 어디서부터 하나」를 누구나 원문 근거로 답할 수 있게 하는 것이다. 지금(v0)은 그 바탕인 **원문층**과, 고시문이 직접 「…와 연계된다」고 밝힌 **단원 간 연계**까지 있다 — 개념 단위 선수관계는 다음 판에서 쌓는다([DESIGN.md](DESIGN.md)).
 
 ## 바로 보기
 
@@ -14,9 +14,11 @@
 | 파일 | 내용 |
 |---|---|
 | `data/kr/standards.json` | 성취기준 3,844개 — 코드·원문·학년군·교과·과목·단원·성취기준 해설·적용 시 고려 사항(학년 간 연계 문장 포함)·고시 별책·쪽 |
+| `data/kr/units.json` | 단원 824개(필수 285) — 학년군·교과·과목·단원과 소속 성취기준 |
+| `data/kr/links.json` | 단원 간 연계 490개 — 선수·후속·관련, 근거 문장(고시문 「…와 연계된다」만, 추정 없음) |
 | `data/kr/sources.json` | 원문 고시문 21개 별책의 NCIC 다운로드 주소와 sha256 |
 | `data/kr/cross_curricular.json` | 총론의 범교과 학습 주제 10개 |
-| `mcp/` | stdio MCP 서버 — `search_topic`(낱말 검색) · `get_topic`(원문·해설·출처) |
+| `mcp/` | stdio MCP 서버 — `search_topic`(낱말 검색) · `get_topic`(원문·해설·출처) · `prerequisites`(선수·후속 단원) · `relearn_path`(다시 배우는 순서) · `common_sense`(필수 공통 단원) |
 | `docs/` | 위 JSON 을 펼친 학습 목록 — `python3 pipeline/build_docs.py data/kr docs` 로 다시 만든다 |
 | `pipeline/` | 고시문 HWP/PDF → JSON 추출기와 검증 관문(LLM 미사용) |
 
@@ -41,7 +43,7 @@ claude mcp add korea-learning-map -- npx -y korea-learning-map-mcp
 { "mcpServers": { "korea-learning-map": { "command": "npx", "args": ["-y", "korea-learning-map-mcp"] } } }
 ```
 
-「중학교에서 금융을 어디서 배워?」「분수 나눗셈은 몇 학년이야?」처럼 물으면 원문 성취기준과 출처 쪽수로 답한다. 네트워크·서버·API 키가 필요 없다.
+「중학교에서 금융을 어디서 배워?」「분수 나눗셈은 몇 학년이야?」처럼 물으면 원문 성취기준과 출처 쪽수로 답한다. 「광합성을 다시 배우려면 어디부터?」는 `relearn_path` 가 고시문이 밝힌 선수 단원을 학년군 낮은 순으로 돌려준다. 네트워크·서버·API 키가 필요 없다.
 
 ## 다시 만들기
 
@@ -49,7 +51,9 @@ claude mcp add korea-learning-map -- npx -y korea-learning-map-mcp
 python3 pipeline/scan_ncic.py 2022 10003530 10003830 > corpus/ncic-2022-scan.tsv   # 게시본 목록
 # sources.json 의 url·hwpUrl 로 corpus/pdf/<seq>.pdf · corpus/hwp/<seq>.hwp 를 받는다
 python3 pipeline/extract_standards.py data/kr/sources.json corpus data/kr/standards.json > corpus/extract-report.json
+python3 pipeline/extract_links.py data/kr                                           # units.json · links.json
 python3 pipeline/check_v0.py data/kr/sources.json corpus data/kr/standards.json corpus/extract-report.json   # PASS 여야 한다
+python3 pipeline/build_docs.py data/kr docs
 ```
 
 원문 텍스트는 HWP 본문을 직접 읽는다(PDF 는 낱말 중간 줄바꿈 때문에 띄어쓰기를 되살릴 수 없어 쪽 번호·대조용으로만 쓴다). 관문은 모든 문장이 같은 별책 PDF 에 그대로 있는지, 코드 꼴이 빠짐없이 잡혔는지를 검사한다. 원문 자체의 코드 오기는 `pipeline/exceptions.json` 에서 코드만 보정하고 문장은 고치지 않는다.
