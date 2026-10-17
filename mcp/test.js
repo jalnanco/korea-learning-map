@@ -34,6 +34,7 @@ assert.ok(relearnPath("12문학01-01").steps.some((s) => s.unit === "중1~3|국�
 const cs = commonSense({ grade: "중1~3", subject: "과학" });
 assert.ok(cs.total > 10 && cs.units.every((u) => u.grade === "중1~3"), "필수 단원");
 assert.equal(commonSense({ grade: "고2~3" }).total, 0, "고2~3 은 전부 선택");
+assert.equal(cs.crossCurricular.topics.length, 10, "범교과 학습 주제 10개");
 
 const p = spawn(process.execPath, [new URL("./index.js", import.meta.url).pathname]);
 const send = (m) => p.stdin.write(JSON.stringify({ jsonrpc: "2.0", ...m }) + "\n");

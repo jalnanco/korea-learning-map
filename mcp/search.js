@@ -126,8 +126,17 @@ export function relearnPath(ref, { depth: max = 2 } = {}) {
   };
 }
 
-// 모두가 배우는 것(필수) 단원 목록
+// 모두가 배우는 것(필수) 단원 목록 + 총론이 모든 교육 활동에 걸쳐 다루라는 범교과 학습 주제 10개
+const cross = read("cross_curricular.json");
 export function commonSense({ grade, subject } = {}) {
   const us = units.filter((u) => u.core && (!grade || u.grade === grade) && (!subject || squash(`${u.subject} ${u.course}`).includes(squash(subject))));
-  return { total: us.length, standards: us.reduce((n, u) => n + u.standards.length, 0), units: us.map((u) => ({ unit: u.id, grade: u.grade, subject: u.subject, course: u.course, name: u.unit || u.course, count: u.standards.length })) };
+  return {
+    total: us.length, standards: us.reduce((n, u) => n + u.standards.length, 0),
+    units: us.map((u) => ({ unit: u.id, grade: u.grade, subject: u.subject, course: u.course, name: u.unit || u.course, count: u.standards.length })),
+    crossCurricular: {
+      source: `${cross.ref} p.${cross.page}`, rule: cross.intro,
+      topics: cross.topics.map((t) => ({ name: t.name, mentionedBy: t.mentionedBy })),
+      note: "mentionedBy = 해설·단원 메모가 주제 이름을 그대로 언급한 성취기준. 주제 낱말이 들어간 기준을 더 찾으려면 search_topic('통일') 처럼 쓴다(뜻이 다른 낱말도 섞인다)",
+    },
+  };
 }

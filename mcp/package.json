@@ -12,7 +12,7 @@
     "data/"
   ],
   "scripts": {
-    "prepack": "mkdir -p data && cp ../data/kr/standards.json ../data/kr/sources.json ../data/kr/units.json ../data/kr/links.json data/",
+    "prepack": "mkdir -p data && cp ../data/kr/standards.json ../data/kr/sources.json ../data/kr/units.json ../data/kr/links.json ../data/kr/cross_curricular.json data/",
     "test": "node test.js"
   },
   "engines": {

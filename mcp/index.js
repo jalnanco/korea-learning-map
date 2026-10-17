@@ -55,7 +55,7 @@ server.registerTool(
 server.registerTool(
   "common_sense",
   {
-    description: "모두가 배우는 것 — 초1~고1 필수 공통 교육과정(한문·중학교 선택·고2~3 선택 제외)의 단원 목록. 「상식으로 무엇을 배우나」의 원문 기준.",
+    description: "모두가 배우는 것 — 초1~고1 필수 공통 교육과정(한문·중학교 선택·고2~3 선택 제외)의 단원 목록과 총론의 범교과 학습 주제 10개(안전·건강, 인성, 진로, 민주시민, 인권, 다문화, 통일, 독도, 경제·금융, 환경·지속가능발전). 「상식으로 무엇을 배우나」의 원문 기준.",
     inputSchema: { grade: z.enum(GRADES).optional().describe("학년군으로 좁히기"), subject: z.string().optional().describe("교과·과목 이름 일부. 예: '과학', '통합사회'") },
   },
   async ({ grade, subject }) => json(commonSense({ grade, subject })),

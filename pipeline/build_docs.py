@@ -8,7 +8,11 @@ from names import SUBJECT, course_of, is_core
 GRADES = ["초1~2", "초3~4", "초5~6", "중1~3", "고1", "고2~3"]
 LINK = re.compile(r"연계(된다|한다|하여|할 수)")
 
+DATA = None
+
 def main(data, out):
+    global DATA
+    DATA = data
     src = {x["seq"]: x for x in json.load(open(os.path.join(data, "sources.json")))["sources"]}
     stds = json.load(open(os.path.join(data, "standards.json")))["standards"]
     for s in stds:
@@ -103,6 +107,12 @@ def core_page(stds):
          "「상식으로 무엇을 아는가」의 원문 기준이며, 다시 배울 때 어디까지 내려가면 되는지 보는 지도다.", "",
          "- 제외: 한문·중학교 선택 교과(보건·환경·진로와 직업)·고2~3 선택 과목 → [전체 지도](README.md)",
          "- 고1 기본수학·기본영어는 공통수학·공통영어 대신 들을 수 있는 과목이라 함께 싣는다.", ""]
+    cross_path = os.path.join(DATA, "cross_curricular.json")
+    if os.path.exists(cross_path):
+        c = json.load(open(cross_path))
+        o += ["## 교과를 가로질러 — 범교과 학습 주제", "", f"총론({c['ref']}, [p.{c['page']}]({c['url']}))은 교과 밖에서도 다음 10개 주제를 모든 교육 활동에 걸쳐 다루게 한다. "
+              "숫자는 성취기준 해설·적용 시 고려 사항이 주제 이름을 그대로 언급한 기준 수다.", "",
+              " · ".join(f"{t['name']} ({len(t['mentionedBy'])})" for t in c["topics"]), ""]
     for g in GRADES:
         gs = [s for s in core if s["grade"] == g]
         if not gs:
