@@ -1,0 +1,7 @@
+# 원문 PDF·HWP 는 sources.json 의 URL·sha256 으로 다시 받는다(용량 95MB+)
+corpus/
+.venv/
+mcp/node_modules/
+mcp/data/
+__pycache__/
+ref/
