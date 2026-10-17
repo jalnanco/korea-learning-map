@@ -5,7 +5,7 @@
 # 방향: 대상 학년군이 낮으면 prerequisite(선수), 높으면 followup(후속), 같으면 related.
 # corpus 를 주면 고교 과목 「1. 성격」 문단의 과목 간 관계도 잇는다 — 「‘문학’은 … ‘국어’와 … ‘공통국어1, 공통국어2’의 문학 영역을 심화⋅확장한 과목」
 #   → 과목 전체(`학년|과목|*`) 사이 간선(rule 성격). 같은 학년군이면 따옴표 묶음 바로 뒤가 「…에서 학습한」「…를 통해 익힌」
-#   「…와 연계된 심화」「…를 토대로」일 때만 선수, 아니면 관련(「긴밀히 연계된다」는 방향이 없다).
+#   「…와 연계된 (…의) 심화」「…를 토대로」「…의 … 를 (…) 확장⋅심화」일 때만 선수, 아니면 관련(「긴밀히 연계된다」는 방향이 없다).
 #   python3 pipeline/extract_links.py data/kr corpus
 import collections, json, os, re, sys
 from names import SUBJECT, is_core, label
@@ -108,7 +108,7 @@ def resolve(note, here, by_unit, by_course, unresolved):
     return out
 
 LEAD_COURSE = re.compile(r"^(?:또한\s*)?(?:고등학교\s*)?[‘']([^’']+)[’']\s*(?:과목에서는|과목은|은|는)")
-PRE = re.compile(r"^\s*(까지|에서|를\s*통해|을\s*통해)?\s*(학습한|배운|다룬|익힌)|^\s*(와|과)\s*연계된\s*심화|^\s*(을|를)\s*(토대|바탕|기초)로|^\s*의\s[^‘]{0,40}?(을|를)\s*(통합적으로\s*)?심화")
+PRE = re.compile(r"^\s*(까지|에서|를\s*통해|을\s*통해)?\s*(학습한|배운|다룬|익힌)|^\s*(와|과)\s*연계된[^‘]{0,15}?심화|^\s*(을|를)\s*(토대|바탕|기초)로|^\s*의\s[^‘]{0,60}?(을|를)[^‘]{0,15}?(심화|확장)")
 
 def after_run(sent, quotes, i):  # i 번째 따옴표가 속한 묶음(쉼표·「와」·「고등학교 진로 선택」 같은 짧은 이음말로 이어진 따옴표들) 뒤 구절
     for j in range(i, len(quotes)):
@@ -164,11 +164,11 @@ def nature_links(src, corpus, nodes):
                     pre = bool(PRE.search(after_run(sent, quotes, qi)))
                     for sc in SCHOOL.finditer(sent, 0, q.start()):
                         school = sc.group(0)
-                    schools = ["초등학교", "중학교"] if re.search(r"초등학교\s*및\s*중학교", sent[:q.start()]) and school == "중학교" else [school or "고등학교"]
+                    schools = ["초등학교", "중학교"] if re.search(r"초(등학교\s*및\s*|\s*[⋅·]?\s*)중학교", sent[:q.start()]) and school == "중학교" else [school or "고등학교"]
                     names = re.split(r"\s*,\s*", q.group(1))
                     names = [re.sub(r"\d$", n, names[0]) if n.isdigit() else n for n in names]  # 「통합과학1, 2」
                     for name in names:
-                        for g, c in find(name, schools):
+                        for g, c in find(name, schools) or (find(name, ["고등학교"]) if "고등학교" not in schools else []):  # 「중학교 ‘도덕’ … ‘통합사회’」 — 맥락이 이어져도 그 학교급에 없으면 고교 과목
                             if (g, c) == (g0, c0):
                                 continue
                             d = GRADES.index(g) - GRADES.index(g0)
