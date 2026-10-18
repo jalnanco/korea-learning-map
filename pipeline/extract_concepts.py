@@ -6,7 +6,10 @@
 # 원문 근거: 「초⋅중학교의 지식⋅이해 범주는 학년(군)에 따라 위계성을 가지며, 영역 간에도 위계성을 고려하여 구성하였다.」
 # 과학(초3~중3): 내용 체계 = 영역 → 범주(힘과 에너지 …) × 학년군 칸의 내용 요소(⋅밀기와 당기기  ⋅무게). 개념 = 내용 요소 하나.
 #   성취기준은 단원으로 묶여 있어 개념 → 기준은 같은 학년군 기준 문장(+단원명)에 요소 낱말이 가장 많이 든 것(standardsBy 낱말).
-import json, os, re, subprocess, sys
+import collections, json, os, re, subprocess, sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+from names import SUBJECT
 
 HERE = os.path.dirname(__file__)
 ITEM = re.compile(r"^\s*⋅\s*(.+?)\s*$")
@@ -104,51 +107,121 @@ def standards_by_title(ls):
             out.setdefault(("영역", area) if m.group(1).startswith("10") or not title else title, []).append(m.group(1))  # 고1 은 영역 묶음
     return out
 
-SCI_COLS = {"3~4학년군": "초3~4", "5~6학년군": "초5~6", "1~3학년": "중1~3"}
-SCI_AREA = re.compile(r"^\((\d)\)\s+(운동과 에너지|물질|생명|지구와 우주|과학과 사회)\s*$")
+# 전 교과(수학 초1~고1 제외): 「가. 내용 체계」 블록마다 표 → 지식⋅이해 칸(「지식⋅ 이해」「[지식⋅이해]」 — 한글만 비교)의 내용 요소 = 개념.
+#   열: 학년군 머리(「3∼4학년」「5-6학년군」「중학교」) → 초·중 / 머리 없는 한 열 표 → 고교 과목(뒤따르는 성취기준 절의 과목·학년) / 통합교과는 열 = 과목.
+#   기준: 그 블록 성취기준 중 같은 학년군(고교는 같은 과목) 문장(+단원명)에 요소 낱말이 가장 많이 든 것(standardsBy 낱말), 0 점이면 같은 칸 이웃(이웃).
+GRADE_HEAD = {("1", "2"): "초1~2", ("3", "4"): "초3~4", ("5", "6"): "초5~6", ("1", "3"): "중1~3"}
+COURSE = re.compile(r"^\s*[\[<〈]([^\]>〉\d][^\]>〉]{0,24})[\]>〉]\s*$")  # 표 앞 과목 머리(「[한국사1]」) — extract_standards 와 같은 꼴
+ABBR = {"바른 생활": "바", "슬기로운 생활": "슬", "즐거운 생활": "즐"}
 JOSA = re.compile(r"(과|와|의|에서|에|을|를|은|는|이|가)$")
+ko = lambda t: re.sub(r"[^가-힣]", "", t)
+nm = lambda x: re.sub(r"\s", "", x or "")
+words = lambda t: [w for w in (JOSA.sub("", w) for w in re.split(r"[\s,⋅·]+", t)) if len(w) >= 2]
 
-def science(data, corpus, stds):
-    src = next(s for s in json.load(open(os.path.join(data, "sources.json")))["sources"] if s["annex"] == 9)
-    ls = lines(os.path.join(corpus, "hwp", f"{src['seq']}.hwp"))
-    a, b = next(i for i, l in enumerate(ls) if l.strip() == "가. 내용 체계"), next(i for i, l in enumerate(ls) if l.strip() == "나. 성취기준")
-    items, area, cells, cur = [], None, {}, None
-    def flush():
-        cols = {c: SCI_COLS[t[0]] for (r, c, rs, cs), t in cells.items() if t and t[0] in SCI_COLS}
-        know = next(((r, rs) for (r, c, rs, cs), t in cells.items() if c == 0 and t and t[0] == "지식⋅이해"), None)
-        if not know:
-            return
-        strand = {r: " ".join(t) for (r, c, rs, cs), t in cells.items() if c == 1 and t and know[0] <= r < know[0] + know[1]}  # 두 줄 칸(생물의 / 구조와 에너지)
-        for (r, c, rs, cs), t in sorted(cells.items()):
-            if c in cols and r in strand:
-                for line in t:
-                    for it in re.split(r"(?:^|\s+)⋅", line.strip()):  # 글머리 ⋅ 는 줄 처음이나 빈칸 뒤 — 「재해⋅재난」의 가운뎃점은 이름 안
-                        if it.strip() and not any(x["name"] == it.strip() and x["grade"] == cols[c] for x in items):
-                            items.append({"area": area, "strand": strand[r], "name": it.strip(), "grade": cols[c]})
-    for l in ls[a + 1:b]:
-        if (m := SCI_AREA.match(l.strip())):
-            flush(); area, cells, cur = m.group(2), {}, None
-        elif (m := CELL.match(l)):
-            cur = tuple(map(int, m.groups())); cells[cur] = []
+def blocks(ls, stds):
+    """「가. 내용 체계」 블록 → (표 줄들, 뒤따르는 「나. 성취기준」 절의 기준 코드들 — 상자 안(들여쓴) 줄만, 해설의 인용 제외)"""
+    i = 0
+    while i < len(ls):
+        if ls[i].strip().startswith("가. 내용 체계"):
+            j = next((j for j in range(i + 1, len(ls)) if ls[j].strip().startswith("나. 성취기준")), len(ls))
+            k = next((k for k in range(j, len(ls)) if ls[k].strip().startswith("가. 내용 체계")), len(ls))
+            yield ls[i + 1:j], list(dict.fromkeys(c for l in ls[j:k] if l.startswith("\t") for c in re.findall(r"\[([^\[\]\s]{3,24})\]", l) if c in stds))
+            i = k; continue
+        i += 1
+
+def content_tables(block):
+    """블록 → [(영역, 과목 머리, 칸들)] — 「⟪칸 0 0 …⟫」가 새 표. 들여쓰지 않은 줄은 표 밖(「(1) 듣기⋅말하기」 영역 머리)."""
+    out, area, head, cells, cur = [], None, None, None, None
+    for l in block:
+        if not l.startswith("\t"):
+            cur = None
+            if (m := re.match(r"^\s*\(\d+\)\s+(.+?)\s*$", l)):
+                area = m.group(1)
+            elif (m := COURSE.match(l)):
+                head = m.group(1)
+            continue
+        if (m := CELL.match(l)):
+            key = tuple(map(int, m.groups()))
+            if key[:2] == (0, 0):
+                cells = {}; out.append((area, head, cells))
+            cur = key; cells[cur] = []
         elif cur is not None:
             cells[cur].append(l.strip())
-    flush()
-    prefix = {"초3~4": "4과", "초5~6": "6과", "중1~3": "9과"}
-    words = lambda t: [w for w in (JOSA.sub("", w) for w in re.split(r"[\s,⋅·]+", t)) if len(w) >= 2]
+    return out
+
+def knowledge(cells):
+    """표 하나 → [(영역 칸 또는 None, 범주, 이름, 열 값들 또는 None)] — 열 값 = 학년군 또는 통합교과 과목, None = 한 열 표."""
+    cols = {}
+    for (r, c, rs, cs), t in cells.items():
+        h = re.sub(r"\s", "", "".join(t))
+        if (m := re.match(r"^([1-6])[~∼-]([1-6])학년(군)?$", h)) and m.groups()[:2] in GRADE_HEAD:
+            cols.update({x: GRADE_HEAD[m.groups()[:2]] for x in range(c, c + cs)})  # 수학 「1~3학년」 아래 1·2·3학년 세 칸
+        elif h == "중학교":  # 도덕
+            cols.update({x: "중1~3" for x in range(c, c + cs)})
+        elif " ".join(t) in ABBR:
+            cols[c] = " ".join(t)
     out = []
-    for it in items:
-        pool = [s for k, s in stds.items() if k.startswith(prefix[it["grade"]])]
-        ws = words(it["name"]) or [it["name"]]
-        sc = {s["id"]: sum(len(w) for w in ws if w in s["text"] + " " + (s.get("unit") or "")) for s in pool}
-        top = max(sc.values())
-        out.append({"id": f"과학|{it['grade']}|{it['name']}", "subject": "과학", "area": it["area"], "strand": it["strand"], "name": it["name"], "grade": it["grade"],
-                    "band": it["grade"], "course": None, "standards": [k for k, v in sc.items() if top and v == top], "standardsBy": "낱말"})
-    for k, c in enumerate(out):  # 요소 낱말이 기준 문장에 없으면(대전 · 옴의 법칙) 같은 칸의 앞(첫 요소면 뒤) 요소의 기준 — 칸 안 순서가 기준 순서를 따른다
-        if not c["standards"]:
-            cell = [x for x in out if (x["area"], x["strand"], x["grade"]) == (c["area"], c["strand"], c["grade"]) and x["standardsBy"] == "낱말" and x["standards"]]
-            near = [x for x in cell if out.index(x) < k][-1:] or [x for x in cell if out.index(x) > k][:1]
-            if near:
-                c["standards"], c["standardsBy"] = near[0]["standards"], "이웃"
+    for know in [k for k, t in sorted(cells.items()) if ko(" ".join(t)) == "지식이해"]:  # 통합교과는 영역마다 지식⋅이해 칸
+        r0, c0, rs0, _ = know
+        rows = [(k, t) for k, t in sorted(cells.items()) if r0 <= k[0] < r0 + rs0 and k != know and t]
+        first = min(cols) if cols else max(k[1] for k, _ in rows)
+        strands = [(k, re.sub(r"\s+", " ", " ".join(t)).replace("⋅ ", "⋅").strip()) for k, t in rows if c0 < k[1] < first]  # 두 줄 칸(생물의 / 구조와 에너지)
+        area = next((re.sub(r"\s+", " ", " ".join(t)) for (r, c, rs, cs), t in cells.items() if c == 0 < c0 and r <= r0 < r + rs and t), None)
+        for (r, c, rs, cs), t in rows:
+            vals = [cols[x] for x in range(c, c + cs) if x in cols] if cols else None  # 두 학년 칸에 걸친 칸 = 두 학년 모두
+            if c < first or vals == []:
+                continue
+            strand = next((s for (sr, sc, srs, _), s in strands if sr <= r < sr + srs), None)
+            for line in t:
+                for it in re.split(r"(?:^|\s+)[⋅∙•]", line.strip()):  # 글머리는 줄 처음이나 빈칸 뒤 — 「재해⋅재난」의 가운뎃점은 이름 안
+                    if ko(it) or re.search(r"[A-Za-z0-9]", it):  # 빈 칸 표시 「-」 제외
+                        out.append((area, strand, it.strip(), vals))
+    return out
+
+def annex_concepts(data, corpus, stds, annex):
+    src = next(s for s in json.load(open(os.path.join(data, "sources.json")))["sources"] if s["annex"] == annex)
+    subject = re.sub(r"\(.*\)", "", SUBJECT[annex])
+    out = []
+    for block, codes in blocks(lines(os.path.join(corpus, "hwp", f"{src['seq']}.hwp")), stds):
+        courses = list(dict.fromkeys(stds[c]["course"] for c in codes))
+        tabs = content_tables(block)
+        by_area = sum(nm(stds[c].get("unit")) in {nm(a) for a, _, _ in tabs} for c in codes) * 2 > len(codes)
+        for ti, (t_area, head, cells) in enumerate(tabs):
+            # 한 열 표의 과목: 표 앞 과목 머리 → 블록 과목 수 = 표 수면 순서대로(한국사 1·2) → 가장 많은 과목
+            course = next((c for c in courses if head and nm(c) == nm(head)), None) or (courses[ti] if len(courses) == len(tabs) > 1 else
+                     collections.Counter(stds[c]["course"] for c in codes).most_common(1)[0][0] if codes else None)
+            tab = []
+            for area, strand, name, vals in knowledge(cells):
+                if vals is None:
+                    g = collections.Counter(stds[c]["grade"] for c in codes if stds[c]["course"] == course).most_common(1)[0][0]
+                    targets = [(g, course, [c for c in codes if stds[c]["course"] == course])]
+                elif vals[0] in ABBR:  # 통합교과 표는 첫 과목(바른 생활) 블록에만 있다 — 기준은 그 과목 전체에서
+                    targets = [("초1~2", v, [c for c in stds if c.startswith("2" + ABBR[v])]) for v in vals]
+                else:  # 초·중은 학년군만 — 사회 「지리 영역」, 실과 「초등학교 실과」 같은 과목 칸은 보지 않는다
+                    targets = [(g, None, [c for c in codes if stds[c]["grade"] == g]) for g in vals]
+                for g, crs, pool in targets:
+                    if any((x["course"], x["grade"], x["name"]) == (crs, g, name) for x in out):
+                        continue
+                    if by_area:  # 단원명 = 영역명인 교과(국어 「읽기」)는 그 영역 기준 안에서 — 과학은 단원이 영역 아래 따로라(9과19 「운동과 에너지」 하나만 같다) 그대로
+                        pool = [c for c in pool if nm(stds[c].get("unit")) in (nm(area), nm(t_area))] or pool
+                    ws = words(name) or [name]
+                    sc = {c: sum(len(w) for w in ws if w in stds[c]["text"] + " " + (stds[c].get("unit") or "")) for c in pool}
+                    top = max(sc.values(), default=0)
+                    x = {"id": "|".join(p for p in (subject, g, crs, name) if p), "subject": subject, "area": area or t_area, "strand": strand, "name": name, "grade": g,
+                         "band": g, "course": crs, "standards": [c for c, v in sc.items() if top and v == top], "standardsBy": "낱말"}
+                    out.append(x); tab.append((x, pool))
+            for k, (c, pool) in enumerate(tab):  # 요소 낱말이 기준 문장에 없으면(대전 · 옴의 법칙) 같은 칸의 앞(첫 요소면 뒤) 요소의 기준 — 칸 안 순서가 기준 순서를 따른다
+                if not c["standards"]:
+                    cell = [x for x, _ in tab if (x["area"], x["strand"], x["grade"], x["course"]) == (c["area"], c["strand"], c["grade"], c["course"]) and x["standardsBy"] == "낱말" and x["standards"]]
+                    near = [x for x in cell if out.index(x) < out.index(c)][-1:] or [x for x in cell if out.index(x) > out.index(c)][:1]
+                    if near:
+                        c["standards"], c["standardsBy"] = near[0]["standards"], "이웃"
+                    else:  # 칸 전체가 0 점 — 범주 이름 낱말로(듣기⋅말하기 맥락), 그것도 0 점이면 비워 둔다(서정⋅서사⋅극⋅교술 · 수와 생활경제) — 억지로 잇지 않는다
+                        sc = {s: sum(len(w) for w in words(c["strand"] or "") if w in stds[s]["text"] + " " + (stds[s].get("unit") or "")) for s in pool}
+                        top = max(sc.values(), default=0)
+                        c["standards"], c["standardsBy"] = [s for s, v in sc.items() if top and v == top], "범주" if top else "없음"
+                        if not top and by_area and pool and len(pool) < len([x for x in codes if stds[x]["grade"] == c["grade"]]):  # 영역 안으로 좁혀진 경우만 — 그 학년 영역 기준 전체
+                            c["standards"], c["standardsBy"] = pool, "영역"
     return out
 
 def main(data, corpus):
@@ -193,10 +266,16 @@ def main(data, corpus):
             miss.append(it["name"])
         concepts.append({"id": f"수학|고1|{it['name']}", "subject": "수학", "area": it["area"], "name": it["name"], "grade": "고1", "band": "고1",
                          "course": it["course"], "standards": hit, "standardsBy": "낱말"})
-    sci = science(data, corpus, stds)
-    print(f"과학 개념 {len(sci)} · 기준 못 정함 {[c['name'] for c in sci if not c['standards']]}")
-    concepts += sci
-    json.dump({"version": "v1", "subjects": ["수학", "과학"], "source": "교육부 고시 제2022-33호 [별책 8]·[별책 9] 내용 체계 지식⋅이해", "count": len(concepts), "concepts": concepts},
+    for annex in sorted(SUBJECT):
+        if annex == 16:
+            continue
+        got = annex_concepts(data, corpus, stds, annex)
+        if annex == 8:  # 수학 초1~고1 은 위(성취기준 절 제목) — 여기서는 공통수학 밖 과목만(기본수학 · 고2~3)
+            got = [c for c in got if c["course"] and not c["course"].startswith("공통수학")]
+        print(f"{SUBJECT[annex]} 개념 {len(got)} · 기준 못 정함 {[c['name'] for c in got if not c['standards']][:8]}")
+        concepts += got
+    subjects = list(dict.fromkeys(c["subject"] for c in concepts))
+    json.dump({"version": "v2", "subjects": subjects, "source": "교육부 고시 제2022-33호 [별책 5~22] 교과별 내용 체계 지식⋅이해", "count": len(concepts), "concepts": concepts},
               open(os.path.join(data, "concepts.json"), "w"), ensure_ascii=False, indent=1)
     placed = {c for x in concepts for c in x["standards"]}
     math = [k for k in stds if re.match(r"(\d+수\d|10공수)", k)]

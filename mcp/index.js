@@ -3,9 +3,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { search, get, GRADES, standards, prerequisites, relearnPath, commonSense, conceptPath } from "./search.js";
+import { search, get, GRADES, standards, prerequisites, relearnPath, commonSense, conceptPath, conceptSubjects, conceptCount } from "./search.js";
 
-const server = new McpServer({ name: "korea-learning-map", version: "0.2.0" });
+const server = new McpServer({ name: "korea-learning-map", version: "0.3.0" });
 const json = (v) => ({ content: [{ type: "text", text: JSON.stringify(v, null, 1) }] });
 
 server.registerTool(
@@ -55,13 +55,13 @@ server.registerTool(
 server.registerTool(
   "concept_path",
   {
-    description: "개념 하나를 다시 배우려 할 때 먼저 알아야 할 개념들을 학년 낮은 순으로, 개념마다 셀프 체크 물음과 함께 돌려준다. 수학 초1~고1 99개 · 과학 초3~중3 194개 = 고시문 「내용 체계」 지식⋅이해 항목(예: '분수의 곱셈과 나눗셈', '옴의 법칙', '광합성 과정'). 간선마다 basis — 원문(고시문 문장) 또는 제안(원문에 없어 Claude 가 제안·Gemini 가 반박 심사). 학습자가 「안다」고 답한 개념은 known 에 넣어 다시 부르면 경로가 줄어든다. 수학·과학은 relearn_path(단원 단위)보다 이 도구가 촘촘하다.",
+    description: `개념 하나를 다시 배우려 할 때 먼저 알아야 할 개념들을 학년 낮은 순으로, 개념마다 셀프 체크 물음과 함께 돌려준다. 개념 = 고시문 「내용 체계」 지식⋅이해 항목 — 전 교과 초1~고2~3 ${conceptCount}개(예: '분수의 곱셈과 나눗셈', '옴의 법칙', '생각이나 감정이 함축적으로 제시된 글', '표준 환원 전위와 화학 전지의 전위차'). 간선마다 basis — 원문(고시문 문장) · 제안(Claude 제안 → Gemini 반박 심사, 수학·과학) · 구조(내용 체계 같은 범주 행의 앞 학년 칸) · 단원(고시문 단원 연계 안의 개념 쌍) — 구조·단원도 Gemini 가 「타당」이라 한 것만. 학습자가 「안다」고 답한 개념은 known 에 넣어 다시 부르면 경로가 줄어든다. 간선이 없는 개념은 units 로 relearn_path(단원 단위)를 쓴다.`,
     inputSchema: {
-      ref: z.string().describe("개념 이름 낱말('분수 나눗셈', '옴의 법칙'), 성취기준 코드('6수01-10'), 또는 개념 id('수학|중3|이차방정식')"),
+      ref: z.string().describe("개념 이름 낱말('분수 나눗셈', '옴의 법칙'), 성취기준 코드('6수01-10'), 또는 개념 id('수학|중3|이차방정식', '과학|고2~3|화학|분자의 구조')"),
       depth: z.number().int().min(1).max(8).optional().describe("몇 단계까지 거슬러 갈지(기본 3)"),
-      proposals: z.boolean().optional().describe("false 면 원문 간선만(기본 true — 원문 간선은 수학 고1 ← 중학교에 주로 있고 과학은 없다)"),
+      proposals: z.boolean().optional().describe("false 면 원문 간선만(기본 true — 원문 간선은 수학 고1 ← 중학교에 주로 있다)"),
       known: z.array(z.string()).optional().describe("이미 아는 개념들(이름·코드·id) — 거기서 멈춘다"),
-      subject: z.enum(["수학", "과학"]).optional().describe("이름이 두 교과에 걸칠 때 좁히기"),
+      subject: z.enum(conceptSubjects).optional().describe("이름이 여러 교과에 걸칠 때 좁히기"),
     },
   },
   async ({ ref, depth, proposals, known, subject }) => { const r = conceptPath(ref, { depth, proposals, known, subject }); return r ? json(r) : notFound(ref); },

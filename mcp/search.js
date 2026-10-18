@@ -141,14 +141,17 @@ export function commonSense({ grade, subject } = {}) {
   };
 }
 
-// ── 개념층(v1) — 수학 초1~고1 · 과학 초3~중3. 개념 = 고시문 「내용 체계」 지식⋅이해 항목. 간선은 basis 로 나눈다: 원문(고시문 문장) · 제안(Claude 제안 → Gemini 반박 심사 → 판정) ──
-const CRANK = { "초1~2": 0, "초3~4": 1, "초5~6": 2, "중1": 3, "중1~3": 3, "중2": 4, "중3": 5, "고1": 6 };
+// ── 개념층(v2) — 전 교과 초1~고2~3. 개념 = 고시문 「내용 체계」 지식⋅이해 항목. 간선은 basis 로 나눈다: 원문(고시문 문장) · 제안(Claude 제안 → Gemini 반박 심사 → 판정)
+//    · 구조(내용 체계 같은 범주 행의 앞 학년 칸) · 단원(고시문 단원 연계 위의 개념 쌍) — 구조·단원은 규칙으로 뽑아 Gemini 가 반박 심사해 「타당」만 ──
+const CRANK = { "초1~2": 0, "초3~4": 1, "초5~6": 2, "중1": 3, "중1~3": 3, "중2": 4, "중3": 5, "고1": 6, "고2~3": 7 };
 const concepts = read("concepts.json").concepts;
+export const conceptSubjects = [...new Set(concepts.map((c) => c.subject))];
+export const conceptCount = concepts.length;
 const conceptById = new Map(concepts.map((c) => [c.id, c]));
 const conceptOfStd = new Map(concepts.flatMap((c) => c.standards.map((s) => [s, c])));
 const proposals = read("concept_proposals.json").proposals;
 const conceptPre = new Map();
-for (const l of [...read("concept_links.json").links, ...proposals]) {
+for (const l of [...read("concept_links.json").links, ...proposals, ...read("concept_structure.json").links]) {
   if (!conceptPre.has(l.from)) conceptPre.set(l.from, []);
   conceptPre.get(l.from).push(l);
 }
@@ -197,6 +200,7 @@ export function conceptPath(ref, { depth: max = 3, proposals: withProposals = tr
   return {
     goal: conceptView(c), depth: max, known: knownIds.size ? [...knownIds] : undefined, steps, more: more || undefined,
     note: "basis 원문 = 고시문 문장이 밝힌 선수관계(because = 그 문장) · basis 제안 = 원문에 없는 직접 선수관계를 Claude 가 제안하고 Gemini 가 반박 심사한 것(because = 이유)"
+      + " · basis 구조 = 내용 체계 표 같은 범주 행의 바로 앞 학년 칸 · basis 단원 = 고시문이 밝힌 단원 연계 안의 개념 쌍(둘 다 규칙으로 뽑고 Gemini 가 「타당」이라 한 것만)"
       + " · selfCheck = 성취기준 문장을 물음으로 바꾼 것 — 「예」인 개념은 known 에 넣고 다시 부르면 경로가 줄어든다"
       + " · units = 단원 id(prerequisites·relearn_path 로 고시문 단원 연계를 볼 수 있다)"
       + (more ? ` · depth ${max + 1} 이상에 더 있다` : ""),

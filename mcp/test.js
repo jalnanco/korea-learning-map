@@ -54,6 +54,10 @@ assert.ok(ohm.goal.selfCheck[0].q.endsWith("있나요?") && ohm.goal.units.lengt
 const ohmK = conceptPath("옴의 법칙", { depth: 3, known: ["전기 회로", "대전"] });
 assert.ok(ohmK.steps.length < ohm.steps.length && !ohmK.steps.some((s) => s.name === "전기 회로"), "known 에서 멈춘다");
 assert.equal(conceptPath("달의 위상변화").goal.grade, "중1~3", "같은 이름이면 높은 학년");
+const imp = conceptPath("생각이나 감정이 함축적으로 제시된 글");
+assert.ok(imp.steps.some((s) => s.name === "생각이나 감정이 명시적으로 제시된 글" && s.basis === "구조"), "국어 — 구조 간선(같은 범주 행 앞 학년)");
+const redox = conceptPath("표준 환원 전위", { subject: "과학 계열 선택" });
+assert.ok(redox.steps.some((s) => s.concept === "과학|고1|통합과학2|산화와 환원" && s.basis === "단원"), "고교 선택 ← 통합과학 — 단원 간선");
 
 const p = spawn(process.execPath, [new URL("./index.js", import.meta.url).pathname]);
 const send = (m) => p.stdin.write(JSON.stringify({ jsonrpc: "2.0", ...m }) + "\n");

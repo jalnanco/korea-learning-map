@@ -7,7 +7,7 @@
 #    간선(원문 + 제안) 양끝이 개념 · 선수 학년 ≤ 출발 학년 · 순환 0
 # 3) 느슨한 코드 꼴: `[숫자…-숫자…]` 인데 CODE 정규식에 안 맞는 것 = 0 (알려진 비기준 꼴 제외)
 #    — 추출과 검사가 같은 정규식을 쓰면 정규식 구멍(로마 숫자·괄호 과목명)을 못 본다. 2026-10-18 실측 296줄 누락이 그랬다.
-import json, os, re, subprocess, sys
+import collections, json, os, re, subprocess, sys
 
 HERE = os.path.dirname(__file__)
 sys.path.insert(0, HERE)
@@ -63,22 +63,28 @@ def main(sources_path, corpus, std_path, report_path):
     print("PASS" if not fails else f"{len(fails)} FAIL")
     sys.exit(1 if fails else 0)
 
-CRANK = {"초1~2": 0, "초3~4": 1, "초5~6": 2, "중1": 3, "중1~3": 3, "중2": 4, "중3": 5, "고1": 6}  # 과학 중학교는 학년군 하나(중1~3) — 수학 중1 과 같은 자리
+CRANK = {"초1~2": 0, "초3~4": 1, "초5~6": 2, "중1": 3, "중1~3": 3, "중2": 4, "중3": 5, "고1": 6, "고2~3": 7}  # 과학 중학교는 학년군 하나(중1~3) — 수학 중1 과 같은 자리
 
 def check_concepts(udir, corpus):
     out = []
     concepts = {c["id"]: c for c in json.load(open(os.path.join(udir, "concepts.json")))["concepts"]}
     flat = lambda t: re.sub(r"[\s⋅·]", "", t)
     srcs = {s["annex"]: s for s in json.load(open(os.path.join(udir, "sources.json")))["sources"]}
+    from names import SUBJECT
+    annex = {re.sub(r"\(.*\)", "", n): a for a, n in SUBJECT.items()}
     hwp = {subj: flat(subprocess.run([sys.executable, os.path.join(HERE, "hwp_text.py"), os.path.join(corpus, "hwp", f"{srcs[a]['seq']}.hwp")], capture_output=True, text=True, check=True).stdout)
-           for subj, a in (("수학", 8), ("과학", 9))}
-    for c in concepts.values():
-        if flat(c["name"]) not in hwp[c["subject"]] or not c["standards"]:
+           for subj, a in annex.items() if a in srcs and a != 16}
+    seq = {s["id"]: s["sourceSeq"] for s in json.load(open(os.path.join(udir, "standards.json")))["standards"]}
+    for c in concepts.values():  # 이름이 그 교과 별책 원문에 있고, 기준이 같은 별책 것(없음 = 낱말·범주 모두 0 점이라 비워 둔 것만 허용)
+        if flat(c["name"]) not in hwp[c["subject"]] or (not c["standards"]) != (c["standardsBy"] == "없음") or any(seq.get(k) != srcs[annex[c["subject"]]]["seq"] for k in c["standards"]):
             out.append(f"개념 이상: {c['id']}")
     edges = [(l, "원문") for l in json.load(open(os.path.join(udir, "concept_links.json")))["links"]]
     prop = os.path.join(udir, "concept_proposals.json")
     if os.path.exists(prop):
         edges += [(l, "제안") for l in json.load(open(prop))["proposals"]]
+    struct = os.path.join(udir, "concept_structure.json")
+    if os.path.exists(struct):
+        edges += [(l, l["basis"]) for l in json.load(open(struct))["links"]]
     graph = {}
     for l, kind in edges:
         a, b = concepts.get(l["from"]), concepts.get(l["to"])
@@ -97,7 +103,7 @@ def check_concepts(udir, corpus):
         state[n] = 1
     for n in list(graph):
         visit(n, [])
-    print(f"개념 {len(concepts)} · 개념 간선 원문 {sum(k == '원문' for _, k in edges)} · 제안 {sum(k == '제안' for _, k in edges)}")
+    print(f"개념 {len(concepts)} · 개념 간선 " + " · ".join(f"{k} {n}" for k, n in collections.Counter(k for _, k in edges).items()))
     return out
 
 if __name__ == "__main__":
