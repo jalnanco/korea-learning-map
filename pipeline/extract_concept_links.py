@@ -20,7 +20,7 @@ def score(name, text):
 
 def main(data, corpus):
     stds = {s["id"]: s for s in json.load(open(os.path.join(data, "standards.json")))["standards"]}
-    concepts = json.load(open(os.path.join(data, "concepts.json")))["concepts"]
+    concepts = [c for c in json.load(open(os.path.join(data, "concepts.json")))["concepts"] if c["subject"] == "수학"]  # 과학 해설에는 「…에서 학습한 (개념 요소)」 문장이 없다(1건은 산소·이산화 탄소 — 요소 아님)
     own = {c: x for x in concepts for c in x["standards"]}
     links, seen = [], set()
 

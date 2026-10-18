@@ -141,8 +141,8 @@ export function commonSense({ grade, subject } = {}) {
   };
 }
 
-// ── 수학 개념층(v1) — 개념 = 고시문 「내용 체계」 지식⋅이해 항목. 간선은 basis 로 나눈다: 원문(고시문 문장) · 제안(Claude 제안 → Gemini 반박 심사 → 판정) ──
-const CGRADES = ["초1~2", "초3~4", "초5~6", "중1", "중2", "중3", "고1"];
+// ── 개념층(v1) — 수학 초1~고1 · 과학 초3~중3. 개념 = 고시문 「내용 체계」 지식⋅이해 항목. 간선은 basis 로 나눈다: 원문(고시문 문장) · 제안(Claude 제안 → Gemini 반박 심사 → 판정) ──
+const CRANK = { "초1~2": 0, "초3~4": 1, "초5~6": 2, "중1": 3, "중1~3": 3, "중2": 4, "중3": 5, "고1": 6 };
 const concepts = read("concepts.json").concepts;
 const conceptById = new Map(concepts.map((c) => [c.id, c]));
 const conceptOfStd = new Map(concepts.flatMap((c) => c.standards.map((s) => [s, c])));
@@ -152,30 +152,39 @@ for (const l of [...read("concept_links.json").links, ...proposals]) {
   if (!conceptPre.has(l.from)) conceptPre.set(l.from, []);
   conceptPre.get(l.from).push(l);
 }
-const conceptView = (c) => ({ concept: c.id, grade: c.grade, area: c.area, name: c.name, course: c.course || undefined, standards: c.standards });
 
-// 개념 id · 성취기준 코드 · 개념 이름(낱말이 모두 든 것 중 가장 짧은 이름) · 그래도 없으면 수학 성취기준 검색
-export function conceptOf(ref) {
+// 셀프 체크 = 그 개념 성취기준 문장의 끝맺음만 물음으로(「…할 수 있다.」→「…할 수 있나요?」) — 원문 밖 문장을 만들지 않는다
+const ASK = [[/있다\.$/, "있나요?"], [/이해한다\.$/, "이해하고 있나요?"], [/안다\.$/, "알고 있나요?"], [/기른다\.$/, "기르고 있나요?"], [/(갖는다|가진다)\.$/, "갖고 있나요?"]];
+const ask = (t) => { const r = ASK.find(([re]) => re.test(t)); return r ? t.replace(r[0], r[1]) : t; };
+const selfCheck = (c) => c.standards.map((id) => ({ id, q: ask(byId.get(id).text) }));
+const conceptView = (c) => ({ concept: c.id, subject: c.subject, grade: c.grade, area: c.area, strand: c.strand || undefined, name: c.name, course: c.course || undefined,
+  units: [...new Set(c.standards.map((s) => unitOfStd.get(s)?.id).filter(Boolean))], selfCheck: selfCheck(c) });
+
+// 개념 id · 성취기준 코드 · 개념 이름(낱말이 모두 든 것 중 가장 짧은 이름, 같으면 높은 학년) · 그래도 없으면 성취기준 검색
+export function conceptOf(ref, { subject } = {}) {
   if (conceptById.has(ref)) return conceptById.get(ref);
   const code = ref.replace(/^\[|\]$/g, "").replace(/[–—]/g, "-");
   if (conceptOfStd.has(code)) return conceptOfStd.get(code);
+  const pool = concepts.filter((c) => !subject || c.subject === subject);
   const words = ref.split(/\s+/).map(squash).filter(Boolean);
-  const named = concepts.filter((c) => words.every((w) => squash(c.name).includes(w)));
-  if (named.length) return named.find((c) => squash(c.name) === squash(ref)) || named.sort((a, b) => a.name.length - b.name.length)[0];
-  const hit = search(ref, { limit: 20 }).items.find((s) => conceptOfStd.has(s.id));
+  const named = pool.filter((c) => words.every((w) => squash(c.name).includes(w)));
+  if (named.length) return named.sort((a, b) => (squash(a.name) === squash(ref) ? 0 : 1) - (squash(b.name) === squash(ref) ? 0 : 1) || a.name.length - b.name.length || CRANK[b.grade] - CRANK[a.grade])[0];
+  const hit = search(ref, { limit: 20, subject }).items.find((s) => conceptOfStd.has(s.id));
   return hit ? conceptOfStd.get(hit.id) : null;
 }
 
-export function conceptPath(ref, { depth: max = 3, proposals: withProposals = true } = {}) {
-  const c = conceptOf(ref);
+// known = 이미 아는 개념(이름·코드·id) — 그 개념에서 더 거슬러 가지 않는다
+export function conceptPath(ref, { depth: max = 3, proposals: withProposals = true, known = [], subject } = {}) {
+  const c = conceptOf(ref, { subject });
   if (!c) return null;
+  const knownIds = new Set(known.map((k) => conceptOf(k)?.id).filter(Boolean));
   const seen = new Map([[c.id, null]]);
   let frontier = [c.id];
   for (let d = 1; d <= max && frontier.length; d++) {
     const next = [];
     for (const id of frontier) {
       for (const l of conceptPre.get(id) || []) {
-        if (seen.has(l.to) || (!withProposals && l.basis !== "원문")) continue;
+        if (seen.has(l.to) || knownIds.has(l.to) || (!withProposals && l.basis !== "원문")) continue;
         seen.set(l.to, { ...conceptView(conceptById.get(l.to)), depth: d, via: id, basis: l.basis, because: l.basis === "원문" ? l.evidence : l.reason });
         next.push(l.to);
       }
@@ -183,11 +192,13 @@ export function conceptPath(ref, { depth: max = 3, proposals: withProposals = tr
     frontier = next;
   }
   seen.delete(c.id);
-  const steps = [...seen.values()].sort((a, b) => CGRADES.indexOf(a.grade) - CGRADES.indexOf(b.grade) || b.depth - a.depth);
-  const more = frontier.some((id) => (conceptPre.get(id) || []).some((l) => !seen.has(l.to) && (withProposals || l.basis === "원문")));
+  const steps = [...seen.values()].sort((a, b) => CRANK[a.grade] - CRANK[b.grade] || b.depth - a.depth);
+  const more = frontier.some((id) => (conceptPre.get(id) || []).some((l) => !seen.has(l.to) && !knownIds.has(l.to) && (withProposals || l.basis === "원문")));
   return {
-    goal: conceptView(c), depth: max, steps, more: more || undefined,
+    goal: conceptView(c), depth: max, known: knownIds.size ? [...knownIds] : undefined, steps, more: more || undefined,
     note: "basis 원문 = 고시문 문장이 밝힌 선수관계(because = 그 문장) · basis 제안 = 원문에 없는 직접 선수관계를 Claude 가 제안하고 Gemini 가 반박 심사한 것(because = 이유)"
+      + " · selfCheck = 성취기준 문장을 물음으로 바꾼 것 — 「예」인 개념은 known 에 넣고 다시 부르면 경로가 줄어든다"
+      + " · units = 단원 id(prerequisites·relearn_path 로 고시문 단원 연계를 볼 수 있다)"
       + (more ? ` · depth ${max + 1} 이상에 더 있다` : ""),
   };
 }

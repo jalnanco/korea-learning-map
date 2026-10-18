@@ -1,8 +1,11 @@
 {
  "version": "v1",
- "subject": "수학",
- "source": "교육부 고시 제2022-33호 [별책 8] 내용 체계 지식⋅이해",
- "count": 99,
+ "subjects": [
+  "수학",
+  "과학"
+ ],
+ "source": "교육부 고시 제2022-33호 [별책 8]·[별책 9] 내용 체계 지식⋅이해",
+ "count": 293,
  "concepts": [
   {
    "id": "수학|초1~2|네 자리 이하의 수",
@@ -1409,6 +1412,2872 @@
    "standards": [
     "10공수2-03-04",
     "10공수2-03-05"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|밀기와 당기기",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "밀기와 당기기",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과01-02",
+    "4과01-03",
+    "4과15-01"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|초3~4|무게",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "무게",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과01-02",
+    "4과01-03",
+    "4과15-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|수평잡기",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "수평잡기",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과01-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|도구의 이용",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "도구의 이용",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과01-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|위치의 변화",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "위치의 변화",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과10-01",
+    "6과12-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|속력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "속력",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과10-02",
+    "6과10-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|속력과 안전",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "속력과 안전",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과10-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|힘",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "힘",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과05-01",
+    "9과05-02",
+    "9과05-03",
+    "9과05-04",
+    "9과14-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|중력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "중력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과05-02",
+    "9과19-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|마찰력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "마찰력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과05-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|탄성력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "탄성력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과05-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|부력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "부력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과05-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|등속 운동",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "등속 운동",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과04-01",
+    "9과05-03",
+    "9과06-01",
+    "9과07-03",
+    "9과13-03",
+    "9과19-01",
+    "9과19-02",
+    "9과19-03",
+    "9과19-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|자유 낙하 운동",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "자유 낙하 운동",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과19-02",
+    "9과19-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|일과 에너지",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "일과 에너지",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과04-04",
+    "9과12-01",
+    "9과12-02",
+    "9과12-03",
+    "9과13-01",
+    "9과13-02",
+    "9과13-03",
+    "9과13-04",
+    "9과13-05",
+    "9과14-03",
+    "9과16-06",
+    "9과19-01",
+    "9과19-02",
+    "9과19-03",
+    "9과19-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|중력에 의한 위치 에너지",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "중력에 의한 위치 에너지",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과19-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|운동 에너지",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "운동 에너지",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과13-03",
+    "9과19-01",
+    "9과19-02",
+    "9과19-03",
+    "9과19-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|역학적 에너지 보존",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "힘과 에너지",
+   "name": "역학적 에너지 보존",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과19-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|자석과 물체 사이의 힘",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "자석과 물체 사이의 힘",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과09-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|자석과 자석 사이의 힘",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "자석과 자석 사이의 힘",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과09-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|자석의 극",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "자석의 극",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과09-01",
+    "4과09-02",
+    "4과09-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|자석의 이용",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "자석의 이용",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과09-01",
+    "4과09-02",
+    "4과09-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|전기 회로",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전기 회로",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과15-01",
+    "6과15-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|전지의 직렬연결",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전지의 직렬연결",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과15-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|전자석",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전자석",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과15-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|전기 안전",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전기 안전",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과15-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|전기력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전기력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|대전",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "대전",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-01"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|중1~3|정전기 유도",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "정전기 유도",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|전압",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전압",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|전류",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전류",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-02",
+    "9과14-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|옴의 법칙",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "옴의 법칙",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-02",
+    "9과14-04"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|중1~3|전기 에너지",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "전기 에너지",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|자기력",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "자기력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-03"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|중1~3|자기장",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "전기와 자기",
+   "name": "자기장",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과14-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|온도",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "온도",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과03-01",
+    "6과07-01",
+    "6과07-02",
+    "6과07-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|열의 이동",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "열의 이동",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과07-03",
+    "6과10-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|단열",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "단열",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과07-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|열평형",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "열평형",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과03-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|전도",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "전도",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과03-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|대류",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "대류",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과03-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|복사",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "복사",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과03-02",
+    "9과17-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|비열",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "비열",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과03-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|열팽창",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "열",
+   "name": "열팽창",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과03-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|소리의 발생",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "소리의 발생",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과07-01",
+    "4과07-02",
+    "4과07-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|소리의 세기",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "소리의 세기",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과07-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|소리의 높낮이",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "소리의 높낮이",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과07-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|소리의 전달",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "소리의 전달",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과07-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|빛의 직진",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "빛의 직진",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과02-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|평면거울에서 빛의 반사",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "평면거울에서 빛의 반사",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과02-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|빛의 굴절",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "빛의 굴절",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과02-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|렌즈의 이용",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "렌즈의 이용",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과02-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|시각과 상",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "시각과 상",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-01"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|중1~3|반사와 굴절",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "반사와 굴절",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|거울과 렌즈",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "거울과 렌즈",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|빛의 합성과 색",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "빛의 합성과 색",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-03",
+    "9과12-01",
+    "9과12-02",
+    "9과12-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|파동의 발생과 전달",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "파동의 발생과 전달",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|파동의 요소와 소리의 특성",
+   "subject": "과학",
+   "area": "운동과 에너지",
+   "strand": "빛과 파동",
+   "name": "파동의 요소와 소리의 특성",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|물체와 물질",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "물체와 물질",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과05-01",
+    "4과05-02",
+    "4과05-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|물질의 세 가지 상태",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "물질의 세 가지 상태",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과05-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|기체의 무게",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "기체의 무게",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과15-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|온도와 압력에 따른 기체의 부피 변화",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "온도와 압력에 따른 기체의 부피 변화",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과15-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|물의 상태 변화",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "물의 상태 변화",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과10-01",
+    "4과10-02",
+    "4과10-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|용액, 용매, 용질",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "용액, 용매, 용질",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과03-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|용해",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "용해",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과03-01",
+    "6과03-02",
+    "6과03-03",
+    "6과05-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|용액의 진하기",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "용액의 진하기",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과03-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|혼합물의 분리",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "혼합물의 분리",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과05-01",
+    "6과05-02",
+    "6과05-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|입자 운동",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "입자 운동",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과04-01",
+    "9과06-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|기체의 압력",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "기체의 압력",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과06-01",
+    "9과06-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|기체의 압력과 부피 관계",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "기체의 압력과 부피 관계",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과06-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|기체의 온도와 부피 관계",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "기체의 온도와 부피 관계",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과06-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|물질의 상태와 입자 모형",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "물질의 상태와 입자 모형",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과04-02",
+    "9과04-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|상태 변화와 열에너지",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "상태 변화와 열에너지",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과04-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|밀도, 용해도, 녹는점, 끓는점",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "밀도, 용해도, 녹는점, 끓는점",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과08-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|순물질과 혼합물",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 성질",
+   "name": "순물질과 혼합물",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과08-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|지시약",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "지시약",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과09-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|산성 용액",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "산성 용액",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과09-01",
+    "6과09-02",
+    "6과09-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|염기성 용액",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "염기성 용액",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과09-01",
+    "6과09-02",
+    "6과09-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|연소 조건",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "연소 조건",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과14-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|연소 생성물",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "연소 생성물",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과14-01",
+    "6과14-02",
+    "6과14-03",
+    "6과14-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|화학 변화",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "화학 변화",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과16-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|화학 반응식",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "화학 반응식",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과16-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|질량 보존 법칙",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "질량 보존 법칙",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과16-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|일정 성분비 법칙",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "일정 성분비 법칙",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과16-04",
+    "9과16-05",
+    "9과19-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|기체 반응 법칙",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "기체 반응 법칙",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과16-05"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|화학 반응에서 열에너지의 출입",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 변화",
+   "name": "화학 반응에서 열에너지의 출입",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과16-06"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|원소",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "원소",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-01",
+    "9과11-02",
+    "9과11-03",
+    "9과16-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|원자",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "원자",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-02",
+    "9과11-04",
+    "9과14-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|분자",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "분자",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|이온",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "이온",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|화합물",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "화합물",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-01",
+    "9과16-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|화학식",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "화학식",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|주기율표",
+   "subject": "과학",
+   "area": "물질",
+   "strand": "물질의 구조",
+   "name": "주기율표",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과11-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|동물의 생김새",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "동물의 생김새",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과02-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|식물의 생김새",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "식물의 생김새",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과03-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|균류, 원생생물, 세균의 특징",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "균류, 원생생물, 세균의 특징",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과12-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|세포의 구조",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "세포의 구조",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과11-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|뼈와 근육의 구조와 기능",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "뼈와 근육의 구조와 기능",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과04-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|소화⋅순환⋅호흡⋅배설 기관의 구조와 기능",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "소화⋅순환⋅호흡⋅배설 기관의 구조와 기능",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과04-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|뿌리, 줄기, 잎, 꽃의 구조와 기능",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "뿌리, 줄기, 잎, 꽃의 구조와 기능",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과04-01",
+    "6과04-02",
+    "6과04-03",
+    "6과11-01",
+    "6과11-02",
+    "6과11-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|증산 작용",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "증산 작용",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과04-01",
+    "6과04-02",
+    "6과04-03",
+    "6과11-01",
+    "6과11-02",
+    "6과11-03"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|초5~6|광합성 산물",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "광합성 산물",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과04-01",
+    "6과04-02",
+    "6과04-03",
+    "6과11-01",
+    "6과11-02",
+    "6과11-03"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|중1~3|세포와 생물 구성 단계",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "세포와 생물 구성 단계",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과02-01",
+    "9과02-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|소화계, 순환계, 호흡계, 배설계의 구조와 기능",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "소화계, 순환계, 호흡계, 배설계의 구조와 기능",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과13-01",
+    "9과13-02",
+    "9과13-03",
+    "9과13-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|광합성 과정",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "광합성 과정",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과12-01",
+    "9과12-02",
+    "9과12-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|광합성에 영향을 미치는 요인",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "광합성에 영향을 미치는 요인",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과12-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|식물의 호흡과 광합성의 관계",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생물의 구조와 에너지",
+   "name": "식물의 호흡과 광합성의 관계",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과12-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|감각 기관의 구조와 기능",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "항상성과 몸의 조절",
+   "name": "감각 기관의 구조와 기능",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과20-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|뉴런과 신경계의 구조와 기능",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "항상성과 몸의 조절",
+   "name": "뉴런과 신경계의 구조와 기능",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과20-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|자극에서 반응까지의 경로",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "항상성과 몸의 조절",
+   "name": "자극에서 반응까지의 경로",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-01",
+    "9과13-02",
+    "9과20-01",
+    "9과20-02",
+    "9과20-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|호르몬에 의한 항상성 유지",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "항상성과 몸의 조절",
+   "name": "호르몬에 의한 항상성 유지",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과20-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|동물의 한살이",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "동물의 한살이",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과04-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|식물의 한살이",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "식물의 한살이",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과04-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|식물이 자라는 조건",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "식물이 자라는 조건",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과04-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|다양한 환경에 사는 동물과 식물",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "다양한 환경에 사는 동물과 식물",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과02-02",
+    "4과03-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|특징에 따른 동물 분류",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "특징에 따른 동물 분류",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과02-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|특징에 따른 식물 분류",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "특징에 따른 식물 분류",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과03-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|세포분열",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "세포분열",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과21-01",
+    "9과21-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|동물의 발생 과정",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "동물의 발생 과정",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과10-04",
+    "9과13-01",
+    "9과13-04",
+    "9과13-05",
+    "9과21-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|유전 형질과 유전 원리",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "유전 형질과 유전 원리",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과21-04",
+    "9과21-05"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|변이와 생물다양성",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "변이와 생물다양성",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과02-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|종의 개념과 분류 체계",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "종의 개념과 분류 체계",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과02-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|생물다양성 보전의 중요성",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명의 연속성",
+   "name": "생물다양성 보전의 중요성",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과02-05"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|생물 요소와 비생물 요소",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "환경과 생태계",
+   "name": "생물 요소와 비생물 요소",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과14-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|환경오염이 생물에 미치는 영향",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "환경과 생태계",
+   "name": "환경오염이 생물에 미치는 영향",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과12-02",
+    "4과14-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|먹이사슬과 먹이그물",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "환경과 생태계",
+   "name": "먹이사슬과 먹이그물",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과14-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|생활 속에서 동물과 식물의 이용",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명과학과 인간의 생활",
+   "name": "생활 속에서 동물과 식물의 이용",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과02-03",
+    "4과03-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|균류, 원생생물, 세균의 이용",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명과학과 인간의 생활",
+   "name": "균류, 원생생물, 세균의 이용",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과12-01",
+    "4과12-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|생명과학과 우리 생활",
+   "subject": "과학",
+   "area": "생명",
+   "strand": "생명과학과 인간의 생활",
+   "name": "생명과학과 우리 생활",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과12-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|강 주변 지형",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "강 주변 지형",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과11-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|화산 활동",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "화산 활동",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과11-02",
+    "4과11-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|화성암",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "화성암",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과11-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|지진 대처 방법",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "지진 대처 방법",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과11-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|지층",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "지층",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과01-01",
+    "6과01-02",
+    "6과01-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|퇴적암",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "퇴적암",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과01-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|화석의 생성",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "화석의 생성",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과01-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|과거 생물과 환경",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "과거 생물과 환경",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과01-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|지구계",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "지구계",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|광물과 암석",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "광물과 암석",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|암석의 순환",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "암석의 순환",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|풍화 작용",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "풍화 작용",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|판과 대륙이동설",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "판과 대륙이동설",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-05"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|지진대와 화산대",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "고체 지구",
+   "name": "지진대와 화산대",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-05"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|초3~4|바다의 특징",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "바다의 특징",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과06-01",
+    "4과06-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|밀물과 썰물",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "밀물과 썰물",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과06-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|파도",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "파도",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과06-03"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|초3~4|바닷가 주변 지형",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "바닷가 주변 지형",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과06-02",
+    "4과11-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|갯벌 보전",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "갯벌 보전",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과06-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|지구의 대기",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "지구의 대기",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과06-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|날씨와 기상 요소",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "날씨와 기상 요소",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과06-01",
+    "6과06-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|이슬, 안개, 구름",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "이슬, 안개, 구름",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과06-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|고기압과 저기압",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "고기압과 저기압",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과06-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|대기와 해양의 층상 구조",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "대기와 해양의 층상 구조",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과09-01",
+    "9과18-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|수권과 수자원",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "수권과 수자원",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과18-01",
+    "9과18-02",
+    "9과18-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|염분과 해류",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "염분과 해류",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과18-02",
+    "9과18-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|온실효과와 지구온난화",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "온실효과와 지구온난화",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과17-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|대기 대순환",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "대기 대순환",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과17-02",
+    "9과18-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|강수 과정",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "강수 과정",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과17-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|중위도 저기압",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "중위도 저기압",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과17-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|일기도",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "유체 지구",
+   "name": "일기도",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과17-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|달의 모양과 표면",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "달의 모양과 표면",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과13-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|달의 위상변화",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "달의 위상변화",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과13-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|태양계 행성",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "태양계 행성",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과13-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|별과 별자리",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "별과 별자리",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과13-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|태양과 별의 위치 변화",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "태양과 별의 위치 변화",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과12-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|지구의 자전과 공전",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "지구의 자전과 공전",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과13-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|계절별 별자리 변화",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "계절별 별자리 변화",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과12-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|태양 고도의 일변화",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "태양 고도의 일변화",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과13-01",
+    "6과13-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|계절별 낮의 길이",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "계절별 낮의 길이",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과13-01",
+    "6과13-02"
+   ],
+   "standardsBy": "이웃"
+  },
+  {
+   "id": "과학|중1~3|태양계 구성 천체",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "태양계 구성 천체",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과07-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|태양 표면과 태양 활동",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "태양 표면과 태양 활동",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과07-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|달의 위상변화",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "달의 위상변화",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과07-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|일식과 월식",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "일식과 월식",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과07-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|연주시차",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "연주시차",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과15-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|별의 특성",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "별의 특성",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과08-01",
+    "9과08-02",
+    "9과08-03",
+    "9과09-02",
+    "9과10-04",
+    "9과14-04",
+    "9과17-02",
+    "9과18-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|우리은하",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "우리은하",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과15-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|우주 팽창",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "우주 팽창",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과15-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|우주탐사",
+   "subject": "과학",
+   "area": "지구와 우주",
+   "strand": "천체",
+   "name": "우주탐사",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과15-04"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|질병과 예방",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 안전",
+   "name": "질병과 예방",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과08-01",
+    "4과08-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|감염병과 건강한 생활",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 안전",
+   "name": "감염병과 건강한 생활",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과08-01",
+    "4과08-02",
+    "4과08-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|재해⋅재난",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 안전",
+   "name": "재해⋅재난",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과22-01",
+    "9과22-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|재해⋅재난에 대한 과학적 대처 방안",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 안전",
+   "name": "재해⋅재난에 대한 과학적 대처 방안",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과22-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|기후변화 사례",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "기후변화 사례",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과16-01",
+    "4과16-02",
+    "4과16-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초3~4|기후위기 대응",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "기후위기 대응",
+   "grade": "초3~4",
+   "band": "초3~4",
+   "course": null,
+   "standards": [
+    "4과16-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|자원의 종류",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "자원의 종류",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과08-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|자원의 효율적인 이용",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "자원의 효율적인 이용",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과08-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|지속가능한 에너지 이용",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "지속가능한 에너지 이용",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과05-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|과학적 탐구 방법",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "과학적 탐구 방법",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과01-01"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|과학기술의 영향",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "과학기술의 영향",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과01-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|과학과 지속가능한 사회",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 지속가능한 사회",
+   "name": "과학과 지속가능한 사회",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과01-02",
+    "9과01-03"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|진로와 과학의 관련성",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 진로",
+   "name": "진로와 과학의 관련성",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과16-01",
+    "6과16-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|초5~6|진로 계획",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 진로",
+   "name": "진로 계획",
+   "grade": "초5~6",
+   "band": "초5~6",
+   "course": null,
+   "standards": [
+    "6과15-04",
+    "6과16-01",
+    "6과16-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|과학 관련 진로와 직업",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 진로",
+   "name": "과학 관련 진로와 직업",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과23-01",
+    "9과23-02"
+   ],
+   "standardsBy": "낱말"
+  },
+  {
+   "id": "과학|중1~3|진로 계획 실천 방안",
+   "subject": "과학",
+   "area": "과학과 사회",
+   "strand": "과학과 진로",
+   "name": "진로 계획 실천 방안",
+   "grade": "중1~3",
+   "band": "중1~3",
+   "course": null,
+   "standards": [
+    "9과01-03",
+    "9과02-05",
+    "9과23-02"
    ],
    "standardsBy": "낱말"
   }

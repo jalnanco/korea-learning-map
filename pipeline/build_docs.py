@@ -32,7 +32,8 @@ def main(data, out):
     open(os.path.join(out, "필수-공통.md"), "w").write(core_page(stds))
     open(os.path.join(out, "README.md"), "w").write(index_page(stds, by_annex))
     if os.path.exists(os.path.join(data, "concepts.json")):
-        open(os.path.join(out, "수학-개념-지도.md"), "w").write(concept_page(data))
+        for subj in ("수학", "과학"):
+            open(os.path.join(out, f"{subj}-개념-지도.md"), "w").write(concept_page(data, subj))
     print(f"교과 {len(by_annex)}쪽 · 성취기준 {len(stds)} · 필수 {sum(s['core'] for s in stds)}")
 
 def tree(ss):  # 학년군 → 과목 → 단원 (원문 순서 유지)
@@ -141,42 +142,52 @@ def index_page(stds, by_annex):
     c = collections.Counter(s["grade"] for s in stds)
     o.append("| **합계** | " + " | ".join(f"**{c[g]}**" for g in GRADES) + f" | **{len(stds)}** |")
     o += ["", "고2~3 열은 모두 선택 과목이다(학생마다 고른다). 원문 출처·라이선스는 [NOTICE](../NOTICE.md).",
-          "", "수학은 단원보다 촘촘한 개념 단위 선수관계가 있다 → **[수학 개념 지도](수학-개념-지도.md)** (초1~고1)"]
+          "", "수학·과학은 단원보다 촘촘한 개념 단위 선수관계가 있다 → **[수학 개념 지도](수학-개념-지도.md)** (초1~고1) · **[과학 개념 지도](과학-개념-지도.md)** (초3~중3)"]
     return "\n".join(o)
 
-CGRADES = ["초1~2", "초3~4", "초5~6", "중1", "중2", "중3", "고1"]
+CRANK = {"초1~2": 0, "초3~4": 1, "초5~6": 2, "중1": 3, "중1~3": 3, "중2": 4, "중3": 5, "고1": 6}
+INTRO = {"수학": ("초1~고1", "수학과", "「초⋅중학교의 지식⋅이해 범주는 학년(군)에 따라 위계성을 가지며, 영역 간에도 위계성을 고려하여 구성하였다.」 — 위계가 있다는 것은 원문이지만, 개념 사이 화살표 하나하나는 대부분 원문에 없다."),
+         "과학": ("초3~중3", "과학과", "과학 내용 체계는 영역 → 범주(힘과 에너지 …) × 학년군 칸이다 — 같은 범주 행이 학년군을 가로지르는 사다리는 원문이지만, 요소 사이 화살표는 원문에 없다(원문 연계는 단원 단위 → 교과 문서의 ⬅️ 먼저).")}
 
-def concept_page(data):  # 수학 개념층 — 영역마다 그림(영역 안 간선) + 개념마다 먼저·이어서(영역 밖 포함)
-    cs = json.load(open(os.path.join(data, "concepts.json")))["concepts"]
+def concept_page(data, subject):  # 개념층 — 영역마다 그림(영역 안 간선) + 개념마다 셀프 체크·먼저·이어서(영역·교과 밖 포함)
+    allc = json.load(open(os.path.join(data, "concepts.json")))["concepts"]
+    by = {c["id"]: c for c in allc}
+    stds = {s["id"]: s["text"] for s in json.load(open(os.path.join(data, "standards.json")))["standards"]}
+    cs = [c for c in allc if c["subject"] == subject]
     edges = json.load(open(os.path.join(data, "concept_links.json")))["links"] + json.load(open(os.path.join(data, "concept_proposals.json")))["proposals"]
-    by = {c["id"]: c for c in cs}
     pre, post = collections.defaultdict(list), collections.defaultdict(list)
     for l in edges:
         pre[l["from"]].append(l); post[l["to"]].append(l)
     tag = lambda l: "" if l["basis"] == "원문" else "<sup>제안</sup>"
-    link = lambda i: f"[{by[i]['grade']} {by[i]['name']}](#{anchor(by[i]['grade'], by[i]['name'])})"
-    n_orig = sum(l["basis"] == "원문" for l in edges)
-    o = ["# 수학 개념 지도 (초1~고1)", "",
-         f"개념 {len(cs)}개 = 고시문 수학과 「내용 체계」의 지식⋅이해 항목(원문 낱말 그대로). 선수관계 {len(edges)}개 — "
-         f"**원문 {n_orig}** (고시문 문장이 밝힌 것, 실선) · **제안 {len(edges) - n_orig}** (원문에 없어 Claude 가 제안하고 Gemini 가 반박 심사한 것, 점선 · <sup>제안</sup>).", "",
-         "> 원문: 「초⋅중학교의 지식⋅이해 범주는 학년(군)에 따라 위계성을 가지며, 영역 간에도 위계성을 고려하여 구성하였다.」 — 위계가 있다는 것은 원문이지만, 개념 사이 화살표 하나하나는 대부분 원문에 없다. 제안 간선의 이유와 심사 기록은 [concept_proposals.json](../data/kr/concept_proposals.json).", "",
-         "MCP 에서는 `concept_path` 로 묻는다(예: 「분수 나눗셈을 다시 배우려면?」).", ""]
-    areas = list(dict.fromkeys(c["area"] for c in sorted(cs, key=lambda c: CGRADES.index(c["grade"]))))
+    def link(i):
+        c = by[i]
+        here = "" if c["subject"] == subject else f"{c['subject']}-개념-지도.md"
+        return f"[{'' if not here else c['subject'] + ' '}{c['grade']} {c['name']}]({quote(here)}#{anchor(c['grade'], c['name'])})"
+    mine_e = [l for l in edges if by[l["from"]]["subject"] == subject]
+    n_orig = sum(l["basis"] == "원문" for l in mine_e)
+    span, annex, intro = INTRO[subject]
+    o = [f"# {subject} 개념 지도 ({span})", "",
+         f"개념 {len(cs)}개 = 고시문 {annex} 「내용 체계」의 지식⋅이해 항목(원문 낱말 그대로). 선수관계 {len(mine_e)}개 — "
+         f"**원문 {n_orig}** (고시문 문장이 밝힌 것, 실선) · **제안 {len(mine_e) - n_orig}** (원문에 없어 Claude 가 제안하고 Gemini 가 반박 심사한 것, 점선 · <sup>제안</sup>).", "",
+         f"> 원문: {intro} 제안 간선의 이유와 심사 기록은 [concept_proposals.json](../data/kr/concept_proposals.json).", "",
+         "□ 셀프 체크는 그 개념 성취기준 문장을 물음으로만 바꾼 것이다. MCP 에서는 `concept_path` 로 묻고, 「예」인 개념은 `known` 에 넣는다.", ""]
+    areas = list(dict.fromkeys(c["area"] for c in sorted(cs, key=lambda c: CRANK[c["grade"]])))
     o += ["목차: " + " · ".join(f"[{a}](#{anchor(a)})" for a in areas), ""]
+    ask = lambda t: re.sub(r"있다\.$", "있나요?", re.sub(r"이해한다\.$", "이해하고 있나요?", t))
     for a in areas:
-        mine = sorted((c for c in cs if c["area"] == a), key=lambda c: CGRADES.index(c["grade"]))
+        mine = sorted((c for c in cs if c["area"] == a), key=lambda c: CRANK[c["grade"]])
         ids = {c["id"]: f"n{k}" for k, c in enumerate(mine)}
         o += [f"## {a}", "", "```mermaid", "flowchart LR"]
         o += [f'  {ids[c["id"]]}["{c["grade"]} {c["name"]}"]' for c in mine]
         o += [f"  {ids[l['to']]} {'-->' if l['basis'] == '원문' else '-.->'} {ids[l['from']]}" for l in edges if l["from"] in ids and l["to"] in ids]
         o += ["```", ""]
         for c in mine:
-            o += [f'<a id="{anchor(c["grade"], c["name"])}"></a>', f"### {c['grade']} {c['name']}", "", f"성취기준 {', '.join(c['standards'])}  "]
+            o += [f'<a id="{anchor(c["grade"], c["name"])}"></a>', f"### {c['grade']} {c['name']}", "", f"{c.get('strand') or ''}{' · ' if c.get('strand') else ''}성취기준 {', '.join(c['standards'])}  "]
             if pre[c["id"]]:
                 o.append("⬅️ 먼저: " + " · ".join(link(l["to"]) + tag(l) for l in pre[c["id"]]) + "  ")
             if post[c["id"]]:
                 o.append("➡️ 이어서: " + " · ".join(link(l["from"]) + tag(l) for l in post[c["id"]]) + "  ")
-            o.append("")
+            o += [""] + [f"- □ {ask(stds[x])}" for x in c["standards"][:3]] + ([f"- … 외 {len(c['standards']) - 3}개"] if len(c["standards"]) > 3 else []) + [""]
     return "\n".join(o)
 
 if __name__ == "__main__":

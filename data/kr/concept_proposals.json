@@ -1612,6 +1612,2690 @@
     "verdict": "missing"
    },
    "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|초3~4|무게",
+   "to": "과학|초3~4|밀기와 당기기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "무게를 지구가 물체를 당기는 힘으로 다룬다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|수평잡기",
+   "to": "과학|초3~4|무게",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "양쪽 무게가 같을 때 수평이 된다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|도구의 이용",
+   "to": "과학|초3~4|수평잡기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지레의 받침점과 균형",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|도구의 이용",
+   "to": "과학|초3~4|밀기와 당기기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "도구를 쓰면 드는 힘의 크기가 달라진다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "수평잡기가 직접 선수이며 밀기와 당기기는 간접적 배경임"
+   }
+  },
+  {
+   "from": "과학|초5~6|속력",
+   "to": "과학|초5~6|위치의 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "운동 = 시간에 따른 위치 변화",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|속력과 안전",
+   "to": "과학|초5~6|속력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "속력이 클수록 위험하다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|힘",
+   "to": "과학|초3~4|밀기와 당기기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "밀고 당기기를 힘으로 일반화한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|중력",
+   "to": "과학|초3~4|무게",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "무게는 중력의 크기다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|중력",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "힘의 한 종류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|마찰력",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "힘의 한 종류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|탄성력",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "힘의 한 종류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|부력",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "힘의 한 종류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|부력",
+   "to": "과학|중1~3|중력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "부력은 중력과 반대 방향으로 작용한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|등속 운동",
+   "to": "과학|초5~6|속력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "속력이 일정한 운동",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자유 낙하 운동",
+   "to": "과학|중1~3|중력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "중력만 받아 떨어지는 운동",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자유 낙하 운동",
+   "to": "과학|중1~3|등속 운동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "속력이 변하는 운동과 비교한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "등속 운동은 대조적 비교 대상일 뿐 자유 낙하의 직접 선수는 아님"
+   }
+  },
+  {
+   "from": "과학|중1~3|일과 에너지",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "일 = 힘 × 이동 거리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|중력에 의한 위치 에너지",
+   "to": "과학|중1~3|일과 에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "중력에 대해 한 일",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|중력에 의한 위치 에너지",
+   "to": "과학|중1~3|중력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "중력에 대해 한 일",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|운동 에너지",
+   "to": "과학|중1~3|일과 에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "일과 에너지의 전환",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|운동 에너지",
+   "to": "과학|초5~6|속력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "운동 에너지는 속력의 제곱에 비례한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중학 운동 단원 및 일과 에너지가 직접 선수이며 초등 속력은 간접적임"
+   }
+  },
+  {
+   "from": "과학|중1~3|역학적 에너지 보존",
+   "to": "과학|중1~3|중력에 의한 위치 에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "위치 에너지와 운동 에너지의 합",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|역학적 에너지 보존",
+   "to": "과학|중1~3|운동 에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "위치 에너지와 운동 에너지의 합",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|역학적 에너지 보존",
+   "to": "과학|중1~3|자유 낙하 운동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "떨어지는 물체로 에너지 전환을 본다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|자석과 자석 사이의 힘",
+   "to": "과학|초3~4|자석과 물체 사이의 힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자석이 철을 끄는 힘에서 자석끼리의 힘으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "자석의 극을 먼저 파악한 후 자석끼리의 힘을 배우므로 극이 직접 선수임"
+   }
+  },
+  {
+   "from": "과학|초3~4|자석의 극",
+   "to": "과학|초3~4|자석과 물체 사이의 힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "극에서 끌어당기는 힘이 가장 세다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|자석과 자석 사이의 힘",
+   "to": "과학|초3~4|자석의 극",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "같은 극은 밀고 다른 극은 당긴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|자석의 이용",
+   "to": "과학|초3~4|자석과 자석 사이의 힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자석의 성질을 생활에 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|전지의 직렬연결",
+   "to": "과학|초5~6|전기 회로",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "회로의 연결 방법",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|전자석",
+   "to": "과학|초5~6|전기 회로",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전류가 흐르는 코일이 자석이 된다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|전자석",
+   "to": "과학|초3~4|자석의 극",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전자석의 극을 영구 자석과 비교한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|전기 안전",
+   "to": "과학|초5~6|전기 회로",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "회로와 전류를 알아야 안전 수칙을 이해한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전기력",
+   "to": "과학|중1~3|대전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "대전된 물체 사이의 힘",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|정전기 유도",
+   "to": "과학|중1~3|전기력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전기력으로 전하가 이동한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전류",
+   "to": "과학|초5~6|전기 회로",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "회로에 흐르는 것",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전류",
+   "to": "과학|중1~3|대전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전류 = 전하의 흐름",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전압",
+   "to": "과학|초5~6|전지의 직렬연결",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전지를 직렬로 이으면 전압이 커진다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "전압의 본질적 선수는 전류이며 전지 직렬연결은 현상 사례에 가까움"
+   }
+  },
+  {
+   "from": "과학|중1~3|옴의 법칙",
+   "to": "과학|중1~3|전압",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전압과 전류의 관계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|옴의 법칙",
+   "to": "과학|중1~3|전류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전압과 전류의 관계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전기 에너지",
+   "to": "과학|중1~3|옴의 법칙",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전력 = 전압 × 전류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전기 에너지",
+   "to": "과학|중1~3|일과 에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "에너지 개념과 전환",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자기장",
+   "to": "과학|초3~4|자석의 극",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자석 주위의 자기장",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자기장",
+   "to": "과학|초5~6|전자석",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전류가 만드는 자기장",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자기력",
+   "to": "과학|중1~3|자기장",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자기장 속 전류가 받는 힘",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자기력",
+   "to": "과학|중1~3|전류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자기장 속 전류가 받는 힘",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|열의 이동",
+   "to": "과학|초5~6|온도",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "온도가 높은 곳에서 낮은 곳으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|단열",
+   "to": "과학|초5~6|열의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "열의 이동을 막는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|열평형",
+   "to": "과학|초5~6|열의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "온도가 같아질 때까지 열이 이동한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전도",
+   "to": "과학|초5~6|열의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "열의 이동 방식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|대류",
+   "to": "과학|초5~6|열의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "열의 이동 방식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|복사",
+   "to": "과학|초5~6|열의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "열의 이동 방식",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|비열",
+   "to": "과학|중1~3|열평형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "같은 열을 받아도 온도 변화가 다르다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|열팽창",
+   "to": "과학|초5~6|온도",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "온도가 오르면 부피가 늘어난다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중학 입자 운동이 직접 선수이며 초등 온도는 너무 먼 간접 개념임"
+   }
+  },
+  {
+   "from": "과학|중1~3|열팽창",
+   "to": "과학|중1~3|입자 운동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "입자 운동이 활발해져 입자 사이가 멀어진다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|소리의 세기",
+   "to": "과학|초3~4|소리의 발생",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "떨림의 크기",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|소리의 높낮이",
+   "to": "과학|초3~4|소리의 발생",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "떨림의 빠르기",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|소리의 전달",
+   "to": "과학|초3~4|소리의 발생",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "떨림이 물질을 통해 전해진다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|평면거울에서 빛의 반사",
+   "to": "과학|초5~6|빛의 직진",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "곧게 나아가던 빛이 거울에서 꺾인다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|빛의 굴절",
+   "to": "과학|초5~6|빛의 직진",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "경계에서 빛이 꺾인다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|렌즈의 이용",
+   "to": "과학|초5~6|빛의 굴절",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "볼록 렌즈는 굴절을 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|시각과 상",
+   "to": "과학|초5~6|빛의 직진",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "물체에서 온 빛이 눈에 들어온다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|반사와 굴절",
+   "to": "과학|초5~6|평면거울에서 빛의 반사",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "반사 법칙으로 정리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|반사와 굴절",
+   "to": "과학|초5~6|빛의 굴절",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "굴절을 정리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|거울과 렌즈",
+   "to": "과학|중1~3|반사와 굴절",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "거울은 반사, 렌즈는 굴절",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|거울과 렌즈",
+   "to": "과학|초5~6|렌즈의 이용",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "볼록·오목 렌즈의 상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중1~3 반사와 굴절이 직접 선수이며 초등 렌즈 이용은 간접 경험임"
+   }
+  },
+  {
+   "from": "과학|중1~3|거울과 렌즈",
+   "to": "과학|중1~3|시각과 상",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상이 맺히는 원리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|빛의 합성과 색",
+   "to": "과학|중1~3|시각과 상",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "색을 보는 원리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|파동의 발생과 전달",
+   "to": "과학|초3~4|소리의 전달",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "소리를 파동으로 일반화한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|파동의 요소와 소리의 특성",
+   "to": "과학|중1~3|파동의 발생과 전달",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "진폭·진동수",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|파동의 요소와 소리의 특성",
+   "to": "과학|초3~4|소리의 세기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "세기 = 진폭",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|파동의 요소와 소리의 특성",
+   "to": "과학|초3~4|소리의 높낮이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "높낮이 = 진동수",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|물질의 세 가지 상태",
+   "to": "과학|초3~4|물체와 물질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "물질을 상태로 나눈다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|기체의 무게",
+   "to": "과학|초3~4|물질의 세 가지 상태",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기체도 물질이다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|기체의 무게",
+   "to": "과학|초3~4|무게",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "무게 측정",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|온도와 압력에 따른 기체의 부피 변화",
+   "to": "과학|초3~4|물질의 세 가지 상태",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기체의 성질",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|물의 상태 변화",
+   "to": "과학|초3~4|물질의 세 가지 상태",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상태가 바뀐다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|용해",
+   "to": "과학|초3~4|물질의 세 가지 상태",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "고체가 액체에 녹는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|용액, 용매, 용질",
+   "to": "과학|초5~6|용해",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "녹는 현상을 낱말로 정리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|용액의 진하기",
+   "to": "과학|초5~6|용액, 용매, 용질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "같은 용매에 녹은 용질의 양",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|혼합물의 분리",
+   "to": "과학|초5~6|용해",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "녹는 성질 차이로 거른다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|혼합물의 분리",
+   "to": "과학|초3~4|물의 상태 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "증발로 분리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|입자 운동",
+   "to": "과학|초3~4|물질의 세 가지 상태",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "물질을 입자로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체의 압력",
+   "to": "과학|중1~3|입자 운동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "입자가 벽에 부딪쳐 압력이 생긴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체의 압력과 부피 관계",
+   "to": "과학|중1~3|기체의 압력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "압력이 커지면 부피가 준다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체의 압력과 부피 관계",
+   "to": "과학|초3~4|온도와 압력에 따른 기체의 부피 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "현상을 법칙으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중1 기체의 압력과 입자 운동이 직접 선수이며 초등 경험은 직접 선수로 약함"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체의 온도와 부피 관계",
+   "to": "과학|중1~3|입자 운동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "온도가 오르면 입자 운동이 활발해진다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체의 온도와 부피 관계",
+   "to": "과학|초3~4|온도와 압력에 따른 기체의 부피 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "현상을 법칙으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중1 입자 운동이 직접 선수이며 초등 현상 경험은 직접 선수로 약함"
+   }
+  },
+  {
+   "from": "과학|중1~3|물질의 상태와 입자 모형",
+   "to": "과학|중1~3|입자 운동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상태를 입자 배열로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|물질의 상태와 입자 모형",
+   "to": "과학|초3~4|물질의 세 가지 상태",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상태를 입자 배열로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|상태 변화와 열에너지",
+   "to": "과학|중1~3|물질의 상태와 입자 모형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상태 변화를 입자로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|상태 변화와 열에너지",
+   "to": "과학|초3~4|물의 상태 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상태 변화 현상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중1 상태와 입자 모형이 직접 선수이며 초3~4 물의 상태 변화는 간접적임"
+   }
+  },
+  {
+   "from": "과학|중1~3|밀도, 용해도, 녹는점, 끓는점",
+   "to": "과학|중1~3|상태 변화와 열에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "녹는점·끓는점",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|밀도, 용해도, 녹는점, 끓는점",
+   "to": "과학|초5~6|용액의 진하기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "용해도",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|순물질과 혼합물",
+   "to": "과학|초5~6|혼합물의 분리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "혼합물을 순물질과 구별한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|지시약",
+   "to": "과학|초5~6|용액, 용매, 용질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "용액을 분류하는 도구",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|산성 용액",
+   "to": "과학|초5~6|지시약",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지시약으로 분류한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|염기성 용액",
+   "to": "과학|초5~6|지시약",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지시약으로 분류한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|연소 생성물",
+   "to": "과학|초5~6|연소 조건",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "연소가 일어난 뒤 생기는 물질",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학 변화",
+   "to": "과학|초5~6|연소 생성물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "연소는 대표적인 화학 변화다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학 변화",
+   "to": "과학|중1~3|물질의 상태와 입자 모형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "물리 변화와 구별한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학 반응식",
+   "to": "과학|중1~3|화학식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "반응식은 화학식으로 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학 반응식",
+   "to": "과학|중1~3|화학 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화학 변화를 식으로 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|질량 보존 법칙",
+   "to": "과학|중1~3|화학 반응식",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "반응 전후 원자 수가 같다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|일정 성분비 법칙",
+   "to": "과학|중1~3|질량 보존 법칙",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "반응 질량 관계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "화학 반응의 규칙으로서 병렬적 관계이며 화합물 개념이 직접 선수임"
+   }
+  },
+  {
+   "from": "과학|중1~3|일정 성분비 법칙",
+   "to": "과학|중1~3|화합물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화합물의 성분 비",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체 반응 법칙",
+   "to": "과학|중1~3|분자",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기체 부피비를 분자로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체 반응 법칙",
+   "to": "과학|중1~3|일정 성분비 법칙",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "반응의 양적 관계",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "양적 규칙으로서 병렬적으로 다루어지며 분자 개념이 직접 선수임"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학 반응에서 열에너지의 출입",
+   "to": "과학|중1~3|화학 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "반응에서 열이 나오거나 들어간다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학 반응에서 열에너지의 출입",
+   "to": "과학|중1~3|상태 변화와 열에너지",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "열의 출입 개념",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|원소",
+   "to": "과학|초3~4|물체와 물질",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "물질을 이루는 기본 성분",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|원자",
+   "to": "과학|중1~3|원소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원소를 이루는 입자",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|분자",
+   "to": "과학|중1~3|원자",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원자가 결합한 입자",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|이온",
+   "to": "과학|중1~3|원자",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원자가 전자를 잃거나 얻는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|이온",
+   "to": "과학|중1~3|대전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전하를 띤다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화합물",
+   "to": "과학|중1~3|원소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 가지 이상의 원소로 된 물질",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학식",
+   "to": "과학|중1~3|분자",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분자를 기호로 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|화학식",
+   "to": "과학|중1~3|화합물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화합물을 기호로 나타낸다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|주기율표",
+   "to": "과학|중1~3|원소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "원소를 성질에 따라 배열한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|뿌리, 줄기, 잎, 꽃의 구조와 기능",
+   "to": "과학|초3~4|식물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "겉모양에서 구조와 기능으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|증산 작용",
+   "to": "과학|초5~6|뿌리, 줄기, 잎, 꽃의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "잎의 기공으로 물이 나간다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|광합성 산물",
+   "to": "과학|초5~6|뿌리, 줄기, 잎, 꽃의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "잎에서 양분을 만든다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|뼈와 근육의 구조와 기능",
+   "to": "과학|초3~4|동물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "겉모양에서 몸속 구조로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|세포의 구조",
+   "to": "과학|초3~4|균류, 원생생물, 세균의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "현미경으로 작은 생물을 본 경험",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "현미경 조작 경험일 뿐 세포 구조를 이해하기 위한 직접 선수는 아님"
+   }
+  },
+  {
+   "from": "과학|중1~3|세포와 생물 구성 단계",
+   "to": "과학|초5~6|세포의 구조",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "세포 → 조직 → 기관",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|소화계, 순환계, 호흡계, 배설계의 구조와 기능",
+   "to": "과학|초5~6|소화⋅순환⋅호흡⋅배설 기관의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기관을 기관계로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|소화계, 순환계, 호흡계, 배설계의 구조와 기능",
+   "to": "과학|중1~3|세포와 생물 구성 단계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기관계 수준",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|광합성 과정",
+   "to": "과학|초5~6|광합성 산물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "산물에서 과정으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|광합성 과정",
+   "to": "과학|초5~6|증산 작용",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "물의 이동과 기공",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|광합성에 영향을 미치는 요인",
+   "to": "과학|중1~3|광합성 과정",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "과정을 알아야 요인을 본다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|식물의 호흡과 광합성의 관계",
+   "to": "과학|중1~3|광합성 과정",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "두 과정을 비교한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|식물의 호흡과 광합성의 관계",
+   "to": "과학|초5~6|소화⋅순환⋅호흡⋅배설 기관의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "호흡의 뜻",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "초등 인체 호흡 기관 학습은 식물 세포 호흡 및 광합성 관계에 대한 직접 선수로 보기 어려움"
+   }
+  },
+  {
+   "from": "과학|중1~3|감각 기관의 구조와 기능",
+   "to": "과학|중1~3|세포와 생물 구성 단계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기관 수준",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|뉴런과 신경계의 구조와 기능",
+   "to": "과학|중1~3|세포와 생물 구성 단계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "뉴런은 신경 세포",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자극에서 반응까지의 경로",
+   "to": "과학|중1~3|감각 기관의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자극을 받아들인다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|자극에서 반응까지의 경로",
+   "to": "과학|중1~3|뉴런과 신경계의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자극을 전달·처리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|호르몬에 의한 항상성 유지",
+   "to": "과학|중1~3|뉴런과 신경계의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "신경 조절과 비교한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|호르몬에 의한 항상성 유지",
+   "to": "과학|중1~3|소화계, 순환계, 호흡계, 배설계의 구조와 기능",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "호르몬은 혈액으로 운반된다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|식물의 한살이",
+   "to": "과학|초3~4|식물이 자라는 조건",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "싹트고 자라는 조건을 알아야 기른다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|특징에 따른 동물 분류",
+   "to": "과학|초3~4|동물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "생김새로 분류 기준을 세운다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|특징에 따른 식물 분류",
+   "to": "과학|초3~4|식물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "생김새로 분류 기준을 세운다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|다양한 환경에 사는 동물과 식물",
+   "to": "과학|초3~4|동물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "서식지에 따른 생김새",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|다양한 환경에 사는 동물과 식물",
+   "to": "과학|초3~4|식물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "서식지에 따른 생김새",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|세포분열",
+   "to": "과학|중1~3|세포와 생물 구성 단계",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "세포를 알아야 분열을 본다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|동물의 발생 과정",
+   "to": "과학|중1~3|세포분열",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "수정란의 세포분열",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|동물의 발생 과정",
+   "to": "과학|초3~4|동물의 한살이",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "한살이를 발생 과정으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "수정란의 세포분열이 직접 선수이며 초등 한살이는 거시적 배경에 불과함"
+   }
+  },
+  {
+   "from": "과학|중1~3|유전 형질과 유전 원리",
+   "to": "과학|중1~3|세포분열",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "생식세포 형성(감수분열)",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|변이와 생물다양성",
+   "to": "과학|초3~4|다양한 환경에 사는 동물과 식물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "환경에 따른 다양성",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|종의 개념과 분류 체계",
+   "to": "과학|초3~4|특징에 따른 동물 분류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분류를 체계로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|종의 개념과 분류 체계",
+   "to": "과학|초3~4|특징에 따른 식물 분류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "분류를 체계로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|종의 개념과 분류 체계",
+   "to": "과학|초3~4|균류, 원생생물, 세균의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "계 분류에 들어간다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|생물다양성 보전의 중요성",
+   "to": "과학|중1~3|변이와 생물다양성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다양성을 알아야 보전을 다룬다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|생물다양성 보전의 중요성",
+   "to": "과학|초3~4|환경오염이 생물에 미치는 영향",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "다양성 감소 원인",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|먹이사슬과 먹이그물",
+   "to": "과학|초3~4|생물 요소와 비생물 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "생태계 구성 요소",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|환경오염이 생물에 미치는 영향",
+   "to": "과학|초3~4|생물 요소와 비생물 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "비생물 요소의 변화가 생물에 미친다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|균류, 원생생물, 세균의 이용",
+   "to": "과학|초3~4|균류, 원생생물, 세균의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "특징을 알아야 이용을 본다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|생활 속에서 동물과 식물의 이용",
+   "to": "과학|초3~4|동물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "동물의 특징을 활용한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|생활 속에서 동물과 식물의 이용",
+   "to": "과학|초3~4|식물의 생김새",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "식물의 특징을 활용한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|생명과학과 우리 생활",
+   "to": "과학|초3~4|균류, 원생생물, 세균의 이용",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "생명과학 기술의 예",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|화성암",
+   "to": "과학|초3~4|화산 활동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "마그마가 식어 생긴 암석",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|지층",
+   "to": "과학|초3~4|강 주변 지형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "흐르는 물이 운반한 물질이 쌓인다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|퇴적암",
+   "to": "과학|초5~6|지층",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지층을 이루는 암석",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|화석의 생성",
+   "to": "과학|초5~6|퇴적암",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화석은 퇴적암에서 발견된다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|과거 생물과 환경",
+   "to": "과학|초5~6|화석의 생성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화석으로 과거를 추리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|광물과 암석",
+   "to": "과학|초3~4|화성암",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "암석 분류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|광물과 암석",
+   "to": "과학|초5~6|퇴적암",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "암석 분류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|풍화 작용",
+   "to": "과학|초3~4|강 주변 지형",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "침식과 풍화",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "강 주변 지형은 주로 유수의 작용이며 암석의 풍화 작용에 대한 직접 선수로는 약함"
+   }
+  },
+  {
+   "from": "과학|중1~3|암석의 순환",
+   "to": "과학|중1~3|광물과 암석",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "암석이 서로 바뀐다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|암석의 순환",
+   "to": "과학|중1~3|풍화 작용",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "순환의 한 과정",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|지구계",
+   "to": "과학|초3~4|지구의 대기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기권",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|지구계",
+   "to": "과학|초3~4|바다의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "수권",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|판과 대륙이동설",
+   "to": "과학|초5~6|화석의 생성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화석 분포가 대륙 이동의 증거",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "화석 분포는 대륙이동설의 한 증거일 뿐 판 구조론의 직접 선수로는 약함"
+   }
+  },
+  {
+   "from": "과학|중1~3|지진대와 화산대",
+   "to": "과학|중1~3|판과 대륙이동설",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "판 경계에 분포한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|지진대와 화산대",
+   "to": "과학|초3~4|화산 활동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화산 현상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "판과 대륙이동설이 직접 선수이며 초등 화산 활동은 간접 배경임"
+   }
+  },
+  {
+   "from": "과학|초3~4|밀물과 썰물",
+   "to": "과학|초3~4|바다의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "바닷물의 움직임",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|파도",
+   "to": "과학|초3~4|바다의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "바닷물의 움직임",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|바닷가 주변 지형",
+   "to": "과학|초3~4|바다의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "바다와 맞닿은 지형",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|갯벌 보전",
+   "to": "과학|초3~4|밀물과 썰물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "갯벌은 밀물과 썰물로 드러난다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|날씨와 기상 요소",
+   "to": "과학|초3~4|지구의 대기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "대기 속 현상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|이슬, 안개, 구름",
+   "to": "과학|초3~4|물의 상태 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "수증기의 응결",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|이슬, 안개, 구름",
+   "to": "과학|초5~6|날씨와 기상 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "습도",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|고기압과 저기압",
+   "to": "과학|초5~6|날씨와 기상 요소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기압",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|대기와 해양의 층상 구조",
+   "to": "과학|초3~4|지구의 대기",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "대기를 층으로 나눈다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|대기와 해양의 층상 구조",
+   "to": "과학|초3~4|바다의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "해양을 층으로 나눈다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|수권과 수자원",
+   "to": "과학|초3~4|바다의 특징",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지구의 물",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|염분과 해류",
+   "to": "과학|중1~3|수권과 수자원",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "바닷물의 성질과 흐름",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|온실효과와 지구온난화",
+   "to": "과학|중1~3|복사",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지구의 복사 평형",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|온실효과와 지구온난화",
+   "to": "과학|초3~4|기후변화 사례",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기후변화의 원인",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "복사 평형이 직접 선수이며 초등 기후변화 사례는 동기유발 수준임"
+   }
+  },
+  {
+   "from": "과학|중1~3|대기 대순환",
+   "to": "과학|중1~3|대류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "대기의 대류",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|대기 대순환",
+   "to": "과학|초5~6|고기압과 저기압",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "바람은 고기압에서 저기압으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|강수 과정",
+   "to": "과학|초5~6|이슬, 안개, 구름",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "구름에서 비와 눈이 된다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|중위도 저기압",
+   "to": "과학|초5~6|고기압과 저기압",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기압 배치",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|중위도 저기압",
+   "to": "과학|중1~3|대기 대순환",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "편서풍대",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|일기도",
+   "to": "과학|중1~3|중위도 저기압",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전선과 기압 배치를 읽는다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|달의 위상변화",
+   "to": "과학|초3~4|달의 모양과 표면",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "달의 모양이 바뀐다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|태양과 별의 위치 변화",
+   "to": "과학|초3~4|별과 별자리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "별자리를 찾아 위치 변화를 본다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|지구의 자전과 공전",
+   "to": "과학|초5~6|태양과 별의 위치 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "하루 동안의 위치 변화를 자전으로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|계절별 별자리 변화",
+   "to": "과학|초5~6|지구의 자전과 공전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "공전으로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|계절별 별자리 변화",
+   "to": "과학|초3~4|별과 별자리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "별자리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "지구의 공전과 위치 변화가 직접 선수이며 초3~4 별자리는 간접적임"
+   }
+  },
+  {
+   "from": "과학|초5~6|태양 고도의 일변화",
+   "to": "과학|초5~6|태양과 별의 위치 변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "하루 동안 태양 위치",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|계절별 낮의 길이",
+   "to": "과학|초5~6|태양 고도의 일변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "태양 고도와 낮의 길이",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|계절별 낮의 길이",
+   "to": "과학|초5~6|지구의 자전과 공전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "공전과 계절",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|태양계 구성 천체",
+   "to": "과학|초3~4|태양계 행성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "행성에서 태양계 전체로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|태양 표면과 태양 활동",
+   "to": "과학|중1~3|태양계 구성 천체",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "태양계의 중심 천체",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|달의 위상변화",
+   "to": "과학|초3~4|달의 위상변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "현상을 위치 관계로 설명한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|달의 위상변화",
+   "to": "과학|초5~6|지구의 자전과 공전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지구·달의 운동",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|일식과 월식",
+   "to": "과학|중1~3|달의 위상변화",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "태양·지구·달의 위치",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|일식과 월식",
+   "to": "과학|초5~6|빛의 직진",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "그림자",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|연주시차",
+   "to": "과학|초5~6|지구의 자전과 공전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "공전 궤도 양 끝에서 본 별",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|별의 특성",
+   "to": "과학|중1~3|연주시차",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "별까지의 거리",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|별의 특성",
+   "to": "과학|초3~4|별과 별자리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "별",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "연주시차가 직접 선수이며 초등 별자리는 간접 배경임"
+   }
+  },
+  {
+   "from": "과학|중1~3|우리은하",
+   "to": "과학|중1~3|별의 특성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "별의 집단",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|우주 팽창",
+   "to": "과학|중1~3|우리은하",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "은하에서 우주로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|우주탐사",
+   "to": "과학|중1~3|태양계 구성 천체",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "탐사 대상",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|감염병과 건강한 생활",
+   "to": "과학|초3~4|질병과 예방",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "질병 예방을 감염병으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|재해⋅재난",
+   "to": "과학|초3~4|지진 대처 방법",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자연재해 대처 경험",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|재해⋅재난에 대한 과학적 대처 방안",
+   "to": "과학|중1~3|재해⋅재난",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "재해를 알아야 대처한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초3~4|기후위기 대응",
+   "to": "과학|초3~4|기후변화 사례",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "사례를 알아야 대응을 다룬다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|자원의 효율적인 이용",
+   "to": "과학|초5~6|자원의 종류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자원을 알아야 아껴 쓴다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|지속가능한 에너지 이용",
+   "to": "과학|초5~6|자원의 효율적인 이용",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "효율적 이용에서 지속가능성으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|과학기술의 영향",
+   "to": "과학|중1~3|과학적 탐구 방법",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "과학기술이 만들어지는 방법",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "탐구 방법은 방법론적 기능이며 과학기술 영향의 직접 선수 지식이 아님"
+   }
+  },
+  {
+   "from": "과학|중1~3|과학과 지속가능한 사회",
+   "to": "과학|중1~3|과학기술의 영향",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "영향을 알아야 지속가능성을 논한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|과학과 지속가능한 사회",
+   "to": "과학|초5~6|지속가능한 에너지 이용",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "지속가능한 에너지",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|진로 계획",
+   "to": "과학|초5~6|진로와 과학의 관련성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "관련성을 알고 계획한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|과학 관련 진로와 직업",
+   "to": "과학|초5~6|진로와 과학의 관련성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "진로 탐색을 넓힌다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|진로 계획 실천 방안",
+   "to": "과학|초5~6|진로 계획",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "계획을 실천으로",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "doubt",
+    "why": "중학 직업 탐색이 직접 선수이며 초등 진로 계획과의 직접 연계는 약함"
+   }
+  },
+  {
+   "from": "과학|중1~3|진로 계획 실천 방안",
+   "to": "과학|중1~3|과학 관련 진로와 직업",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "직업을 알고 실천한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|초5~6|속력",
+   "to": "수학|초5~6|비와 비율",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "속력 = 이동 거리 ÷ 걸린 시간",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|등속 운동",
+   "to": "수학|중1|좌표평면과 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "시간-이동 거리 그래프",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|옴의 법칙",
+   "to": "수학|중1|좌표평면과 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전압-전류 그래프가 정비례",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|기체의 압력과 부피 관계",
+   "to": "수학|중1|좌표평면과 그래프",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "압력-부피 그래프가 반비례",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|밀도, 용해도, 녹는점, 끓는점",
+   "to": "수학|초5~6|비와 비율",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "밀도 = 질량 ÷ 부피",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "ok"
+   }
+  },
+  {
+   "from": "과학|중1~3|전기력",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전기력은 힘의 한 종류이므로 힘의 기본 개념이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|자기력",
+   "to": "과학|중1~3|힘",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자기력 역시 힘의 한 종류이므로 힘의 기본 개념이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|밀도, 용해도, 녹는점, 끓는점",
+   "to": "과학|중1~3|순물질과 혼합물",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "순물질과 혼합물의 기본 구분을 배운 후 순물질의 고유한 특성으로서 밀도·녹는점 등을 학습함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|유전 형질과 유전 원리",
+   "to": "과학|중1~3|변이와 생물다양성",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "중1에서 다양한 형질과 변이를 관찰한 경험을 바탕으로 중3에서 유전 원리를 학습함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|화학식",
+   "to": "과학|중1~3|원소",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "화학식 표기의 기초가 되는 원소 기호를 알기 위해 원소 학습이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|대기 대순환",
+   "to": "과학|초5~6|지구의 자전과 공전",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "위도별 3개 순환 세포와 무역풍·편서풍의 형성을 이해하려면 지구의 자전이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|상태 변화와 열에너지",
+   "to": "과학|초5~6|열의 이동",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "상태 변화 과정에서 열이 흡수되거나 방출되는 원리를 이해하려면 열의 이동이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|전압",
+   "to": "과학|중1~3|전류",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "전압은 전류를 흐르게 하는 원인이므로 회로에 흐르는 전류 개념이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|중1~3|자유 낙하 운동",
+   "to": "과학|초5~6|속력",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "자유 낙하 운동은 시간에 따라 속력이 일정하게 증가하는 운동이므로 속력 개념이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
+  },
+  {
+   "from": "과학|초5~6|고기압과 저기압",
+   "to": "과학|초3~4|기체의 무게",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "기압(공기의 무게로 생기는 압력)을 이해하려면 기체에 무게가 있다는 개념이 직접 선행되어야 함",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "missing"
+   },
+   "decision": "채택 — Gemini 가 빠졌다고 짚은 것을 Opus 가 확인"
   }
  ],
  "rejected": [
@@ -1640,7 +4324,33 @@
     "why": "시계 읽기는 60 이하의 두 자리 수면 충분하며 네 자리 이하의 수는 무관함"
    },
    "decision": "뺌 — 반박 수용"
+  },
+  {
+   "from": "과학|중1~3|순물질과 혼합물",
+   "to": "과학|중1~3|밀도, 용해도, 녹는점, 끓는점",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "특성으로 순물질을 구별하고 분리한다",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "wrong",
+    "why": "순물질과 혼합물의 구분을 먼저 배운 후 물질의 특성을 학습하므로 위계가 역전됨"
+   },
+   "decision": "뺌 — 반박 수용(2022 중학교 배열 순서가 반대)"
+  },
+  {
+   "from": "과학|중1~3|변이와 생물다양성",
+   "to": "과학|중1~3|유전 형질과 유전 원리",
+   "relation": "prerequisite",
+   "basis": "제안",
+   "reason": "변이는 유전 형질의 차이",
+   "review": {
+    "model": "gemini-3.8-flash-high",
+    "verdict": "wrong",
+    "why": "중1 생물다양성을 중3 유전 원리보다 먼저 배우므로 학년 위계가 역전됨"
+   },
+   "decision": "뺌 — 반박 수용(2022 중학교 배열 순서가 반대)"
   }
  ],
- "count": 144
+ "count": 385
 }

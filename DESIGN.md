@@ -62,11 +62,11 @@ L5 cards       개념 카드 { topicId, explain(3줄), example, selfCheck(=asses
 | 웹 | GitHub Pages 정적 사이트(검색은 브라우저에서, 3D 뷰어는 프랑스판 템플릿 MIT) | 0 |
 | 데이터 배포 | Hugging Face Datasets(선택) | 0 |
 
-MCP 도구(✅ = 0.1.0 구현, 나머지 초안):
+MCP 도구(✅ = 0.2.0 구현, 나머지 초안):
 - ✅ `search_topic(q)` · `get_topic(id)` — 요약/상세 2단(토큰 절약)
 - ✅ `prerequisites(ref)` — 단원·과목 단위 선수·후속·관련(고시문 원문 연계만)
 - ✅ `relearn_path(ref, depth)` — 단원 단위 경로(v0.5)
-- ✅ `concept_path(ref, depth, proposals)` — 수학 개념 단위 경로(v1) · 간선마다 basis 원문/제안 · `known=[]`·`selfCheck` 는 다음
+- ✅ `concept_path(ref, depth, proposals, known, subject)` — 수학·과학 개념 단위 경로 · 간선마다 basis 원문/제안 · 개념마다 `selfCheck`(성취기준 문장 → 물음) · `known` 에서 멈춤
 - ✅ `common_sense(grade?, subject?)` — 필수 공통 단원 + 범교과 주제 10개 · 「핵심 상식」 tier 는 v1
 - `compare(topicId)` — 한국·프랑스·일본 나이와 순서
 
@@ -76,7 +76,8 @@ MCP 도구(✅ = 0.1.0 구현, 나머지 초안):
 | **v0** | 전 교과 **원문층**(성취기준 전수 JSON) + MCP `search`·`get` | **없음** | 레포·npm — 이것만으로 「모든 성취기준을 AI 가 원문으로 찾는다」 |
 | **v0.5** | 원문 연계 그래프 — 단원 메모 「…와 연계된다」 490 + 과목 「성격」 182(전수 감사 후) → `units.json`·`links.json` · MCP `prerequisites`·`relearn_path`·`common_sense` · docs 먼저/이어서 링크 | **없음** | ✅ 2026-10-18 |
 | **v1** | **수학 초1~고1 개념층**(과학 시범 대신 — 위계가 가장 뚜렷하고 원문이 「위계성」을 명시) — 개념 99(내용 체계 지식⋅이해) · 원문 간선 27 · 제안 144(Opus 제안 → Gemini 반박 → 판정) · MCP `concept_path` · docs 개념 지도 | 구독 | ✅ 2026-10-18 |
-| v2 | 수학·사회(경제·금융)·기술가정·보건 → 교과 간 간선(비례→속력, 이자→지수) | 구독 | 「뉴스 이해하기」 목표 10개 |
+| **v1.1** | 과학 초3~중3 개념 194 · 제안 241(수학→과학 교과 간 5: 비와 비율→속력·밀도, 좌표평면→옴의 법칙 …) · 셀프 체크 · `known` | 구독 | ✅ 2026-10-18 |
+| v2 | 사회(경제·금융)·기술가정·보건 → 교과 간 간선(이자→지수) | 구독 | 「뉴스 이해하기」 목표 10개 |
 | v3 | 비교층(프랑스·일본) + 「몇 살에 배우나」 페이지 | 구독 | README 첫 화면 |
 | v4 | 나머지 교과 · 고 선택 · 문해교육 트랙(라이선스 확인 후) | 구독 | — |
 

@@ -46,6 +46,14 @@ assert.ok(fr.steps.every((s, i) => !i || G.indexOf(fr.steps[i - 1].grade) <= G.i
 const fac = conceptPath("인수분해", { proposals: false });
 assert.deepEqual(fac.steps.map((s) => [s.name, s.basis]), [["다항식의 곱셈과 인수분해", "원문"]], "원문만 = 고1 인수분해 ← 중3");
 assert.ok(fac.steps[0].because.includes("중학교에서 학습한"), "원문 근거 문장");
+// 과학 개념층 · 교과 간 간선 · 셀프 체크 · known
+const ohm = conceptPath("옴의 법칙", { depth: 3 });
+assert.equal(ohm.goal.concept, "과학|중1~3|옴의 법칙");
+assert.ok(ohm.steps.some((s) => s.name === "전류") && ohm.steps.some((s) => s.concept === "수학|중1|좌표평면과 그래프"), "옴의 법칙 ← 전류 · 수학 좌표평면(교과 간)");
+assert.ok(ohm.goal.selfCheck[0].q.endsWith("있나요?") && ohm.goal.units.length, "셀프 체크 = 성취기준 물음 · 단원 id");
+const ohmK = conceptPath("옴의 법칙", { depth: 3, known: ["전기 회로", "대전"] });
+assert.ok(ohmK.steps.length < ohm.steps.length && !ohmK.steps.some((s) => s.name === "전기 회로"), "known 에서 멈춘다");
+assert.equal(conceptPath("달의 위상변화").goal.grade, "중1~3", "같은 이름이면 높은 학년");
 
 const p = spawn(process.execPath, [new URL("./index.js", import.meta.url).pathname]);
 const send = (m) => p.stdin.write(JSON.stringify({ jsonrpc: "2.0", ...m }) + "\n");
@@ -60,4 +68,4 @@ p.kill();
 assert.deepEqual(list.result.tools.map((t) => t.name).sort(), ["common_sense", "concept_path", "get_topic", "prerequisites", "relearn_path", "search_topic"]);
 const found = JSON.parse(call.result.content[0].text);
 assert.ok(found.total > 0, "고교 금융 성취기준");
-console.log("PASS", { 광합성: r.total, 광합성_경로: ph.steps.length, 힘의작용_선수: pr.prerequisite.length, 금융_고2_3: found.total, 분수나눗셈_개념경로: fr.steps.length, 첫결과: found.items[0].id + " " + found.items[0].text.slice(0, 40) });
+console.log("PASS", { 광합성: r.total, 광합성_경로: ph.steps.length, 힘의작용_선수: pr.prerequisite.length, 금융_고2_3: found.total, 분수나눗셈_개념경로: fr.steps.length, 옴의법칙_개념경로: ohm.steps.length, 첫결과: found.items[0].id + " " + found.items[0].text.slice(0, 40) });

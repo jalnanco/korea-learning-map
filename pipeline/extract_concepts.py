@@ -4,6 +4,8 @@
 #          학년군은 기준 코드, 중1·중2·중3 은 내용 체계 표(중학교 1~3학년 칸이 다시 세 칸)에서 같은 이름의 칸으로 찾는다.
 # 고1(공통수학1·2): 표의 칸이 영역(다항식 …)이고 기준도 영역으로 묶여 있어, 영역 안에서 개념 낱말이 겹치는 기준에 잇는다.
 # 원문 근거: 「초⋅중학교의 지식⋅이해 범주는 학년(군)에 따라 위계성을 가지며, 영역 간에도 위계성을 고려하여 구성하였다.」
+# 과학(초3~중3): 내용 체계 = 영역 → 범주(힘과 에너지 …) × 학년군 칸의 내용 요소(⋅밀기와 당기기  ⋅무게). 개념 = 내용 요소 하나.
+#   성취기준은 단원으로 묶여 있어 개념 → 기준은 같은 학년군 기준 문장(+단원명)에 요소 낱말이 가장 많이 든 것(standardsBy 낱말).
 import json, os, re, subprocess, sys
 
 HERE = os.path.dirname(__file__)
@@ -102,6 +104,53 @@ def standards_by_title(ls):
             out.setdefault(("영역", area) if m.group(1).startswith("10") or not title else title, []).append(m.group(1))  # 고1 은 영역 묶음
     return out
 
+SCI_COLS = {"3~4학년군": "초3~4", "5~6학년군": "초5~6", "1~3학년": "중1~3"}
+SCI_AREA = re.compile(r"^\((\d)\)\s+(운동과 에너지|물질|생명|지구와 우주|과학과 사회)\s*$")
+JOSA = re.compile(r"(과|와|의|에서|에|을|를|은|는|이|가)$")
+
+def science(data, corpus, stds):
+    src = next(s for s in json.load(open(os.path.join(data, "sources.json")))["sources"] if s["annex"] == 9)
+    ls = lines(os.path.join(corpus, "hwp", f"{src['seq']}.hwp"))
+    a, b = next(i for i, l in enumerate(ls) if l.strip() == "가. 내용 체계"), next(i for i, l in enumerate(ls) if l.strip() == "나. 성취기준")
+    items, area, cells, cur = [], None, {}, None
+    def flush():
+        cols = {c: SCI_COLS[t[0]] for (r, c, rs, cs), t in cells.items() if t and t[0] in SCI_COLS}
+        know = next(((r, rs) for (r, c, rs, cs), t in cells.items() if c == 0 and t and t[0] == "지식⋅이해"), None)
+        if not know:
+            return
+        strand = {r: " ".join(t) for (r, c, rs, cs), t in cells.items() if c == 1 and t and know[0] <= r < know[0] + know[1]}  # 두 줄 칸(생물의 / 구조와 에너지)
+        for (r, c, rs, cs), t in sorted(cells.items()):
+            if c in cols and r in strand:
+                for line in t:
+                    for it in re.split(r"(?:^|\s+)⋅", line.strip()):  # 글머리 ⋅ 는 줄 처음이나 빈칸 뒤 — 「재해⋅재난」의 가운뎃점은 이름 안
+                        if it.strip() and not any(x["name"] == it.strip() and x["grade"] == cols[c] for x in items):
+                            items.append({"area": area, "strand": strand[r], "name": it.strip(), "grade": cols[c]})
+    for l in ls[a + 1:b]:
+        if (m := SCI_AREA.match(l.strip())):
+            flush(); area, cells, cur = m.group(2), {}, None
+        elif (m := CELL.match(l)):
+            cur = tuple(map(int, m.groups())); cells[cur] = []
+        elif cur is not None:
+            cells[cur].append(l.strip())
+    flush()
+    prefix = {"초3~4": "4과", "초5~6": "6과", "중1~3": "9과"}
+    words = lambda t: [w for w in (JOSA.sub("", w) for w in re.split(r"[\s,⋅·]+", t)) if len(w) >= 2]
+    out = []
+    for it in items:
+        pool = [s for k, s in stds.items() if k.startswith(prefix[it["grade"]])]
+        ws = words(it["name"]) or [it["name"]]
+        sc = {s["id"]: sum(len(w) for w in ws if w in s["text"] + " " + (s.get("unit") or "")) for s in pool}
+        top = max(sc.values())
+        out.append({"id": f"과학|{it['grade']}|{it['name']}", "subject": "과학", "area": it["area"], "strand": it["strand"], "name": it["name"], "grade": it["grade"],
+                    "band": it["grade"], "course": None, "standards": [k for k, v in sc.items() if top and v == top], "standardsBy": "낱말"})
+    for k, c in enumerate(out):  # 요소 낱말이 기준 문장에 없으면(대전 · 옴의 법칙) 같은 칸의 앞(첫 요소면 뒤) 요소의 기준 — 칸 안 순서가 기준 순서를 따른다
+        if not c["standards"]:
+            cell = [x for x in out if (x["area"], x["strand"], x["grade"]) == (c["area"], c["strand"], c["grade"]) and x["standardsBy"] == "낱말" and x["standards"]]
+            near = [x for x in cell if out.index(x) < k][-1:] or [x for x in cell if out.index(x) > k][:1]
+            if near:
+                c["standards"], c["standardsBy"] = near[0]["standards"], "이웃"
+    return out
+
 def main(data, corpus):
     src = next(s for s in json.load(open(os.path.join(data, "sources.json")))["sources"] if s["annex"] == 8)
     stds = {s["id"]: s for s in json.load(open(os.path.join(data, "standards.json")))["standards"]}
@@ -144,7 +193,10 @@ def main(data, corpus):
             miss.append(it["name"])
         concepts.append({"id": f"수학|고1|{it['name']}", "subject": "수학", "area": it["area"], "name": it["name"], "grade": "고1", "band": "고1",
                          "course": it["course"], "standards": hit, "standardsBy": "낱말"})
-    json.dump({"version": "v1", "subject": "수학", "source": f"{src['ref']} 내용 체계 지식⋅이해", "count": len(concepts), "concepts": concepts},
+    sci = science(data, corpus, stds)
+    print(f"과학 개념 {len(sci)} · 기준 못 정함 {[c['name'] for c in sci if not c['standards']]}")
+    concepts += sci
+    json.dump({"version": "v1", "subjects": ["수학", "과학"], "source": "교육부 고시 제2022-33호 [별책 8]·[별책 9] 내용 체계 지식⋅이해", "count": len(concepts), "concepts": concepts},
               open(os.path.join(data, "concepts.json"), "w"), ensure_ascii=False, indent=1)
     placed = {c for x in concepts for c in x["standards"]}
     math = [k for k in stds if re.match(r"(\d+수\d|10공수)", k)]
